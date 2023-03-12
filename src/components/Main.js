@@ -9,6 +9,8 @@ import img2 from "../assets/artur-tumasjan-padawan.jpg";
 import img3 from "../assets/remy_loz_master.jpg";
 
 
+
+
 function Main() {
   const baby = useRef(null);
   const padawan = useRef(null);

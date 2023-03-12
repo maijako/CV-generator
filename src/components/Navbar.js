@@ -2,9 +2,10 @@ import React from 'react';
 import "../styles/Navbar.css";
 import { FiMenu, FiX } from "react-icons/fi";
 
-const navbarLinks = ({ navbarLinks }) => {
+const Navbar = ({ navbarLinks }) => {
     return (
         <nav className="navbar">
+            <span className="navbar__logo">CV Builder</span>
             <ul className="navbar__list">
                 {navbarLinks.map((item) => {
                     return (
@@ -13,19 +14,11 @@ const navbarLinks = ({ navbarLinks }) => {
                                 {item.title}
                             </a>
                         </li>
-                    )
+                    );
                 })}
             </ul>
         </nav>
-    )
-}
+    );
+};
 
-]
-
-function Navbar() {
-  return (
-    <div>Navbar</div>
-  )
-}
-
-export default Navbar
+export default Navbar;

@@ -5,18 +5,19 @@
 
     opacity: 0;
     transform: scale(85%);
-    transition: 2s;
+    transition: 1s;
 }
 
 .slider--zoom {
     opacity: 1;
     transform: scale(100%);
-    transition: 2s;
+    transition: 1s;
 
 }
 
 .sliderImage {
     width: 60%;
+    border-radius: 1%;
 }
 
 /* let content take up the remaining space */

@@ -1,21 +1,28 @@
 import React from "react";
 import Main from "./components/Main";
-import Slider from "./components/Slider";
-import img1 from "./assets/fabio-unsplash.jpg";
+
 
 function App() {
   return (
     <div>
-      <Main />
-      <Slider imageSrc={img1}
-      title={"Build your CV"}
-      subtitle={"Stand out from the crowd"}
-      />
-      <Slider imageSrc={img1}
-      title={"Work smart not hard"}
-      subtitle={"Use the built-in AI to help you"}
-      flipped={true}
-      />
+      <Main/>
+        {/* <Slider imageSrc={img1}
+        ref={baby}
+        title={"Baby Yoda"}
+        subtitle={"I have never had a developer job, I'm only starting out"}
+        />
+        <Slider imageSrc={img2}
+        ref={padawan}
+        title={"Young Padawan"}
+        subtitle={"I have had some coding jobs before"}
+        flipped={true}
+        />
+        <Slider imageSrc={img3}
+        ref={master}
+        title={"Jedi Master"}
+        subtitle={"I have lots of experience"}
+        /> */}
+      
     </div>
   );
 }

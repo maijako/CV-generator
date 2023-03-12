@@ -15,11 +15,16 @@ const Navbar = ({ navbarLinks }) => {
             <span className="navbar__logo">CV Builder</span>
 
             {menuClicked ? (
-            <FiX size={25} className="navbar__menu" onClick={toggleMenuClick} />
+                <FiX size={25} className="navbar__menu" onClick={toggleMenuClick} />
             ) : (
-            <FiMenu size={25} className="navbar__menu" onClick={toggleMenuClick} />
+                <FiMenu size={25} className="navbar__menu" onClick={toggleMenuClick} />
             )}
-            <ul className="navbar__list">
+
+            <ul
+                className={
+                    menuClicked ? "navbar__list navbar__list--active" : "navbar__list" 
+                }
+            >
                 {navbarLinks.map((item) => {
                     return (
                         <li className="navbar__item" key={item.title}>

@@ -3,10 +3,10 @@ import Main from "./components/Main";
 import Navbar from "./components/Navbar";
 
 const navbarLinks = [
-  {url: "#", title: "home"},
-  {url: "#", title: "New starter"},
-  {url: "#", title: "Some experience"},
-  {url: "#", title: "Experienced dev"},
+  {url: "#", title: "HOME"},
+  {url: "#", title: "ABOUT"},
+  {url: "#", title: "BUILD CV"},
+  {url: "#", title: "CONTACT"},
 ];
 
 

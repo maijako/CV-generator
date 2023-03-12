@@ -25,7 +25,7 @@ function Main() {
     <div className="main">
       <div className="overlay"></div>
       {/* <video src={background} autoPlay loop muted /> */}
-      <img className="bgr" src={background} />
+      <img className="bgr" src={background} alt="blue background"/>
       <div className="welcome">
         <h1>WELCOME</h1>
         <p>To your professional Tech CV Builder</p>

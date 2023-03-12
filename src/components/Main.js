@@ -22,7 +22,7 @@ function Main() {
 
   return (
     <div className="main">
-      <dv className="overlay"></dv>
+      <div className="overlay"></div>
       <video src={background} autoPlay loop muted />
       <div className="welcome">
         <h1>WELCOME</h1>
@@ -33,6 +33,7 @@ function Main() {
         <button onClick={() => scrollToSection(padawan)}>Padawan</button>
         <button onClick={() => scrollToSection(master)}>Jedi Master</button>
       </div>
+      
       <div ref={baby}>
       <Slider imageSrc={img1}
         

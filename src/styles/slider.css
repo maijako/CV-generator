@@ -1,0 +1,23 @@
+.slider {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+.sliderImage {
+    width: 60%;
+}
+/* let content take up the remaining space */
+.sliderContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.sliderTitle {
+    text-align: center;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
-import background from "../assets/bckgr_loop.mp4";
+// import background from "../assets/bckgr_loop.mp4";
+import background from "../assets/luke-chesser-bgr.jpg";
 import "../styles/main.css";
 import { useRef } from 'react';
 import Slider from "./Slider";
@@ -23,7 +24,8 @@ function Main() {
   return (
     <div className="main">
       <div className="overlay"></div>
-      <video src={background} autoPlay loop muted />
+      {/* <video src={background} autoPlay loop muted /> */}
+      <img className="bgr" src={background} />
       <div className="welcome">
         <h1>WELCOME</h1>
         <p>To your professional Tech CV Builder</p>

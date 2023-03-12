@@ -2,6 +2,14 @@ import React from 'react';
 import "../styles/slider.css";
 
 const Slider = ({ imageSrc, title, subtitle, flipped }) => {
+
+    const { ref, inView, entry } = useInView({
+        /* Optional options */
+        threshold: 0,
+      });
+
+
+
     const renderContent = () => {
         if (!flipped) {
             return (

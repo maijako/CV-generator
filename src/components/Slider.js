@@ -6,21 +6,21 @@ const Slider = ({ imageSrc, title, subtitle, flipped }) => {
         if (!flipped) {
             return (
                 <>
-                <img src={imageSrc} alt="abstract lines" className="sliderImage" />
-                <div className="sliderContent">
-                    <h1 className="sliderTitle">{title}</h1>
-                    <p>{subtitle}</p>
-                </div>
+                    <img src={imageSrc} alt="abstract lines" className="sliderImage" />
+                    <div className="sliderContent">
+                        <h1 className="sliderTitle">{title}</h1>
+                        <p>{subtitle}</p>
+                    </div>
                 </>
             );
         } else {
             return (
                 <>
-                <img src={imageSrc} alt="abstract lines" className="sliderImage" />
-                <div className="sliderContent">
-                    <h1 className="sliderTitle">{title}</h1>
-                    <p>{subtitle}</p>
-                </div>
+                    <div className="sliderContent">
+                        <h1 className="sliderTitle">{title}</h1>
+                        <p>{subtitle}</p>
+                    </div>
+                    <img src={imageSrc} alt="abstract lines" className="sliderImage" />
                 </>
             );
         }

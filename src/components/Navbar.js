@@ -4,13 +4,11 @@ import "../styles/Navbar.css";
 import { FiMenu, FiX } from "react-icons/fi";
 
 const Navbar = ({ navbarLinks }) => {
-
     const [menuClicked, setMenuClicked] = useState(false);
 
-    const toggleMenClick = () => {
+    const toggleMenuClick = () => {
         setMenuClicked(!menuClicked);
-    }
-
+    };
 
     return (
         <nav className="navbar">

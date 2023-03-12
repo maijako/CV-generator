@@ -1,6 +1,7 @@
 import React from "react";
 import Main from "./components/Main";
 import Navbar from "./components/Navbar";
+import BasicUserInfo from "./components/BasicUserInfo";
 
 const navbarLinks = [
   {url: "#", title: "HOME"},
@@ -15,6 +16,7 @@ function App() {
     <div>
       <Navbar navbarLinks={navbarLinks}/>
       <Main />
+      <BasicUserInfo />
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Main from "./components/Main";
 import Navbar from "./components/Navbar";
-import BasicUserInfo from "./components/BasicUserInfo";
+import BasicUserInfo from "./components/cvcomponents/BasicUserInfo";
 
 const navbarLinks = [
   {url: "#", title: "HOME"},

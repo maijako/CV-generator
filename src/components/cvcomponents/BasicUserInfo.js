@@ -1,20 +1,15 @@
 import React from "react";
 import { TextField, InputAdornment } from '@mui/material';
 import { AccountCircle, ContactMail, PhoneAndroid } from '@mui/icons-material';
+import "./cv-component-styles.css";
 
 function BasicUserInfo() {
-    const containerStyles = { 
-                            display:"flex", 
-                            flexDirection: "column",
-                            alignItems: "flex-start",
-                            padding: 5 };
-    
     const textFieldStyles = {margin: "15px 0"};
 
     return(
         <>
         <h3>Basic Information</h3>
-        <div style={containerStyles}>
+        <div className="containerStyles">
 
             <TextField
                 id="input-first-name"

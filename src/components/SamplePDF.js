@@ -9,18 +9,18 @@ const styles = StyleSheet.create({
   page: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "top",
     alignItems: "center",
     backgroundColor: "white",
+    marginTop: 30,
   },
   section: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: "top",
+    alignItems: "top",
     backgroundColor: "white",
     padding: 10,
-    marginTop: 60,
   },
   heading: {
     color: "black",

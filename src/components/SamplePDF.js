@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Page, Text, View, Document, StyleSheet
+  Page, Text, View, Document, StyleSheet, PDFViewer
 } from "@react-pdf/renderer";
 
 
@@ -25,11 +25,16 @@ const styles = StyleSheet.create({
   heading: {
     color: "black",
     fontSize: "42px"
+  },
+  viewPDF: {
+    width: "100%",
+    height: "90vh"
   }
 });
 
 //Create Document component
 const SamplePDF = () => (
+  <PDFViewer style={styles.viewPDF}>
   <Document>
     <Page size="A4" style={styles.page}>
       <View style={styles.section}>
@@ -37,6 +42,7 @@ const SamplePDF = () => (
       </View>
     </Page>
   </Document>
+  </PDFViewer>
 );
 
 export default SamplePDF;

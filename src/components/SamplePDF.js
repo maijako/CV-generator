@@ -7,25 +7,36 @@ import {
 // Create styles
 const styles = StyleSheet.create({
   page: {
-    flexDirection: "row",
-    backgroundColor: "#E4E4E4"
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
   },
   section: {
-    margin: 10,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
     padding: 10,
-    flexGrow: 1
+    marginTop: 60,
+  },
+  heading: {
+    color: "black",
+    fontSize: "42px"
   }
 });
 
 //Create Document component
-const SamplePDF = () => {
+const SamplePDF = () => (
   <Document>
-    <Page style={styles.body}>
-      <Text style={styles.header} fixed >
-        <Text style={styles.text}>Lorel ipsum</Text>
-      </Text>
+    <Page size="A4" style={styles.page}>
+      <View style={styles.section}>
+        <Text style={styles.heading}>First name Last name</Text>
+      </View>
     </Page>
   </Document>
-};
+);
 
 export default SamplePDF;

@@ -12,6 +12,8 @@ function BasicUserInfo() {
     const textFieldStyles = {margin: "15px 0"};
 
     return(
+        <>
+        <h3>Basic Information</h3>
         <div style={containerStyles}>
 
             <TextField
@@ -75,6 +77,7 @@ function BasicUserInfo() {
             />
             
         </div>
+        </>
     );
 };
 

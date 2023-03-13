@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 
 //Create Document component
 const SamplePDF = () => {
-  return <div>test</div>;
+  return <div>testing sample pdf rendering</div>;
 };
 
 export default SamplePDF;

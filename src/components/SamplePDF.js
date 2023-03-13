@@ -6,39 +6,59 @@ import {
 
 // Create styles
 const styles = StyleSheet.create({
+  viewPDF: {
+    width: "100%",
+    height: "90vh"
+  },
+
   page: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "top",
-    alignItems: "center",
+    alignItems: "left",
     backgroundColor: "white",
-    marginTop: 30,
+    marginTop: 40,
+    marginLeft: 30,
+    marginRight: 30,
+    marginBottom: 40,
   },
-  section: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "top",
-    alignItems: "top",
-    backgroundColor: "white",
-    padding: 10,
-  },
+
   heading: {
-    color: "black",
-    fontSize: "42px"
+    display: "block",
+    flexDirection: "column",
+    justifyContent: "left",
+    alignItems: "top",
   },
-  viewPDF: {
-    width: "100%",
-    height: "90vh"
-  }
+
+  headingText: {
+    color: "black",
+    fontSize: "32px",
+  },
+
+  contact: {
+    display: "block",
+    JustifyContent: "left",
+  },
+
+  contactText: {
+    fontSize: "10px",
+    color: "grey",
+  },
+
 });
+
 
 //Create Document component
 const SamplePDF = () => (
   <PDFViewer style={styles.viewPDF}>
   <Document>
     <Page size="A4" style={styles.page}>
-      <View style={styles.section}>
-        <Text style={styles.heading}>Candidate Name</Text>
+      <View style={styles.heading}>
+        <Text style={styles.headingText}>Candidate Name</Text>
+      </View>
+      <View style={styles.contact}>
+        <Text style={styles.contactText}>developer@cvbuilder.com</Text>
+        <Text style={styles.contactText}>+44 789654321</Text>
       </View>
     </Page>
   </Document>

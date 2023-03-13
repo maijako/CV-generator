@@ -1,5 +1,4 @@
 import React from 'react';
-// import background from "../assets/bckgr_loop.mp4";
 import background from "../assets/engin-akyurt.jpg";
 import "../styles/main.css";
 import Slider from "./Slider";
@@ -12,7 +11,6 @@ function Main() {
   return (
     <div className="main">
       <div className="overlay"></div>
-      {/* <video src={background} autoPlay loop muted /> */}
       <img className="bgr" src={background} alt="blue background"/>
       <div className="welcome">
         <div className="border">
@@ -32,7 +30,6 @@ function Main() {
         flipped={true}
       />
       <Slider imageSrc={img3}
-        
         title={"Generate CV"}
         subtitle={"Generate your styled professional technical CV to stand out from the crowd"}
       />

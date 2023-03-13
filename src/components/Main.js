@@ -1,67 +1,41 @@
 import React from 'react';
 // import background from "../assets/bckgr_loop.mp4";
-import background from "../assets/luke-chesser-bgr.jpg";
+import background from "../assets/engin-akyurt.jpg";
 import "../styles/main.css";
-import { useRef } from 'react';
 import Slider from "./Slider";
-import img1 from "../assets/mick-haupt-baby.jpg";
-import img2 from "../assets/artur-tumasjan-padawan.jpg";
-import img3 from "../assets/remy_loz_master.jpg";
+import img1 from "../assets/Shutterstock_2170929773.png";
+import img2 from "../assets/Shutterstock_2140212583.png";
+import img3 from "../assets/Shutterstock_1843058941.png";
 
 
 function Main() {
-  const baby = useRef(null);
-  const padawan = useRef(null);
-  const master = useRef(null);
-
-  const scrollToSection = (elementRef) => {
-    window.scrollTo({
-      top: elementRef.current.offsetTop,
-      behavior: "smooth",
-    })
-  }
-
   return (
     <div className="main">
       <div className="overlay"></div>
       {/* <video src={background} autoPlay loop muted /> */}
       <img className="bgr" src={background} alt="blue background"/>
       <div className="welcome">
-        <h1>WELCOME</h1>
-        <p>To your professional Tech CV Builder</p>
-        <br></br>
-        <p>Select your level of experience</p>
-        <button onClick={() => scrollToSection(baby)} >Baby Yoda</button>
-        <button onClick={() => scrollToSection(padawan)}>Padawan</button>
-        <button onClick={() => scrollToSection(master)}>Jedi Master</button>
+        <div className="border">
+        <h1 className="title">CV BUILDER</h1>
+        <p className="headline">Technical CV made easy</p>
+        </div>
       </div>
       
-      <div ref={baby}>
+  
       <Slider imageSrc={img1}
-        
-        title={"Baby Yoda"}
-        subtitle={"I have never had a developer job, I'm only starting out"}
+        title={"Enter your details"}
+        subtitle={"Fill out a simple form to enter your skills, projects, education and experience"}
       />
-      </div>
-
-      <div ref={padawan}>
       <Slider imageSrc={img2}
-        title={"Young Padawan"}
-        subtitle={"I have had some coding jobs before"}
+        title={"Enhance with AI"}
+        subtitle={"Use the built-in AI tool to enhance your writing and sound professional"}
         flipped={true}
       />
-      </div>
-
-      <div ref={master}>
       <Slider imageSrc={img3}
         
-        title={"Jedi Master"}
-        subtitle={"I have lots of experience"}
+        title={"Generate CV"}
+        subtitle={"Generate your styled professional technical CV to stand out from the crowd"}
       />
-      </div>
-
-
-
     </div>
   )
 }

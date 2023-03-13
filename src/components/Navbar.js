@@ -30,9 +30,6 @@ const Navbar = ({ navbarLinks }) => {
                     <NavLink
                     to="/"
                     end
-                    // className={({ menuClicked }) =>
-                    //     menuClicked ? "navbar__list navbar__list--active" : "navbar__list"
-                    // }
                     className="navbar__link"
                     >
                     HOME
@@ -47,16 +44,15 @@ const Navbar = ({ navbarLinks }) => {
                     BUILD CV
                     </NavLink>
                 </li>
-                {/* {navbarLinks.map((item) => {
-                    return (
-                        <li className="navbar__item" key={item.title}>
-                            <a className="navbar__link" href={item.url}>
-                                {item.title}
-                            </a>
 
-                        </li>
-                    );
-                })} */}
+                <li className="navbar__item">
+                    <NavLink
+                    to="preview"
+                    className="navbar__link"
+                    >
+                    PREVIEW
+                    </NavLink>
+                </li>
 
             </ul>
         </nav>

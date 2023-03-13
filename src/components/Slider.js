@@ -16,7 +16,7 @@ const Slider = ({ imageSrc, title, subtitle, flipped }) => {
                     <img src={imageSrc} alt="abstract lines" className="sliderImage" />
                     <div className="sliderContent">
                         <h1 className="sliderTitle">{title}</h1>
-                        <p>{subtitle}</p>
+                        <p className="sliderHeadline">{subtitle}</p>
                     </div>
                 </>
             );
@@ -25,7 +25,7 @@ const Slider = ({ imageSrc, title, subtitle, flipped }) => {
                 <>
                     <div className="sliderContent">
                         <h1 className="sliderTitle">{title}</h1>
-                        <p>{subtitle}</p>
+                        <p className="sliderHeadline">{subtitle}</p>
                     </div>
                     <img src={imageSrc} alt="abstract lines" className="sliderImage" />
                 </>

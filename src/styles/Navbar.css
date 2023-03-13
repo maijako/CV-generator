@@ -52,6 +52,12 @@
 }
 
 @media screen and (max-width: 800px) {
+    .navbar__logo {
+        color: var(--primary-white);
+        font-family: 'MonteCarlo', cursive;
+        font-size: 1.5rem;
+    }
+
     .navbar__list {
         display: flex;
         flex-direction: column;

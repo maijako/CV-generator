@@ -19,13 +19,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     color: var(--primary-white);
+    
   }
   
   h1 {
     font-size: 80px;
+    padding-right: 80px;
   }
+
+
+  p {
+    padding-right: 80px;
+  }
+
+
   
   .overlay {
     position: absolute;
@@ -36,4 +45,23 @@
     background-color: rgba(0,0,0,.4)
   }
 
+  @media screen and (max-width: 800px) {
+
+    .welcome {
+      justify-content: end;
+      align-items: flex-end;
+      color: var(--primary-white);
+      
+    }
+    
+    h1 {
+      font-size: 60px;
+      padding-right: 60px;
+    }
+  
+    p {
+      padding-right: 60px;
+      padding-bottom: 40px;
+    }
+  }
   

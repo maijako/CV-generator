@@ -1,6 +1,7 @@
 import React from "react";
 import { TextField, InputAdornment, Container } from '@mui/material';
 import { AccountCircle, ContactMail, PhoneAndroid } from '@mui/icons-material';
+import EducationSection from "./EducationSection";
 
 function BasicUserInfo() {
     const containerStyles = { bgcolor: "#cfe8fc",
@@ -75,7 +76,9 @@ function BasicUserInfo() {
                     variant="outlined"
                     sx={textFieldStyles}
                 />
+                <EducationSection />
             </Container>
+            
         </div>
     );
 };

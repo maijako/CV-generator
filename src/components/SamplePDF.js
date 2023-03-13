@@ -20,9 +20,9 @@ const styles = StyleSheet.create({
 //Create Document component
 const SamplePDF = () => {
   <Document>
-    <Page>
-      <Text>
-        
+    <Page style={styles.body}>
+      <Text style={styles.header} fixed >
+        <Text style={styles.text}>Lorel ipsum</Text>
       </Text>
     </Page>
   </Document>

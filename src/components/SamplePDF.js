@@ -38,7 +38,7 @@ const SamplePDF = () => (
   <Document>
     <Page size="A4" style={styles.page}>
       <View style={styles.section}>
-        <Text style={styles.heading}>First name Last name</Text>
+        <Text style={styles.heading}>Candidate Name</Text>
       </View>
     </Page>
   </Document>

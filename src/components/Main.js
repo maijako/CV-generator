@@ -1,6 +1,6 @@
 import React from 'react';
 // import background from "../assets/bckgr_loop.mp4";
-import background from "../assets/shutterstock_1490541647.jpg";
+import background from "../assets/engin-akyurt.jpg";
 import "../styles/main.css";
 import Slider from "./Slider";
 import img1 from "../assets/Shutterstock_2170929773.png";
@@ -15,8 +15,10 @@ function Main() {
       {/* <video src={background} autoPlay loop muted /> */}
       <img className="bgr" src={background} alt="blue background"/>
       <div className="welcome">
-        <h1>CV BUILDER</h1>
-        <p>Technical CV writing made easy</p>
+        <div className="border">
+        <h1 className="title">CV BUILDER</h1>
+        <p className="headline">Technical CV made easy</p>
+        </div>
       </div>
       
   

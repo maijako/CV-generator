@@ -45,6 +45,15 @@ const Navbar = ({ navbarLinks }) => {
                     </NavLink>
                 </li>
 
+                <li className="navbar__item">
+                    <NavLink
+                    to="preview"
+                    className="navbar__link"
+                    >
+                    PREVIEW
+                    </NavLink>
+                </li>
+
             </ul>
         </nav>
     );

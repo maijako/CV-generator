@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     margin: 20px;
-
     opacity: 0;
     transform: scale(85%);
     transition: 1s;
@@ -12,7 +11,6 @@
     opacity: 1;
     transform: scale(100%);
     transition: 1s;
-
 }
 
 .sliderImage {
@@ -34,16 +32,38 @@
 
 .sliderTitle {
     text-align: center;
+    font-size: 60px;
+}
+
+.sliderHeadline {
+    font-size: 30px;
 }
 
 @media screen and (max-width: 800px) {
+    .sliderContent {
+        padding-left: 5;
+        padding-right: 5;
+        justify-content: center;
+        align-items: center;
+    }
+
     .slider {
         flex-direction: column;
-        background-color: black;
-        opacity: 0.55;
+        background-color: rgba(0,0,0,0.5);
+        border-radius: 4%;
     }
 
     .slider__image {
-        width: 100%;
+        width: 200%;
+        border-radius: 4%;
+    }
+
+    .sliderTitle {
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .sliderHeadline {
+        font-size: 15px;
     }
 }

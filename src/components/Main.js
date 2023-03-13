@@ -15,8 +15,8 @@ function Main() {
       {/* <video src={background} autoPlay loop muted /> */}
       <img className="bgr" src={background} alt="blue background"/>
       <div className="welcome">
-        <h1>WELCOME</h1>
-        <p>To your professional Tech CV Builder</p>
+        <h1>CV BUILDER</h1>
+        <p>Technical CV writing made easy</p>
       </div>
       
   

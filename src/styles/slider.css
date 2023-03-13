@@ -39,7 +39,8 @@
 @media screen and (max-width: 800px) {
     .slider {
         flex-direction: column;
-        background-color: rgb(236,236,236);
+        background-color: black;
+        opacity: 0.55;
     }
 
     .slider__image {

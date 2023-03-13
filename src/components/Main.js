@@ -1,6 +1,6 @@
 import React from 'react';
 // import background from "../assets/bckgr_loop.mp4";
-import background from "../assets/luke-chesser-bgr.jpg";
+import background from "../assets/shutterstock_1490541647.jpg";
 import "../styles/main.css";
 import Slider from "./Slider";
 import img1 from "../assets/Shutterstock_2170929773.png";

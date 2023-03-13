@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Main from "./components/Main";
 import Navbar from "./components/Navbar";
-import BasicUserInfo from "./components/BasicUserInfo";
 import SamplePDF from "./components/SamplePDF";
+import CVBuilderInfoPage from "./components/cvcomponents/CVBuilderInfoPage";
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="buildCV" element={<BasicUserInfo />} />
+          <Route path="buildCV" element={<CVBuilderInfoPage />} />
           <Route path="preview" element={<SamplePDF />} />
         </Routes>
       </div>

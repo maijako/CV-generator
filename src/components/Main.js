@@ -1,5 +1,6 @@
 import React from 'react';
-import background from "../assets/engin-akyurt.jpg";
+// import background from "../assets/codioful.jpg";
+import hero from "../assets/shutterstock_1490541647.jpg";
 import "../styles/main.css";
 import Slider from "./Slider";
 import img1 from "../assets/Shutterstock_2170929773.png";
@@ -10,8 +11,12 @@ import img3 from "../assets/Shutterstock_1843058941.png";
 function Main() {
   return (
     <div className="main">
+      {/* <img className="bgr" src={background} alt="blue background"/> */}
       <div className="overlay"></div>
-      <img className="bgr" src={background} alt="blue background"/>
+      <div className="hero">
+        <img className="hero__image" src={hero} alt="futuristic coding" />
+      </div>
+      
       <div className="welcome">
         <div className="border">
         <h1 className="title">CV BUILDER</h1>
@@ -19,7 +24,7 @@ function Main() {
         </div>
       </div>
       
-  
+    <div className="colorBackground">
       <Slider imageSrc={img1}
         title={"Enter your details"}
         subtitle={"Fill out a simple form to enter your skills, projects, education and experience"}
@@ -33,6 +38,7 @@ function Main() {
         title={"Generate CV"}
         subtitle={"Generate your styled professional technical CV to stand out from the crowd"}
       />
+      </div>
     </div>
   )
 }

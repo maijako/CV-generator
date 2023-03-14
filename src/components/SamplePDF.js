@@ -3,42 +3,62 @@ import {
   Page, Text, View, Document, StyleSheet, PDFViewer
 } from "@react-pdf/renderer";
 
-
 // Create styles
 const styles = StyleSheet.create({
-  page: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "top",
-    alignItems: "center",
-    backgroundColor: "white",
-    marginTop: 30,
-  },
-  section: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "top",
-    alignItems: "top",
-    backgroundColor: "white",
-    padding: 10,
-  },
-  heading: {
-    color: "black",
-    fontSize: "42px"
-  },
   viewPDF: {
     width: "100%",
     height: "90vh"
-  }
+  },
+
+  page: {
+    // display: "flex",
+    // flexDirection: "column",
+    justifyContent: "top",
+    alignItems: "left",
+    backgroundColor: "white",
+    marginTop: 40,
+    marginLeft: 30,
+    marginRight: 30,
+    marginBottom: 40,
+  },
+
+  heading: {
+    flexDirection: "column",
+    justifyContent: "left",
+    alignItems: "top",
+  },
+
+  headingText: {
+    display: "block",
+    color: "black",
+    fontSize: "32px",
+  },
+
+  contact: {
+    display: "block",
+    JustifyContent: "left",
+  },
+
+  contactText: {
+    fontSize: "10px",
+    color: "grey",
+  },
+
 });
+
 
 //Create Document component
 const SamplePDF = () => (
   <PDFViewer style={styles.viewPDF}>
   <Document>
     <Page size="A4" style={styles.page}>
-      <View style={styles.section}>
-        <Text style={styles.heading}>Candidate Name</Text>
+      <View style={styles.heading}>
+        <Text style={styles.headingText}>Candidate Name</Text>
+      </View>
+     
+      <View style={styles.contact}>
+        <Text style={styles.contactText} placeholder="developer@email.com">developer@email.com</Text>
+        <Text style={styles.contactText}>+44 789654321</Text>
       </View>
     </Page>
   </Document>

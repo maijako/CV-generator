@@ -40,6 +40,16 @@ function ExperienceSection() {
                 sx={{margin: "15px 0"}}
             />
 
+            <TextField
+                id="job-detail"
+                label="Role Details"
+                placeholder="Give a detailed description of your role."
+                multiline
+                minRows={3}
+                maxRows={8}
+                sx={{width: "50%"}}
+            />
+
             
         </div>
             <LocalizationProvider dateAdapter={AdapterMoment}>

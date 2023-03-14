@@ -3,7 +3,6 @@ import {
   Page, Text, View, Document, StyleSheet, PDFViewer
 } from "@react-pdf/renderer";
 
-
 // Create styles
 const styles = StyleSheet.create({
   viewPDF: {
@@ -24,10 +23,11 @@ const styles = StyleSheet.create({
   },
 
   heading: {
-    display: "block",
     flexDirection: "column",
     justifyContent: "left",
     alignItems: "top",
+    border: "solid",
+    borderWidth: 2,
   },
 
   headingText: {
@@ -56,8 +56,9 @@ const SamplePDF = () => (
       <View style={styles.heading}>
         <Text style={styles.headingText}>Candidate Name</Text>
       </View>
+     
       <View style={styles.contact}>
-        <Text style={styles.contactText}>developer@cvbuilder.com</Text>
+        <Text style={styles.contactText} placeholder="developer@email.com">developer@email.com</Text>
         <Text style={styles.contactText}>+44 789654321</Text>
       </View>
     </Page>

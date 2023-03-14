@@ -1,0 +1,8 @@
+.containerStyles { 
+    display: flex ;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px;
+}
+
+.textFieldStyles {margin: 15px 0;}

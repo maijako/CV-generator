@@ -42,7 +42,7 @@ function EducationSection() {
                 variant="outlined"
                 sx={{margin: "15px 0"}}
             />
-            <FormControl>
+            <FormControl sx={{ minWidth: 150 }}>
                 <InputLabel id="selectedQualificationLabel">Qualification</InputLabel>
                 <Select
                     labelId="selectedQualificationLabel"

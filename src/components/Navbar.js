@@ -54,6 +54,15 @@ const Navbar = () => {
                     </NavLink>
                 </li>
 
+                <li className="navbar__item">
+                    <NavLink
+                    to="PDF"
+                    className="navbar__link"
+                    >
+                    PDF
+                    </NavLink>
+                </li>
+
             </ul>
         </nav>
     );

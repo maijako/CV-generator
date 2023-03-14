@@ -29,9 +29,7 @@ const styles = StyleSheet.create({
   },
 
   headingText: {
-    display: "inline-block",
-    border: "solid",
-    borderWidth: 2,
+    display: "block",
     color: "black",
     fontSize: "32px",
   },

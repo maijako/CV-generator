@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
   },
 
   page: {
-    display: "flex",
-    flexDirection: "column",
+    // display: "flex",
+    // flexDirection: "column",
     justifyContent: "top",
     alignItems: "left",
     backgroundColor: "white",
@@ -26,11 +26,12 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "left",
     alignItems: "top",
-    border: "solid",
-    borderWidth: 2,
   },
 
   headingText: {
+    display: "inline-block",
+    border: "solid",
+    borderWidth: 2,
     color: "black",
     fontSize: "32px",
   },

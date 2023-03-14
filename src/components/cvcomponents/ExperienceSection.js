@@ -3,7 +3,7 @@ import { LocalizationProvider, DatePicker } from '@mui/x-date-pickers';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 import BusinessIcon from '@mui/icons-material/Business';
 import BadgeIcon from '@mui/icons-material/Badge';
-import { TextField, InputAdornment, InputLabel, MenuItem, FormControl, Select } from '@mui/material';
+import { TextField, InputAdornment} from '@mui/material';
 import "./cv-component-styles.css";
 
 function ExperienceSection() {
@@ -39,7 +39,13 @@ function ExperienceSection() {
                 variant="outlined"
                 sx={{margin: "15px 0"}}
             />
+
+            
         </div>
+            <LocalizationProvider dateAdapter={AdapterMoment}>
+                <DatePicker sx={{margin: 2}} label="Enter Start Date" format="MMM YY" />
+                <DatePicker sx={{margin: 2}} label="Enter End Date" format="MMM YY"  />
+            </LocalizationProvider>
         </>
     );
 }

@@ -1,7 +1,9 @@
 .colorBackground {
-  background-color: rgba(33, 29, 95, 0.897);
+  /* background-color: rgba(33, 29, 95, 0.897); */
   gap: 2rem;
   overflow: hidden;
+  background-image: linear-gradient(80deg, #359bbc, #050e37);
+
 }
 
 .main {

@@ -42,7 +42,7 @@ function EducationSection() {
                 variant="outlined"
                 sx={{margin: "15px 0"}}
             />
-            <FormControl>
+            <FormControl sx={{ minWidth: 150 }}>
                 <InputLabel id="selectedQualificationLabel">Qualification</InputLabel>
                 <Select
                     labelId="selectedQualificationLabel"
@@ -56,11 +56,12 @@ function EducationSection() {
                     <MenuItem value={"Certificate"}>Certificate</MenuItem>
                 </Select>
             </FormControl>
-            <LocalizationProvider dateAdapter={AdapterMoment}>
-                <DatePicker label="Enter Start Date" value={startDateValue} onChange={(newValue) => setStartDateValue(newValue)} />
-                <DatePicker label="Enter End Date" value={endDateValue} onChange={(newValue) => setEndDateValue(newValue)} />
-            </LocalizationProvider>
+            
         </div>
+            <LocalizationProvider dateAdapter={AdapterMoment}>
+                <DatePicker sx={{margin: 2}} label="Enter Start Date" value={startDateValue} onChange={(newValue) => setStartDateValue(newValue)}  format="MMM YY"/>
+                <DatePicker sx={{margin: 2}} label="Enter End Date" value={endDateValue} onChange={(newValue) => setEndDateValue(newValue)}  format="MMM YY"/>
+            </LocalizationProvider>
         </>
             
        

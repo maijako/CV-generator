@@ -4,7 +4,7 @@ import "../styles/Navbar.css";
 import { FiMenu, FiX } from "react-icons/fi";
 import { NavLink } from 'react-router-dom';
 
-const Navbar = ({ navbarLinks }) => {
+const Navbar = () => {
     const [menuClicked, setMenuClicked] = useState(false);
 
     const toggleMenuClick = () => {

@@ -14,14 +14,18 @@ function ExperienceSection() {
                                                                     startDate: null,
                                                                     endDate:""
                                                                 }])
+    
+    const [value, setValue] = useState(null);
 
     const handleInputChange = (index, event) =>{
         let data = [...experienceInputFields];
         //console.log(event.target);
         //console.log(data[index]);
+        if(event.target!==undefined) {
         data[index][event.target.name] = event.target.value;
-        console.log(experienceInputFields);
+        console.log("***************"+experienceInputFields);
         setExperienceInputFields(data);
+        }
     }
 
     const addExpFields = (event) => {
@@ -100,22 +104,26 @@ function ExperienceSection() {
                                     label="Enter Start Date" 
                                     format="MMM YY" 
                                     name="startDate" 
-                                    value={input.startDate}
-                                    onChange={newValue => {
-                                        let data = [...experienceInputFields];
-                                        data[index][input.startDate] = newValue;
-                                        //console.log(experienceInputFields);
-                                        setExperienceInputFields(data);
-                                        //setExperienceInputFields({...input, startDate: newValue})
-                                    }}
+                                    value={value}
+                                    onChange={newValue => setValue(newValue)}
+                                    // value={input.startDate}
+                                    // onChange={newValue => {
+                                    //     console.log("Start date:"+input.startDate)
+                                    //     let data = [...experienceInputFields];
+                                    //     data[index][input.startDate] = newValue;
+                                    //     //console.log(experienceInputFields);
+                                    //     setExperienceInputFields(data);
+                                    //     console.log("Data: "+data[0].startDate);
+                                    //     //setExperienceInputFields({...input, startDate: newValue})
+                                    // }}
                                 />
                                 <DatePicker 
                                     sx={{margin: 2}} 
                                     label="Enter End Date" 
                                     format="MMM YY" 
-                                    name="endDate" 
-                                    value={input.endDate} 
-                                    onChange={event => handleInputChange(index, event)} 
+                                    //name="endDate" 
+                                    //value={input.endDate} 
+                                    //onChange={event => handleInputChange(index, event)} 
                                 />
                             </LocalizationProvider>
                         </div>

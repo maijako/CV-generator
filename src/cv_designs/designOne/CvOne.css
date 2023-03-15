@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.profileText {
+    display: inline;
+    
+    align-items: center;
+}
+
+.left__side {
+    display: block;
+    justify-content: flex-start;
+    align-items: left;
+}
+
+.right__side {
+    display: block;
+    justify-content: flex-end;
+    align-items: right;
+}
+.h1 {
+    font-size: 80px;
+}
+.h2 {
+    font-size: 40px;
+}
+
+.h3 {
+    font-size: 30px;
+}

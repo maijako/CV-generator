@@ -21,7 +21,7 @@ const PrintCV = () => {
   return (
     <div>
       <ComponentToPrint ref={componentRef} />
-      <button onClick={handlePrint}>Print CV</button>
+      <button className={"btn btn-success"} style={{display: "flex", marginLeft: "auto", marginRight: "auto"}} onClick={handlePrint}>Print CV</button>
     </div>
   );
 };

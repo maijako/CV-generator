@@ -3,12 +3,19 @@ import { TextField } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 
 function ProfessionalSummary() {
-    const top100Films = [
-        { title: 'The Shawshank Redemption', year: 1994 },
-        { title: 'The Godfather', year: 1972 },
-        { title: 'The Godfather: Part II', year: 1974 },
-        { title: 'The Dark Knight', year: 2008 },
-        { title: '12 Angry Men', year: 1957 }
+    const skillsList = [
+        { title: 'HTML'},
+        { title: 'CSS'},
+        { title: 'JavaScript'},
+        { title: 'Bootstrap'},
+        { title: 'jQuery'},
+        { title: 'Git and GitHub'},
+        { title: 'ReactJS'},
+        { title: 'Material UI'},
+        { title: 'Tailwind'},
+        { title: 'TypeScript'},
+        { title: 'Cloud Computing'},
+        { title: 'Amazon Web Services (AWS)'}
     ];
     return(
         <>
@@ -26,17 +33,18 @@ function ProfessionalSummary() {
             <Autocomplete
                 multiple
                 id="tags-outlined"
-                options={top100Films}
+                options={skillsList}
                 getOptionLabel={(option) => option.title}
-                defaultValue={[top100Films[1]]}
+                
                 filterSelectedOptions
                 renderInput={(params) => (
                 <TextField
                     {...params}
-                    label="filterSelectedOptions"
-                    placeholder="Favorites"
+                    label="Skills Set"
+                    placeholder="Choose Your Skill Set"
                 />
                 )}
+                sx={{margin: "15px 0", width: "50%"}}
             />
         </>
     );

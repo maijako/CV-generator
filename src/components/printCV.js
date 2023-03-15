@@ -44,13 +44,13 @@ const styles = {
   },
 };
 
-
-
 class ComponentToPrint extends React.Component {
   render() {
     return (
       //placeholder component
+      
       <div style={styles.page}>
+        
         <div style={styles.heading} placeholder="Candidate Name">Candidate Name</div>
       </div>
     );

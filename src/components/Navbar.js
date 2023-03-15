@@ -12,7 +12,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="navbar">
+        <nav className="customNavbar">
             <span className="navbar__logo">CV Builder</span>
 
             {menuClicked ? (
@@ -53,7 +53,7 @@ const Navbar = () => {
                     PREVIEW
                     </NavLink>
                 </li>
-
+{/* 
                 <li className="navbar__item">
                     <NavLink
                     to="PDF"
@@ -61,7 +61,7 @@ const Navbar = () => {
                     >
                     PDF
                     </NavLink>
-                </li>
+                </li> */}
 
             </ul>
         </nav>

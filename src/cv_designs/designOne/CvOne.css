@@ -1,0 +1,95 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5cm;
+  box-sizing: border-box;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1em;
+}
+
+.section {
+  margin-top: 2cm;
+}
+
+.section-header {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.section-content {
+  margin-top: 0.5cm;
+}
+
+.section-content p {
+  margin: 0;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2cm;
+}
+
+.contact-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-section li {
+  margin-bottom: 0.5cm;
+}
+
+.summary-section,
+.technical-skills-section,
+.projects-section,
+.experience-section,
+.education-section {
+  clear: both;
+}
+
+.projects-section h2,
+.experience-section h2,
+.education-section h2 {
+  margin-top: 1.5cm;
+}
+
+.projects-section ul,
+.experience-section ul,
+.education-section ul {
+  margin-left: 1cm;
+  margin-bottom: 1cm;
+}
+
+@media print {
+  body {
+    margin: 0;
+  }
+  
+  .container {
+    max-width: none;
+    margin: 0;
+    box-shadow: none;
+  }
+  
+  .contact-section {
+    margin-right: 0;
+  }
+}

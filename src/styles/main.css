@@ -35,6 +35,7 @@
   bottom: 15%;
   right: 10%;
   color: var (--primary-white);
+  font-family: 'Montserrat', sans-serif;
 }
 
 .border {

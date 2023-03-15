@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Main from "./components/Main";
+import Main from "./components/Home";
 import Navbar from "./components/Navbar";
 import SamplePDF from "./components/SamplePDF";
 import PrintCV from "./components/printCV";

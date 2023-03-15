@@ -4,11 +4,6 @@ import React from "react";
 function MainSectionOne() {
   return (
     <>
-      <div className="profileText">
-        <h1>CANDIDATE NAME</h1>
-        <span>Job Title</span>
-      </div>
-      
       <div className="right__side">
         <div className="about profile">
           <h2>Summary</h2>

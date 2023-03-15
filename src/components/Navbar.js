@@ -4,7 +4,7 @@ import "../styles/Navbar.css";
 import { FiMenu, FiX } from "react-icons/fi";
 import { NavLink } from 'react-router-dom';
 
-const Navbar = ({ navbarLinks }) => {
+const Navbar = () => {
     const [menuClicked, setMenuClicked] = useState(false);
 
     const toggleMenuClick = () => {
@@ -12,7 +12,7 @@ const Navbar = ({ navbarLinks }) => {
     };
 
     return (
-        <nav className="navbar">
+        <nav className="customNavbar">
             <span className="navbar__logo">CV Builder</span>
 
             {menuClicked ? (
@@ -53,7 +53,7 @@ const Navbar = ({ navbarLinks }) => {
                     PREVIEW
                     </NavLink>
                 </li>
-
+{/* 
                 <li className="navbar__item">
                     <NavLink
                     to="PDF"
@@ -61,7 +61,7 @@ const Navbar = ({ navbarLinks }) => {
                     >
                     PDF
                     </NavLink>
-                </li>
+                </li> */}
 
             </ul>
         </nav>

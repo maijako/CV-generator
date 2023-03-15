@@ -53,7 +53,7 @@ const Navbar = () => {
                     PREVIEW
                     </NavLink>
                 </li>
-
+{/* 
                 <li className="navbar__item">
                     <NavLink
                     to="PDF"
@@ -61,7 +61,7 @@ const Navbar = () => {
                     >
                     PDF
                     </NavLink>
-                </li>
+                </li> */}
 
             </ul>
         </nav>

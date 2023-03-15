@@ -41,7 +41,7 @@
 .border {
   border: solid;
   color: var(--primary-white);
-  border-width: 10px;
+  border-width: 8px;
   text-align: center;
 }
 

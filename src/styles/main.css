@@ -1,6 +1,7 @@
 .colorBackground {
   background-color: rgba(33, 29, 95, 0.897);
   gap: 2rem;
+  overflow: hidden;
 }
 
 .main {

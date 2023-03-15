@@ -35,12 +35,13 @@
   bottom: 15%;
   right: 10%;
   color: var (--primary-white);
+  font-family: 'Montserrat', sans-serif;
 }
 
 .border {
   border: solid;
   color: var(--primary-white);
-  border-width: 8px;
+  border-width: 10px;
   text-align: center;
 }
 

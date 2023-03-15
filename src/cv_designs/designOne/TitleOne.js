@@ -2,10 +2,11 @@ import React from 'react'
 
 function TitleOne() {
     return (
-        <div className="profileText">
-            <h1>CANDIDATE NAME</h1>
-            <span>Job Title</span>
-        </div>
+        <header>
+        <h1>Your Name</h1>
+        <p>Software Engineer</p>
+
+      </header>
     )
 }
 

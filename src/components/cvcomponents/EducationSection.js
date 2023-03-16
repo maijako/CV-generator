@@ -12,9 +12,29 @@ function EducationSection() {
                                                                 quali: "",
                                                                 graduationDate: ""
                                                             }]);
-    const [startDateValue, setStartDateValue] = useState(null);
-    const [endDateValue, setEndDateValue] = useState(null);
+    // const [startDateValue, setStartDateValue] = useState(null);
+    // const [endDateValue, setEndDateValue] = useState(null);
     const [qualification, setQualification] = useState("");
+
+    const handleInputChange = (index, event) => {
+        let data = [...educationInputFields];
+
+        if(event.target !== undefined){
+            data[index][event.target.name] = event.target.value;
+            setEducationInputFields(data);
+        }
+    }
+
+    const addEdFields = () => {
+        let newField = {
+            instituteName: "",
+            courseTitle: "",
+            quali: "",
+            graduationDate: ""
+        };
+        setEducationInputFields([...educationInputFields, newField]);
+    }
+
     return(
         
         <>
@@ -37,6 +57,9 @@ function EducationSection() {
                                     placeholder="Enter Institute Name"
                                     variant="outlined"
                                     sx={{margin: "15px 0"}}
+                                    name="instituteName"
+                                    value={input.instituteName}
+                                    onChange={event => handleInputChange(index, event)}
                                 />
                                 <TextField
                                     id="input-title-name"
@@ -51,6 +74,9 @@ function EducationSection() {
                                     placeholder="Enter Title"
                                     variant="outlined"
                                     sx={{margin: "15px 0"}}
+                                    name = "courseTitle"
+                                    value = {input.courseTitle}
+                                    onChange = {event => handleInputChange(index, event)}
                                 />
                                 <FormControl sx={{ minWidth: 150 }}>
                                     <InputLabel id="selectedQualificationLabel">Qualification</InputLabel>
@@ -71,13 +97,9 @@ function EducationSection() {
                             <LocalizationProvider dateAdapter={AdapterMoment}>
                                 <DatePicker 
                                     sx={{margin: 2}} 
-                                    label="Enter Start Date"  
+                                    label="Enter Graduation Date"  
                                     format="MMM YY"
-                                />
-                                <DatePicker 
-                                    sx={{margin: 2}} 
-                                    label="Enter End Date" 
-                                    format="MMM YY"
+                                    views={["month", "year"]}
                                 />
                             </LocalizationProvider>
                         </div>
@@ -85,6 +107,8 @@ function EducationSection() {
                 })
                 
             }
+
+            <button onClick={addEdFields}>Add Education</button>
         </>
             
        

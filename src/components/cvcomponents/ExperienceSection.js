@@ -18,10 +18,11 @@ function ExperienceSection() {
 
     const handleInputChange = (index, event) =>{
         let data = [...experienceInputFields];
+
         if(event.target!==undefined) {
-        data[index][event.target.name] = event.target.value;
-        console.log(experienceInputFields);
-        setExperienceInputFields(data);
+            data[index][event.target.name] = event.target.value;
+            console.log(experienceInputFields);
+            setExperienceInputFields(data);
         }
     }
 

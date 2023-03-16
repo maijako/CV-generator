@@ -13,7 +13,7 @@ function ExperienceSection() {
                                                                     roleDetails: "",
                                                                     startDate: "",
                                                                     endDate:""
-                                                                }])
+                                                                }]);
     
 
     const handleInputChange = (index, event) =>{

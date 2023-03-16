@@ -13,7 +13,6 @@ function EducationSection() {
                                                                 startDate: "",
                                                                 endDate: ""
                                                             }]);
-    const [qualification, setQualification] = useState("");
 
     const handleInputChange = (index, event) => {
         let data = [...educationInputFields];
@@ -21,6 +20,7 @@ function EducationSection() {
         if(event.target !== undefined){
             data[index][event.target.name] = event.target.value;
             setEducationInputFields(data);
+            console.log(educationInputFields);
         }
     }
 
@@ -82,14 +82,11 @@ function EducationSection() {
                                     <InputLabel id="selectedQualificationLabel">Qualification</InputLabel>
                                     <Select
                                         labelId="selectedQualificationLabel"
-                                        id="selectedQualification"
-                                        value={educationInputFields[index].qualificationVal}
+                                        id="selectedQualification"                                       
                                         label="Qualification"
-                                        onChange={(event) => {
-                                            //setQualification(event.target.value);
-                                            educationInputFields[index].qualificationVal = event.target.value;
-                                            console.log(educationInputFields);
-                                        }}
+                                        name="qualificationVal"
+                                        value={input.qualificationVal}
+                                        onChange = {event => handleInputChange(index, event)}
                                     >
                                         <MenuItem value={"BA"}>BA</MenuItem>
                                         <MenuItem value={"BSc"}>BSc</MenuItem>
@@ -110,9 +107,7 @@ function EducationSection() {
                                     views={["month", "year"]}
                                     name = "startDate"
                                     onChange={newValue => {
-                                        console.log(educationInputFields);
                                         educationInputFields[index].startDate = newValue.format("MMM YYYY");
-                                        console.log(educationInputFields[index].startDate);
                                     }}
                                 />
 

@@ -99,22 +99,24 @@ function ExperienceSection() {
                                 <DatePicker 
                                     sx={{margin: 2}} 
                                     label="Enter Start Date" 
-                                    format="MMM YY" 
+                                    format="MMM YYYY" 
                                     name="startDate"
+                                    views={['month', 'year']}
                                     onChange={newValue => {
                                         console.log(experienceInputFields);
-                                        experienceInputFields[index].startDate = newValue.format("MMM YY");
+                                        experienceInputFields[index].startDate = newValue.format("MMM YYYY");
                                         console.log(experienceInputFields[index].startDate);
                                     }}
                                 />
                                 <DatePicker 
                                     sx={{margin: 2}} 
                                     label="Enter End Date" 
-                                    format="MMM YY" 
+                                    format="MMM YYYY" 
+                                    views={['month', 'year']}
                                     name="endDate"
                                     onChange={newValue => {
                                         console.log(experienceInputFields);
-                                        experienceInputFields[index].endDate = newValue.format("MMM YY");
+                                        experienceInputFields[index].endDate = newValue.format("MMM YYYY");
                                         console.log(experienceInputFields[index].endDate);
                                     }}
                                 />

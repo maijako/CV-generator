@@ -2,6 +2,9 @@ import React from "react";
 import { FaPhone } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 import { ImLocation2 } from "react-icons/im";
+import { GiEarthAmerica } from "react-icons/gi";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 
 function MainSectionOne() {
@@ -16,18 +19,12 @@ function MainSectionOne() {
         </p>
       </header>
 
-      <div class="section">
-        <div class="section-header">Contact details:</div>
-        <div class="section-content">
-          <ul>
-            <li>Phone: 123-456-7890</li>
-            <li>Email: john.doe@gmail.com</li>
-            <li>Location: New York, NY</li>
-            <li>Website: www.johndoe.com</li>
-            <li>LinkedIn: www.linkedin.com/in/johndoe</li>
-            <li>GitHub: www.github.com/johndoe</li>
-          </ul>
-        </div>
+      <div class="websites">
+        <p className="website__details">
+          <GiEarthAmerica className="website__icon" /> www.spacemiles.com
+          <FaGithub className="website__icon" /> www.github.com/starbrien
+          <FaLinkedin className="website__icon" /> www.linkedin.com/in/mobrien
+        </p>
       </div>
 
       <div class="section">

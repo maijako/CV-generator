@@ -1,10 +1,10 @@
 import React from "react";
+import { FaGithub } from "react-icons/fa";
 
 
 function MainSectionOne() {
   return (
     <>
-      
       <header className="candidateName">
         <h1>John Doe</h1>
       </header>

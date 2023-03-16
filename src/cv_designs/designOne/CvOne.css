@@ -20,7 +20,6 @@ header {
 
 }
 
-
 .candidateName {
   display: flex;
   flex-direction: column;
@@ -31,8 +30,13 @@ header {
 
 .header__icon {
   margin-right: 5px;
+  margin-left: 25px;
   color: white;
   padding-bottom: 2px;
+}
+
+.contact__details .header__icon:first-child {
+  margin-left: 0;
 }
 
 .contact__details {
@@ -41,15 +45,21 @@ header {
   font-size: 12px;
   display: flex;
   align-items: center;
+  flex-direction: row;
+  margin-bottom: 5px;
 }
+
 
 .candidateName h1 {
   margin: 0;
   color: var(--primary-white);
-  padding-top: 2.5cm;
+  padding-top: 2cm;
 }
 
-
+.contact__details p {
+  margin: 0;
+  font-weight: bold;
+}
 
 
 

@@ -11,12 +11,8 @@ function MainSectionOne() {
         <h1>Miles O'Brien</h1>
         <p className="contact__details">
           <FaPhone className="header__icon" /> +44 789654321
-        </p>
-        <p className="contact__details">
-          <FaEnvelope className="header__icon" /> +44 789654321
-        </p>
-        <p className="contact__details">
-          <ImLocation2 className="header__icon" /> +44 789654321
+          <FaEnvelope className="header__icon" /> obrien@starfleet.com
+          <ImLocation2 className="header__icon" /> Deep Space 9
         </p>
       </header>
 

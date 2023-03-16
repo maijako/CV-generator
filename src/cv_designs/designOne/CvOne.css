@@ -104,16 +104,29 @@ h2 {
 
 .section-header {
   font-size: 1.1em;
-  font-weight: bold;
+  font-weight: bolder;
   text-align: center;
   width: 10%; /* Set the width of section-header to 10% of the parent container */
 }
 
-
+.section-content {
+  padding-left: 20px;
+  margin-top: 0.2cm;
+}
 .section-content,
 .section-skills {
-  margin-top: 0.2cm;
   width: 90%; /* Set the width of section-content to 90% of the parent container */
+}
+
+.job,
+.edu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.school {
+  padding-bottom: 10px;
 }
 
 /* playing with code */
@@ -154,7 +167,9 @@ h2 {
 }
 
 /* style the projects section */
-
+ul li {
+  font-size: 0.9em;
+}
 
 /* printing styles */
 @media print {

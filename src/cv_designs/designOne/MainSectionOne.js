@@ -28,7 +28,7 @@ function MainSectionOne() {
 
       <div className="section">
         <div className="section-header">
-        <BsFillPersonFill className="cv__icon" />
+          <BsFillPersonFill className="cv__icon" />
         </div>
         <div className="section-content">
           <p>A highly skilled software engineer with over 5 years of experience developing web applications using various programming languages and frameworks.</p>
@@ -36,8 +36,8 @@ function MainSectionOne() {
       </div>
 
       <div className="section">
-      <div className="section-header">
-        <BsGearFill className="cv__icon" />
+        <div className="section-header">
+          <BsGearFill className="cv__icon" />
         </div>
         <div className="section-skills">
           <ul className="skills-ul">
@@ -54,9 +54,9 @@ function MainSectionOne() {
       </div>
 
       <div class="section">
-      <div className="section-header">
-      <BsFillRocketTakeoffFill className="cv__icon" />
-      </div>
+        <div className="section-header">
+          <BsFillRocketTakeoffFill className="cv__icon" />
+        </div>
         <div class="section-content">
           <h2>Project 1</h2>
           <p>A web application that allows users to create and share recipes.</p>
@@ -77,12 +77,15 @@ function MainSectionOne() {
       </div>
 
       <div class="section">
-      <div className="section-header">
-      <BsBriefcaseFill className="cv__icon" />
-      </div>
+        <div className="section-header">
+          <BsBriefcaseFill className="cv__icon" />
+        </div>
         <div class="section-content">
-          <h2>Software Engineer at ABC Company</h2>
-          <p>June 2019 - Present</p>
+          <div className="job">CTO
+            <p className="dates">June 2019 - Present</p>
+          </div>
+
+          <p>Starfleet</p>
           <ul>
             <li>Developed and maintained web applications using React and Node.js.</li>
             <li>Collaborated with designers to implement UI/UX designs.</li>
@@ -90,8 +93,10 @@ function MainSectionOne() {
             <li>Optimized web applications for performance and scalability.</li>
           </ul>
 
-          <h2>Software Developer at XYZ Corporation</h2>
-          <p>January 2017 - June 2019</p>
+          <div className="job">Software Engineer
+            <p className="dates">June 2015 - June 2019</p>
+          </div>
+          <p>Starfleet</p>
           <ul>
             <li>Developed and maintained web applications using AngularJS and Java.</li>
             <li>Implemented REST APIs for mobile applications.</li>
@@ -102,16 +107,22 @@ function MainSectionOne() {
       </div>
 
       <div class="section">
-      <div className="section-header">
-      <BsFillMortarboardFill className="cv__icon"/>
-      </div>
-        <div class="section-content">
-          <h2>Bachelor of Science in Computer Science</h2>
-          <p>University of California, Los Angeles (UCLA)</p>
-          <p>September 2013 - June 2017</p>
+        <div className="section-header">
+          <BsFillMortarboardFill className="cv__icon" />
         </div>
-      </div>
+        <div class="section-content">
+            <div className="edu">Front-end Web Development Bootcamp Certificate
+              <p className="edu__dates">Nov 2022 - March 2023</p>
+            </div>
+            <p className="school">EdX</p>
+        
 
+          <div className="edu">BSc, Computer Science
+            <p className="edu__dates">June 2010 - June 2015</p>
+         </div>
+         <p className="school">Starfleet Academy</p>
+        </div>
+        </div>
     </>
   )
 }

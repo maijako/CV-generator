@@ -21,6 +21,11 @@ header {
 
 }
 
+p {
+  line-height: normal;
+  font-size: 1em;
+}
+
 .candidateName {
   display: flex;
   flex-direction: column;
@@ -99,53 +104,25 @@ h2 {
 
 .section-content {
   margin-top: 0.2cm;
+  font-size: 1em;
 }
 
 .section-content p {
   margin: 0;
 }
 
-.contact-section {
-  display: flex;
-  flex-direction: column;
-  margin-right: 2cm;
+.ul,
+.li {
+  font-size: 1em;
 }
 
-.contact-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.contact-section li {
-  margin-bottom: 0.5cm;
-}
-
-.summary-section,
-.technical-skills-section,
-.projects-section,
-.experience-section,
-.education-section {
-  clear: both;
-}
-
-.projects-section h2,
-.experience-section h2,
-.education-section h2 {
-  margin-top: 1.5cm;
-}
-
-.projects-section ul,
-.experience-section ul,
-.education-section ul {
-  margin-left: 1cm;
-  margin-bottom: 1cm;
-}
 /* style the skills section */
 .section-skills {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  font-size: 0.9em;
 }
 
 .skills-li {
@@ -154,7 +131,6 @@ h2 {
   margin-top: 10px;
   position: relative;
   padding: 6px 12px 6px 12px;
-  /* color: #fff; */
   color: black;
   background-color: #a9b1e0;
   border-radius: 20px;
@@ -165,9 +141,12 @@ h2 {
 
 .skills-ul  {
   padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 0;
+  font-size: 0.9em;
 }
 
-
+/* printing styles */
 @media print {
   body {
     margin: 0;
@@ -177,6 +156,7 @@ h2 {
     max-width: none;
     margin: 0;
     box-shadow: none;
+    
   }
 
   .contact-section {

@@ -28,14 +28,14 @@ function MainSectionOne() {
       </div>
 
       <div className="section">
-        <div className="section-header">Summary:</div>
+        <div className="section-header">Summary</div>
         <div className="section-content">
           <p>A highly skilled software engineer with over 5 years of experience developing web applications using various programming languages and frameworks.</p>
         </div>
       </div>
 
       <div className="section">
-        <div className="section-header">Technical skills:</div>
+        <div className="section-header">Technical skills</div>
         <div className="section-skills">
           <ul className="skills-ul">
             <li className="skills-li">JavaScript</li>
@@ -51,7 +51,7 @@ function MainSectionOne() {
       </div>
 
       <div class="section">
-        <div class="section-header">Projects:</div>
+        <div class="section-header">Projects</div>
         <div class="section-content">
           <h2>Project 1</h2>
           <p>A web application that allows users to create and share recipes.</p>
@@ -72,7 +72,7 @@ function MainSectionOne() {
       </div>
 
       <div class="section">
-        <div class="section-header">Experience:</div>
+        <div class="section-header">Experience</div>
         <div class="section-content">
           <h2>Software Engineer at ABC Company</h2>
           <p>June 2019 - Present</p>
@@ -95,7 +95,7 @@ function MainSectionOne() {
       </div>
 
       <div class="section">
-        <div class="section-header">Education:</div>
+        <div class="section-header">Education</div>
         <div class="section-content">
           <h2>Bachelor of Science in Computer Science</h2>
           <p>University of California, Los Angeles (UCLA)</p>

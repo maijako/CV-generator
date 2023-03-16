@@ -19,7 +19,7 @@ function MainSectionOne() {
         </p>
       </header>
 
-      <div class="websites">
+      <div className="websites">
         <p className="website__details">
           <GiEarthAmerica className="website__icon" /> www.spacemiles.com
           <FaGithub className="website__icon" /> www.github.com/starbrien
@@ -27,25 +27,25 @@ function MainSectionOne() {
         </p>
       </div>
 
-      <div class="section">
-        <div class="section-header">Summary:</div>
-        <div class="section-content">
+      <div className="section">
+        <div className="section-header">Summary:</div>
+        <div className="section-content">
           <p>A highly skilled software engineer with over 5 years of experience developing web applications using various programming languages and frameworks.</p>
         </div>
       </div>
 
-      <div class="section">
-        <div class="section-header">Technical skills:</div>
-        <div class="section-content">
-          <ul>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>Node.js</li>
-            <li>Express.js</li>
-            <li>SQL</li>
-            <li>NoSQL</li>
-            <li>Git</li>
-            <li>AWS</li>
+      <div className="section">
+        <div className="section-header">Technical skills:</div>
+        <div className="section-skills">
+          <ul className="skills-ul">
+            <li className="skills-li">JavaScript</li>
+            <li className="skills-li">React</li>
+            <li className="skills-li">Node.js</li>
+            <li className="skills-li">Express.js</li>
+            <li className="skills-li">SQL</li>
+            <li className="skills-li">NoSQL</li>
+            <li className="skills-li">Git</li>
+            <li className="skills-li">AWS</li>
           </ul>
         </div>
       </div>

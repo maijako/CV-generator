@@ -1,12 +1,23 @@
 import React from "react";
-import { FaGithub } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
+import { ImLocation2 } from "react-icons/im";
 
 
 function MainSectionOne() {
   return (
     <>
       <header className="candidateName">
-        <h1>John Doe</h1>
+        <h1>Miles O'Brien</h1>
+        <p className="contact__details">
+          <FaPhone className="header__icon" /> +44 789654321
+        </p>
+        <p className="contact__details">
+          <FaEnvelope className="header__icon" /> +44 789654321
+        </p>
+        <p className="contact__details">
+          <ImLocation2 className="header__icon" /> +44 789654321
+        </p>
       </header>
 
       <div class="section">

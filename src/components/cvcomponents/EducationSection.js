@@ -9,12 +9,10 @@ function EducationSection() {
     const [educationInputFields, setEducationInputFields] = useState([{
                                                                 instituteName: "",
                                                                 courseTitle: "",
-                                                                quali: "",
+                                                                qualificationVal: "",
                                                                 startDate: "",
                                                                 endDate: ""
                                                             }]);
-    // const [startDateValue, setStartDateValue] = useState(null);
-    // const [endDateValue, setEndDateValue] = useState(null);
     const [qualification, setQualification] = useState("");
 
     const handleInputChange = (index, event) => {
@@ -30,7 +28,7 @@ function EducationSection() {
         let newField = {
             instituteName: "",
             courseTitle: "",
-            quali: "",
+            qualificationVal: "",
             startDate: "",
             endDate: ""
         };
@@ -85,13 +83,21 @@ function EducationSection() {
                                     <Select
                                         labelId="selectedQualificationLabel"
                                         id="selectedQualification"
-                                        value={qualification}
+                                        value={educationInputFields[index].qualificationVal}
                                         label="Qualification"
-                                        onChange={(event) => setQualification(event.target.value)}
+                                        onChange={(event) => {
+                                            //setQualification(event.target.value);
+                                            educationInputFields[index].qualificationVal = event.target.value;
+                                            console.log(educationInputFields);
+                                        }}
                                     >
-                                        <MenuItem value={"Degree"}>Under Graduate</MenuItem>
-                                        <MenuItem value={"Masters"}>Post Graduate</MenuItem>
+                                        <MenuItem value={"BA"}>BA</MenuItem>
+                                        <MenuItem value={"BSc"}>BSc</MenuItem>
+                                        <MenuItem value={"MA"}>MA</MenuItem>
+                                        <MenuItem value={"MSc"}>MSc</MenuItem>
+                                        <MenuItem value={"PhD"}>PhD</MenuItem>
                                         <MenuItem value={"Certificate"}>Certificate</MenuItem>
+                                        <MenuItem value={"Diploma"}>Diploma</MenuItem>
                                     </Select>
                                 </FormControl>
                                 

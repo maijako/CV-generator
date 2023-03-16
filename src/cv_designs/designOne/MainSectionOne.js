@@ -1,5 +1,5 @@
 import React from "react";
-import { FaPhone, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaPhone, FaGithub, FaLinkedin, FaEnvelope, FaLink } from "react-icons/fa";
 import { ImLocation2 } from "react-icons/im";
 import { GiEarthAmerica } from "react-icons/gi";
 import { BsGearFill, BsFillPersonFill, BsFillRocketTakeoffFill, BsBriefcaseFill, BsFillMortarboardFill } from "react-icons/bs";
@@ -58,7 +58,15 @@ function MainSectionOne() {
           <BsFillRocketTakeoffFill className="cv__icon" />
         </div>
         <div class="section-content">
-          <h2>Project 1</h2>
+          <div className="projects">Recipe App
+            <p>
+              <FaLink className="pro__icon" />
+              www.netlify.com</p>
+
+            <p>
+              <FaGithub className="pro__icon" />
+              www.github.com/water-tracker</p>
+          </div>
           <p>A web application that allows users to create and share recipes.</p>
           <ul>
             <li>Developed using React, Node.js, and MongoDB.</li>
@@ -66,7 +74,16 @@ function MainSectionOne() {
             <li>Deployed on AWS using Elastic Beanstalk.</li>
           </ul>
 
-          <h2>Project 2</h2>
+          <div className="projects">Water Tracker
+
+            <p>
+              <FaLink className="pro__icon" />
+              www.netlify.com</p>
+
+            <p>
+              <FaGithub className="pro__icon" />
+              www.github.com/water-tracker</p>
+          </div>
           <p>A mobile app that helps users track their daily water intake.</p>
           <ul>
             <li>Developed using React Native and Firebase.</li>
@@ -76,11 +93,11 @@ function MainSectionOne() {
         </div>
       </div>
 
-      <div class="section">
+      <div className="section">
         <div className="section-header">
           <BsBriefcaseFill className="cv__icon" />
         </div>
-        <div class="section-content">
+        <div className="section-content">
           <div className="job">CTO
             <p className="dates">June 2019 - Present</p>
           </div>
@@ -106,23 +123,23 @@ function MainSectionOne() {
         </div>
       </div>
 
-      <div class="section">
+      <div className="section">
         <div className="section-header">
           <BsFillMortarboardFill className="cv__icon" />
         </div>
         <div class="section-content">
-            <div className="edu">Front-end Web Development Bootcamp Certificate
-              <p className="edu__dates">Nov 2022 - March 2023</p>
-            </div>
-            <p className="school">EdX</p>
-        
+          <div className="edu">Front-end Web Development Bootcamp Certificate
+            <p className="edu__dates">Nov 2022 - March 2023</p>
+          </div>
+          <p className="school">EdX</p>
+
 
           <div className="edu">BSc, Computer Science
             <p className="edu__dates">June 2010 - June 2015</p>
-         </div>
-         <p className="school">Starfleet Academy</p>
+          </div>
+          <p className="school">Starfleet Academy</p>
         </div>
-        </div>
+      </div>
     </>
   )
 }

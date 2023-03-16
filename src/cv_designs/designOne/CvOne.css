@@ -77,7 +77,6 @@ h2 {
   margin-right: 5px;
   margin-left: 25px;
   color: #050e37;
-  padding-bottom: 2px;
 }
 
 .website__details {
@@ -92,6 +91,11 @@ h2 {
 .cv__icon {
  margin-top: 8px;
  color: #a9b1e0;
+}
+
+.pro__icon {
+  color: #a9b1e0;
+  margin-right: 8px;
 }
 
 .section {
@@ -119,10 +123,13 @@ h2 {
 }
 
 .job,
-.edu {
+.edu,
+.projects {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-weight: bold;
+  font-size: 0.9em;
 }
 
 .school {

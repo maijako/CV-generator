@@ -11,7 +11,7 @@ function ExperienceSection() {
                                                                     companyName: "",
                                                                     jotTitle: "",
                                                                     roleDetails: "",
-                                                                    startDate: null,
+                                                                    startDate: "st",
                                                                     endDate:""
                                                                 }])
     
@@ -23,7 +23,7 @@ function ExperienceSection() {
         //console.log(data[index]);
         if(event.target!==undefined) {
         data[index][event.target.name] = event.target.value;
-        console.log("***************"+experienceInputFields);
+        console.log(experienceInputFields);
         setExperienceInputFields(data);
         }
     }
@@ -105,7 +105,14 @@ function ExperienceSection() {
                                     format="MMM YY" 
                                     name="startDate" 
                                     value={value}
-                                    onChange={newValue => setValue(newValue)}
+                                    onChange={newValue => {
+                                        console.log(experienceInputFields);
+                                        setValue(newValue)
+                                        // let data = [...experienceInputFields];
+                                        // data[index][input.startDate] = newValue;
+                                        experienceInputFields[index].startDate = newValue.format("MMM YY");
+                                        console.log(experienceInputFields[index].startDate);
+                                    }}
                                     // value={input.startDate}
                                     // onChange={newValue => {
                                     //     console.log("Start date:"+input.startDate)

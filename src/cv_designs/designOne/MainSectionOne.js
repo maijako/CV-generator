@@ -1,10 +1,9 @@
 import React from "react";
-import { FaPhone } from "react-icons/fa";
-import { FaEnvelope } from "react-icons/fa";
+import { FaPhone, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { ImLocation2 } from "react-icons/im";
 import { GiEarthAmerica } from "react-icons/gi";
-import { FaGithub } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
+import { BsGearFill, BsFillPersonFill, BsFillRocketTakeoffFill, BsBriefcaseFill, BsFillMortarboardFill } from "react-icons/bs";
+
 
 
 function MainSectionOne() {
@@ -28,14 +27,18 @@ function MainSectionOne() {
       </div>
 
       <div className="section">
-        <div className="section-header">Summary</div>
+        <div className="section-header">
+        <BsFillPersonFill className="cv__icon" />
+        </div>
         <div className="section-content">
           <p>A highly skilled software engineer with over 5 years of experience developing web applications using various programming languages and frameworks.</p>
         </div>
       </div>
 
       <div className="section">
-        <div className="section-header">Technical skills</div>
+      <div className="section-header">
+        <BsGearFill className="cv__icon" />
+        </div>
         <div className="section-skills">
           <ul className="skills-ul">
             <li className="skills-li">JavaScript</li>
@@ -51,7 +54,9 @@ function MainSectionOne() {
       </div>
 
       <div class="section">
-        <div class="section-header">Projects</div>
+      <div className="section-header">
+      <BsFillRocketTakeoffFill className="cv__icon" />
+      </div>
         <div class="section-content">
           <h2>Project 1</h2>
           <p>A web application that allows users to create and share recipes.</p>
@@ -72,7 +77,9 @@ function MainSectionOne() {
       </div>
 
       <div class="section">
-        <div class="section-header">Experience</div>
+      <div className="section-header">
+      <BsBriefcaseFill className="cv__icon" />
+      </div>
         <div class="section-content">
           <h2>Software Engineer at ABC Company</h2>
           <p>June 2019 - Present</p>
@@ -95,7 +102,9 @@ function MainSectionOne() {
       </div>
 
       <div class="section">
-        <div class="section-header">Education</div>
+      <div className="section-header">
+      <BsFillMortarboardFill className="cv__icon"/>
+      </div>
         <div class="section-content">
           <h2>Bachelor of Science in Computer Science</h2>
           <p>University of California, Los Angeles (UCLA)</p>

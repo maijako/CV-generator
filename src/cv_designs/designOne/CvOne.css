@@ -7,7 +7,6 @@ body {
 .container {
   max-width: 900px;
   margin-top: 2.3cm;
-  /* padding-top: 1.5cm; */
   padding-left: 0;
   padding-right: 0;
   box-sizing: border-box;
@@ -18,7 +17,11 @@ body {
 header {
   background-color: #050e37;
   padding-bottom: 10px;
+}
 
+p {
+  line-height: normal;
+  font-size: 0.9em;
 }
 
 .candidateName {
@@ -62,90 +65,91 @@ header {
 }
 
 h2 {
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 .websites {
   background-color: #a9b1e0;
+  
 }
 
 .website__icon {
   margin-right: 5px;
   margin-left: 25px;
   color: #050e37;
-  padding-bottom: 2px;
 }
 
 .website__details {
   margin: 0;
+  padding: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 12px;
 }
 
+.cv__icon {
+ margin-top: 8px;
+ color: #a9b1e0;
+}
+
+.pro__icon {
+  color: #a9b1e0;
+  margin-right: 8px;
+}
 
 .section {
+  display: flex; /* Use flexbox layout */
+  align-items: flex-start;
   margin-top: 0.5cm;
-  margin-left: 1.5cm;
+  margin-left: 0;
   margin-right: 1.5cm;
 }
 
 .section-header {
-  font-size: 1.2em;
-  font-weight: bold;
+  font-size: 1.1em;
+  font-weight: bolder;
   text-align: center;
+  width: 10%; /* Set the width of section-header to 10% of the parent container */
 }
 
 .section-content {
+  padding-left: 20px;
   margin-top: 0.2cm;
 }
+.section-content,
+.section-skills {
+  width: 90%; /* Set the width of section-content to 90% of the parent container */
+}
+
+.job,
+.edu,
+.projects {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.school {
+  padding-bottom: 10px;
+}
+
+/* playing with code */
 
 .section-content p {
   margin: 0;
 }
 
-.contact-section {
-  display: flex;
-  flex-direction: column;
-  margin-right: 2cm;
-}
 
-.contact-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.contact-section li {
-  margin-bottom: 0.5cm;
-}
-
-.summary-section,
-.technical-skills-section,
-.projects-section,
-.experience-section,
-.education-section {
-  clear: both;
-}
-
-.projects-section h2,
-.experience-section h2,
-.education-section h2 {
-  margin-top: 1.5cm;
-}
-
-.projects-section ul,
-.experience-section ul,
-.education-section ul {
-  margin-left: 1cm;
-  margin-bottom: 1cm;
-}
 /* style the skills section */
 .section-skills {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  font-size: 0.9em;
 }
 
 .skills-li {
@@ -154,7 +158,6 @@ h2 {
   margin-top: 10px;
   position: relative;
   padding: 6px 12px 6px 12px;
-  /* color: #fff; */
   color: black;
   background-color: #a9b1e0;
   border-radius: 20px;
@@ -165,9 +168,17 @@ h2 {
 
 .skills-ul  {
   padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 0;
+  font-size: 0.9em;
 }
 
+/* style the projects section */
+ul li {
+  font-size: 0.9em;
+}
 
+/* printing styles */
 @media print {
   body {
     margin: 0;
@@ -177,6 +188,7 @@ h2 {
     max-width: none;
     margin: 0;
     box-shadow: none;
+    
   }
 
   .contact-section {

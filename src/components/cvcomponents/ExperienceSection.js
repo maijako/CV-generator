@@ -11,19 +11,16 @@ function ExperienceSection() {
                                                                     companyName: "",
                                                                     jotTitle: "",
                                                                     roleDetails: "",
-                                                                    startDate: null,
+                                                                    startDate: "",
                                                                     endDate:""
                                                                 }])
     
-    const [value, setValue] = useState(null);
 
     const handleInputChange = (index, event) =>{
         let data = [...experienceInputFields];
-        //console.log(event.target);
-        //console.log(data[index]);
         if(event.target!==undefined) {
         data[index][event.target.name] = event.target.value;
-        console.log("***************"+experienceInputFields);
+        console.log(experienceInputFields);
         setExperienceInputFields(data);
         }
     }
@@ -102,28 +99,26 @@ function ExperienceSection() {
                                 <DatePicker 
                                     sx={{margin: 2}} 
                                     label="Enter Start Date" 
-                                    format="MMM YY" 
-                                    name="startDate" 
-                                    value={value}
-                                    onChange={newValue => setValue(newValue)}
-                                    // value={input.startDate}
-                                    // onChange={newValue => {
-                                    //     console.log("Start date:"+input.startDate)
-                                    //     let data = [...experienceInputFields];
-                                    //     data[index][input.startDate] = newValue;
-                                    //     //console.log(experienceInputFields);
-                                    //     setExperienceInputFields(data);
-                                    //     console.log("Data: "+data[0].startDate);
-                                    //     //setExperienceInputFields({...input, startDate: newValue})
-                                    // }}
+                                    format="MMM YYYY" 
+                                    name="startDate"
+                                    views={['month', 'year']}
+                                    onChange={newValue => {
+                                        console.log(experienceInputFields);
+                                        experienceInputFields[index].startDate = newValue.format("MMM YYYY");
+                                        console.log(experienceInputFields[index].startDate);
+                                    }}
                                 />
                                 <DatePicker 
                                     sx={{margin: 2}} 
                                     label="Enter End Date" 
-                                    format="MMM YY" 
-                                    //name="endDate" 
-                                    //value={input.endDate} 
-                                    //onChange={event => handleInputChange(index, event)} 
+                                    format="MMM YYYY" 
+                                    views={['month', 'year']}
+                                    name="endDate"
+                                    onChange={newValue => {
+                                        console.log(experienceInputFields);
+                                        experienceInputFields[index].endDate = newValue.format("MMM YYYY");
+                                        console.log(experienceInputFields[index].endDate);
+                                    }}
                                 />
                             </LocalizationProvider>
                         </div>

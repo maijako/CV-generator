@@ -10,7 +10,8 @@ function EducationSection() {
                                                                 instituteName: "",
                                                                 courseTitle: "",
                                                                 quali: "",
-                                                                graduationDate: ""
+                                                                startDate: "",
+                                                                endDate: ""
                                                             }]);
     // const [startDateValue, setStartDateValue] = useState(null);
     // const [endDateValue, setEndDateValue] = useState(null);
@@ -30,7 +31,8 @@ function EducationSection() {
             instituteName: "",
             courseTitle: "",
             quali: "",
-            graduationDate: ""
+            startDate: "",
+            endDate: ""
         };
         setEducationInputFields([...educationInputFields, newField]);
     }
@@ -97,9 +99,28 @@ function EducationSection() {
                             <LocalizationProvider dateAdapter={AdapterMoment}>
                                 <DatePicker 
                                     sx={{margin: 2}} 
-                                    label="Enter Graduation Date"  
+                                    label="Enter Start Date"  
                                     format="MMM YY"
                                     views={["month", "year"]}
+                                    name = "startDate"
+                                    onChange={newValue => {
+                                        console.log(educationInputFields);
+                                        educationInputFields[index].startDate = newValue.format("MMM YYYY");
+                                        console.log(educationInputFields[index].startDate);
+                                    }}
+                                />
+
+                                <DatePicker 
+                                    sx={{margin: 2}} 
+                                    label="Enter End Date"  
+                                    format="MMM YY"
+                                    views={["month", "year"]}
+                                    name = "endDate"
+                                    onChange={newValue => {
+                                        console.log(educationInputFields);
+                                        educationInputFields[index].endDate = newValue.format("MMM YYYY");
+                                        console.log(educationInputFields[index].endDate);
+                                    }}
                                 />
                             </LocalizationProvider>
                         </div>

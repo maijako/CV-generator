@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { TextField, InputAdornment, Button } from "@mui/material";
 import { AccountCircle, ContactMail, PhoneAndroid } from "@mui/icons-material";
 import "./cv-component-styles.css";
+//import useDispatch and useSElector hooks from react-redux into the form
+import { useDispatch, useSelector } from 'react-redux';
+import { setProfile } from './profileSlice';
 
 
 

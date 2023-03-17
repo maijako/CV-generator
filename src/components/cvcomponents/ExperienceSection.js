@@ -28,10 +28,20 @@ function ExperienceSection() {
       Object.values(input.errors).some((error) => error)
     );
     const formHasEmptyRequiredFields = experienceInputFields.some(
-      (input) => !input.companyName || !input.jotTitle
+      (input) =>
+        !input.companyName ||
+        !input.jotTitle ||
+        !input.roleDetails ||
+        !input.startDate ||
+        !input.endDate
     );
-    setFormValid(!(formHasErrors || formHasEmptyRequiredFields));
-  }, [experienceInputFields]);
+
+    const formHasStartDateAfterEndDate = experienceInputFields.some(
+      (input) => input.startDate > input.endDate
+    );
+
+    setFormValid(!formHasErrors && !formHasEmptyRequiredFields && !formHasStartDateAfterEndDate);
+}, [experienceInputFields]);
 
   const validateInput = (name, value) => {
     let errorMessage = "";
@@ -133,6 +143,9 @@ function ExperienceSection() {
                 name="roleDetails"
                 value={input.roleDetails}
                 onChange={(event) => handleInputChange(index, event)}
+                onFocus={(event) => handleFocus(index, event)}
+                error={Boolean(input.errors.roleDetails)}
+                helperText={input.errors.roleDetails}
               />
             </div>
             <LocalizationProvider dateAdapter={AdapterMoment}>
@@ -143,9 +156,18 @@ function ExperienceSection() {
                 name="startDate"
                 views={["month", "year"]}
                 onChange={(newValue) => {
-                  experienceInputFields[index].startDate =
-                    newValue.format("MMM YYYY");
+                  const data = [...experienceInputFields];
+                  data[index].startDate = newValue.format("MMM YYYY");
+                  if (data[index].endDate && newValue > data[index].endDate) {
+                    data[index].errors.startDate =
+                      "Start date cannot be after end date.";
+                  } else {
+                    data[index].errors.startDate = "";
+                  }
+                  setExperienceInputFields(data);
                 }}
+                error={Boolean(input.errors.startDate)}
+                helperText={input.errors.startDate}
               />
               <DatePicker
                 sx={{ margin: 2 }}
@@ -154,9 +176,21 @@ function ExperienceSection() {
                 views={["month", "year"]}
                 name="endDate"
                 onChange={(newValue) => {
-                  experienceInputFields[index].endDate =
-                    newValue.format("MMM YYYY");
+                  const data = [...experienceInputFields];
+                  data[index].endDate = newValue.format("MMM YYYY");
+                  if (
+                    data[index].startDate &&
+                    newValue < data[index].startDate
+                  ) {
+                    data[index].errors.endDate =
+                      "End date cannot be before start date.";
+                  } else {
+                    data[index].errors.endDate = "";
+                  }
+                  setExperienceInputFields(data);
                 }}
+                error={Boolean(input.errors.endDate)}
+                helperText={input.errors.endDate}
               />
             </LocalizationProvider>
           </div>

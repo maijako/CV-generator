@@ -4,6 +4,7 @@ import { AccountCircle, ContactMail, PhoneAndroid } from "@mui/icons-material";
 import "./cv-component-styles.css";
 
 
+
 function BasicUserInfo() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -15,6 +16,7 @@ function BasicUserInfo() {
   const [phoneError, setPhoneError] = useState("");
   const handleFirstNameChange = (event) => {
     setFirstName(event.target.value);
+
   };
   const handleLastNameChange = (event) => {
     setLastName(event.target.value);

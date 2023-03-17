@@ -53,11 +53,11 @@ function MainSectionOne() {
         </div>
       </div>
 
-      <div class="section">
+      <div className="section">
         <div className="section-header">
           <BsFillRocketTakeoffFill className="cv__icon" />
         </div>
-        <div class="section-content">
+        <div className="section-content">
           <div className="projects">Recipe App
             <p>
               <FaLink className="pro__icon" />
@@ -127,7 +127,7 @@ function MainSectionOne() {
         <div className="section-header">
           <BsFillMortarboardFill className="cv__icon" />
         </div>
-        <div class="section-content">
+        <div className="section-content">
           <div className="edu">Front-end Web Development Bootcamp Certificate
             <p className="edu__dates">Nov 2022 - March 2023</p>
           </div>

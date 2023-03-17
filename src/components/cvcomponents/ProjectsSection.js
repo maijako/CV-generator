@@ -14,6 +14,23 @@ function ProjectsSection() {
                                                             deployedLink: "",
                                                             gitHubLink: ""
                                                         }]);
+    
+    const handleInputChange = (index, event) => {
+        let data = [...projectInputFields];
+        data[index][event.target.name] = event.target.value;
+        setProjectInputFields(data);
+    }
+
+    const addProjFields = () => {
+        let newField = {
+            projectTitle: "",
+            projectSummary: "",
+            skillsUsed: "",
+            deployedLink: "",
+            gitHubLink: ""
+        };
+        setProjectInputFields([...projectInputFields, newField]);
+    }
 
     return(
         <>
@@ -38,7 +55,7 @@ function ProjectsSection() {
                                 sx={{margin: "15px 0"}}
                                 name="projectTitle"
                                 value={input.projectTitle}
-                                // onChange={event => handleInputChange(index, event)}
+                                onChange={event => handleInputChange(index, event)}
                             />
 
                             <TextField
@@ -56,9 +73,9 @@ function ProjectsSection() {
                                 minRows={3}
                                 maxRows={8}
                                 sx={{width: "50%"}}
-                                // name="roleDetails"
-                                // value={input.roleDetails}
-                                // onChange={event => handleInputChange(index, event)}
+                                name="projectSummary"
+                                value={input.projectSummary}
+                                onChange={event => handleInputChange(index, event)}
                             />
 
                             <Autocomplete
@@ -91,9 +108,9 @@ function ProjectsSection() {
                                 placeholder="Enter Application URL"
                                 variant="outlined"
                                 sx={{margin: "15px 0"}}
-                                // name="instituteName"
-                                // value={input.instituteName}
-                                // onChange={event => handleInputChange(index, event)}
+                                name="deployedLink"
+                                value={input.deployedLink}
+                                onChange={event => handleInputChange(index, event)}
                             />
 
                             <TextField
@@ -109,14 +126,15 @@ function ProjectsSection() {
                                 placeholder="Enter Development URL"
                                 variant="outlined"
                                 sx={{margin: "15px 0"}}
-                                // name="instituteName"
-                                // value={input.instituteName}
-                                // onChange={event => handleInputChange(index, event)}
+                                name="gitHubLink"
+                                value={input.gitHubLink}
+                                onChange={event => handleInputChange(index, event)}
                             />
                         </div>
                     )
                 })
             }
+            <button onClick={addProjFields}>Add Project</button>
         </>
     );
 }

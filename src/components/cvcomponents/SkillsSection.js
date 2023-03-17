@@ -1,22 +1,9 @@
 import React from "react";
 import { TextField } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
+import skillsList from "./skills.json";
 
 function SkillsSection() {
-    const skillsList = [
-        { title: 'HTML'},
-        { title: 'CSS'},
-        { title: 'JavaScript'},
-        { title: 'Bootstrap'},
-        { title: 'jQuery'},
-        { title: 'Git and GitHub'},
-        { title: 'ReactJS'},
-        { title: 'Material UI'},
-        { title: 'Tailwind'},
-        { title: 'TypeScript'},
-        { title: 'Cloud Computing'},
-        { title: 'Amazon Web Services (AWS)'}
-    ];
 
     return (
         <>

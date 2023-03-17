@@ -1,10 +1,9 @@
 import React from "react";
-import { FaPhone } from "react-icons/fa";
-import { FaEnvelope } from "react-icons/fa";
+import { FaPhone, FaGithub, FaLinkedin, FaEnvelope, FaLink } from "react-icons/fa";
 import { ImLocation2 } from "react-icons/im";
 import { GiEarthAmerica } from "react-icons/gi";
-import { FaGithub } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
+import { BsGearFill, BsFillPersonFill, BsFillRocketTakeoffFill, BsBriefcaseFill, BsFillMortarboardFill } from "react-icons/bs";
+
 
 
 function MainSectionOne() {
@@ -28,14 +27,18 @@ function MainSectionOne() {
       </div>
 
       <div className="section">
-        <div className="section-header">Summary:</div>
+        <div className="section-header">
+          <BsFillPersonFill className="cv__icon" />
+        </div>
         <div className="section-content">
           <p>A highly skilled software engineer with over 5 years of experience developing web applications using various programming languages and frameworks.</p>
         </div>
       </div>
 
       <div className="section">
-        <div className="section-header">Technical skills:</div>
+        <div className="section-header">
+          <BsGearFill className="cv__icon" />
+        </div>
         <div className="section-skills">
           <ul className="skills-ul">
             <li className="skills-li">JavaScript</li>
@@ -51,9 +54,19 @@ function MainSectionOne() {
       </div>
 
       <div class="section">
-        <div class="section-header">Projects:</div>
+        <div className="section-header">
+          <BsFillRocketTakeoffFill className="cv__icon" />
+        </div>
         <div class="section-content">
-          <h2>Project 1</h2>
+          <div className="projects">Recipe App
+            <p>
+              <FaLink className="pro__icon" />
+              www.netlify.com</p>
+
+            <p>
+              <FaGithub className="pro__icon" />
+              www.github.com/water-tracker</p>
+          </div>
           <p>A web application that allows users to create and share recipes.</p>
           <ul>
             <li>Developed using React, Node.js, and MongoDB.</li>
@@ -61,7 +74,16 @@ function MainSectionOne() {
             <li>Deployed on AWS using Elastic Beanstalk.</li>
           </ul>
 
-          <h2>Project 2</h2>
+          <div className="projects">Water Tracker
+
+            <p>
+              <FaLink className="pro__icon" />
+              www.netlify.com</p>
+
+            <p>
+              <FaGithub className="pro__icon" />
+              www.github.com/water-tracker</p>
+          </div>
           <p>A mobile app that helps users track their daily water intake.</p>
           <ul>
             <li>Developed using React Native and Firebase.</li>
@@ -71,11 +93,16 @@ function MainSectionOne() {
         </div>
       </div>
 
-      <div class="section">
-        <div class="section-header">Experience:</div>
-        <div class="section-content">
-          <h2>Software Engineer at ABC Company</h2>
-          <p>June 2019 - Present</p>
+      <div className="section">
+        <div className="section-header">
+          <BsBriefcaseFill className="cv__icon" />
+        </div>
+        <div className="section-content">
+          <div className="job">CTO
+            <p className="dates">June 2019 - Present</p>
+          </div>
+
+          <p>Starfleet</p>
           <ul>
             <li>Developed and maintained web applications using React and Node.js.</li>
             <li>Collaborated with designers to implement UI/UX designs.</li>
@@ -83,8 +110,10 @@ function MainSectionOne() {
             <li>Optimized web applications for performance and scalability.</li>
           </ul>
 
-          <h2>Software Developer at XYZ Corporation</h2>
-          <p>January 2017 - June 2019</p>
+          <div className="job">Software Engineer
+            <p className="dates">June 2015 - June 2019</p>
+          </div>
+          <p>Starfleet</p>
           <ul>
             <li>Developed and maintained web applications using AngularJS and Java.</li>
             <li>Implemented REST APIs for mobile applications.</li>
@@ -94,15 +123,23 @@ function MainSectionOne() {
         </div>
       </div>
 
-      <div class="section">
-        <div class="section-header">Education:</div>
+      <div className="section">
+        <div className="section-header">
+          <BsFillMortarboardFill className="cv__icon" />
+        </div>
         <div class="section-content">
-          <h2>Bachelor of Science in Computer Science</h2>
-          <p>University of California, Los Angeles (UCLA)</p>
-          <p>September 2013 - June 2017</p>
+          <div className="edu">Front-end Web Development Bootcamp Certificate
+            <p className="edu__dates">Nov 2022 - March 2023</p>
+          </div>
+          <p className="school">EdX</p>
+
+
+          <div className="edu">BSc, Computer Science
+            <p className="edu__dates">June 2010 - June 2015</p>
+          </div>
+          <p className="school">Starfleet Academy</p>
         </div>
       </div>
-
     </>
   )
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+//import useAutocomplete from '@mui/base/useAutocomplete';
 import DescriptionIcon from '@mui/icons-material/Description';
 import TitleIcon from '@mui/icons-material/Title';
 import { TextField, InputAdornment, Autocomplete } from '@mui/material';
@@ -10,7 +11,7 @@ function ProjectsSection() {
     const [projectInputFields, setProjectInputFields] = useState([{
                                                             projectTitle: "",
                                                             projectSummary: "",
-                                                            skillsUsed: "",
+                                                            skillsUsed: null,
                                                             deployedLink: "",
                                                             gitHubLink: ""
                                                         }]);
@@ -19,6 +20,7 @@ function ProjectsSection() {
         let data = [...projectInputFields];
         data[index][event.target.name] = event.target.value;
         setProjectInputFields(data);
+        console.log(projectInputFields);
     }
 
     const addProjFields = () => {
@@ -83,15 +85,19 @@ function ProjectsSection() {
                                 id="skill-outlined"
                                 options={skillSet}
                                 getOptionLabel={(option) => option.title}
-                                
                                 filterSelectedOptions
-                                renderInput={(params) => (
-                                <TextField
-                                    {...params}
-                                    label="Skills Used"
-                                    placeholder="Select skills used"
-                                />
-                                )}
+                                renderInput={(params) =>(
+                                            <TextField
+                                                {...params}
+                                                label="Skills Used"
+                                                placeholder="Select skills used"
+                                                name="skillsUsed"
+                                            />
+                                        )}
+                                onChange={(event, values) => 
+                                {
+                                    projectInputFields[index].skillsUsed = values;
+                                }}
                                 sx={{margin: "15px 0", width: "50%"}}
                             />
 

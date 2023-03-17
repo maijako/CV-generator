@@ -3,17 +3,20 @@ import { FaPhone, FaGithub, FaLinkedin, FaEnvelope, FaLink } from "react-icons/f
 import { ImLocation2 } from "react-icons/im";
 import { GiEarthAmerica } from "react-icons/gi";
 import { BsGearFill, BsFillPersonFill, BsFillRocketTakeoffFill, BsBriefcaseFill, BsFillMortarboardFill } from "react-icons/bs";
-
+//import useSelector from react-redux
+import { useSelector } from 'react-redux';
 
 
 function MainSectionOne() {
+  const profile = useSelector(state => state.profile)//use the useSElector and store it in a profile const
+  console.log(profile)//the profile const is the passed down in the html 
   return (
     <>
       <header className="candidateName">
-        <h1>Miles O'Brien</h1>
+      <h1>{profile.firstName} {profile.lastName}</h1>
         <p className="contact__details">
-          <FaPhone className="header__icon" /> +44 789654321
-          <FaEnvelope className="header__icon" /> obrien@starfleet.com
+          <FaPhone className="header__icon" /> {profile.phone}
+          <FaEnvelope className="header__icon" /> {profile.email}
           <ImLocation2 className="header__icon" /> Deep Space 9
         </p>
       </header>

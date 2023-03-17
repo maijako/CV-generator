@@ -5,6 +5,7 @@ import { Container } from '@mui/material';
 import ExperienceSection from "./ExperienceSection";
 import ProfessionalSummary from "./ProfessionalSummary";
 import SkillsSection from "./SkillsSection";
+import ProjectsSection from "./ProjectsSection";
 
 function CVBuilderInfoPage() {
     return(
@@ -12,6 +13,7 @@ function CVBuilderInfoPage() {
             <BasicUserInfo />
             <ProfessionalSummary />
             <SkillsSection />
+            <ProjectsSection />
             <EducationSection />
             <ExperienceSection />
         </Container>

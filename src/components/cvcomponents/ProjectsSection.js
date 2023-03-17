@@ -1,7 +1,10 @@
 import React from "react";
 import DescriptionIcon from '@mui/icons-material/Description';
 import TitleIcon from '@mui/icons-material/Title';
-import { TextField, InputAdornment } from '@mui/material';
+import { TextField, InputAdornment, Autocomplete } from '@mui/material';
+import WebAssetIcon from '@mui/icons-material/WebAsset';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import skillSet from "./skills.json";
 
 function ProjectsSection() {
     return(
@@ -53,6 +56,59 @@ function ProjectsSection() {
                     sx={{width: "50%"}}
                     // name="roleDetails"
                     // value={input.roleDetails}
+                    // onChange={event => handleInputChange(index, event)}
+                />
+
+                <Autocomplete
+                    multiple
+                    id="skill-outlined"
+                    options={skillSet}
+                    getOptionLabel={(option) => option.title}
+                    
+                    filterSelectedOptions
+                    renderInput={(params) => (
+                    <TextField
+                        {...params}
+                        label="Skills Used"
+                        placeholder="Select skills used"
+                    />
+                    )}
+                    sx={{margin: "15px 0", width: "50%"}}
+                />
+
+                <TextField
+                    id="input-deployed-link"
+                    label="Application Website"
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <WebAssetIcon />
+                            </InputAdornment>
+                        ),
+                    }}
+                    placeholder="Enter Application URL"
+                    variant="outlined"
+                    sx={{margin: "15px 0"}}
+                    // name="instituteName"
+                    // value={input.instituteName}
+                    // onChange={event => handleInputChange(index, event)}
+                />
+
+                <TextField
+                    id="input-github-link"
+                    label="Development Link"
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <GitHubIcon />
+                            </InputAdornment>
+                        ),
+                    }}
+                    placeholder="Enter Development URL"
+                    variant="outlined"
+                    sx={{margin: "15px 0"}}
+                    // name="instituteName"
+                    // value={input.instituteName}
                     // onChange={event => handleInputChange(index, event)}
                 />
             </div>

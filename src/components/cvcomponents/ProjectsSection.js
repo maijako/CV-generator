@@ -6,6 +6,10 @@ import WebAssetIcon from '@mui/icons-material/WebAsset';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import skillSet from "./skills.json";
 
+//import useDispatch and useSElector hooks from react-redux into the form
+import { useDispatch, useSelector } from "react-redux";
+import { setProfile } from "../../state/profile";
+
 function ProjectsSection() {
     const [projectInputFields, setProjectInputFields] = useState([{
                                                             projectTitle: "",

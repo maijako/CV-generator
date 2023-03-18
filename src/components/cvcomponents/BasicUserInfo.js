@@ -102,6 +102,7 @@ function BasicUserInfo(props) {
           <TextField
             id="input-first-name"
             label="First Name"
+            name="firstName"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -121,6 +122,7 @@ function BasicUserInfo(props) {
           <TextField
             id="input-second-name"
             label="Last Name"
+            name="lastName"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -140,6 +142,7 @@ function BasicUserInfo(props) {
           <TextField
             id="input-email-address"
             label="Email ID"
+            name="email"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -159,6 +162,7 @@ function BasicUserInfo(props) {
           <TextField
             id="input-phone-number"
             label="Phone Number"
+            name="phone"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">

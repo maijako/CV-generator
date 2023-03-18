@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { render } from "react-dom";
+// import { render } from "react-dom";
 import { useReactToPrint } from "react-to-print";
 import CvOne from "../cv_designs/designOne/CvOne";
 
@@ -26,6 +26,6 @@ const PrintCV = () => {
   );
 };
 
-render(<PrintCV />, document.getElementById("root"));
+// render(<PrintCV />, document.getElementById("root"));
 
 export default PrintCV;

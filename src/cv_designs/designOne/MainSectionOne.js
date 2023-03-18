@@ -3,17 +3,22 @@ import { FaPhone, FaGithub, FaLinkedin, FaEnvelope, FaLink } from "react-icons/f
 import { ImLocation2 } from "react-icons/im";
 import { GiEarthAmerica } from "react-icons/gi";
 import { BsGearFill, BsFillPersonFill, BsFillRocketTakeoffFill, BsBriefcaseFill, BsFillMortarboardFill } from "react-icons/bs";
-
+//import useSelector from react-redux
+import { useSelector } from 'react-redux';
 
 
 function MainSectionOne() {
+  //use the useSElector and store it in a profile const
+  //the profile const is the passed down in the html 
+  const profile = useSelector(state => state.profile)
+  console.log(profile)
   return (
     <>
       <header className="candidateName">
-        <h1>Miles O'Brien</h1>
+      <h1>{profile.firstName} {profile.lastName}</h1>
         <p className="contact__details">
-          <FaPhone className="header__icon" /> +44 789654321
-          <FaEnvelope className="header__icon" /> obrien@starfleet.com
+          <FaPhone className="header__icon" /> {profile.phone}
+          <FaEnvelope className="header__icon" /> {profile.email}
           <ImLocation2 className="header__icon" /> Deep Space 9
         </p>
       </header>
@@ -53,11 +58,11 @@ function MainSectionOne() {
         </div>
       </div>
 
-      <div class="section">
+      <div className="section">
         <div className="section-header">
           <BsFillRocketTakeoffFill className="cv__icon" />
         </div>
-        <div class="section-content">
+        <div className="section-content">
           <div className="projects">Recipe App
             <p>
               <FaLink className="pro__icon" />
@@ -127,7 +132,7 @@ function MainSectionOne() {
         <div className="section-header">
           <BsFillMortarboardFill className="cv__icon" />
         </div>
-        <div class="section-content">
+        <div className="section-content">
           <div className="edu">Front-end Web Development Bootcamp Certificate
             <p className="edu__dates">Nov 2022 - March 2023</p>
           </div>

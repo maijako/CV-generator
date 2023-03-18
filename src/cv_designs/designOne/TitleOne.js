@@ -1,13 +1,13 @@
-import React from 'react'
+// import React from 'react';
 
-function TitleOne() {
-    return (
-        <header>
-        <h1>Your Name</h1>
-        <p>Software Engineer</p>
+// function TitleOne() {
+//     return (
+//         <header>
+//         <h1>Your Name</h1>
+//         <p>Software Engineer</p>
 
-      </header>
-    )
-}
+//       </header>
+//     )
+// }
 
-export default TitleOne
+// export default TitleOne

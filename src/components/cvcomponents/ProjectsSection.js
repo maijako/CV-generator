@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import DescriptionIcon from '@mui/icons-material/Description';
 import TitleIcon from '@mui/icons-material/Title';
 import { TextField, InputAdornment, Autocomplete } from '@mui/material';
@@ -8,7 +8,6 @@ import skillSet from "./skills.json";
 
 //import useDispatch and useSElector hooks from react-redux into the form
 import { useDispatch, useSelector } from "react-redux";
-//import { setProject, setProperty } from "../../state/project";
 import { 
     setNewProject, 
     setProjectTitle, 
@@ -19,17 +18,9 @@ import {
 } from "../../state/project";
 
 function ProjectsSection() {
-    // const [projectInputFields, setProjectInputFields] = useState([{
-    //                                                         projectTitle: "",
-    //                                                         projectSummary: "",
-    //                                                         skillsUsed: null,
-    //                                                         deployedLink: "",
-    //                                                         gitHubLink: ""
-    //                                                     }]);
 
     const selectProjects = state => state.project;
     const projects = useSelector(selectProjects);
-    //let project = useSelector(state => state.project[0]);
     const dispatch = useDispatch();
     
     const handleTitleChange = (event, projectIndex) => {
@@ -46,31 +37,11 @@ function ProjectsSection() {
         console.log(projects);
     };
 
-    const handleSkillsChange = (projectIndex, values) => {
-        dispatch(setSkillsUsed(projectIndex, values));
-    }
+    const handleSkillsChange = (projectIndex, values) => dispatch(setSkillsUsed(projectIndex, values));
 
-    const handleDeployedLinkChange = (event, projectIndex) => {
-        dispatch(setDeployedLink(projectIndex, event.target.value));
-    }
+    const handleDeployedLinkChange = (event, projectIndex) => dispatch(setDeployedLink(projectIndex, event.target.value));
 
-    const handleSourceLinkChange = (event, projectIndex) => {
-        dispatch(setGitHubLink(projectIndex, event.target.value));
-    }
-
- //   const handleInputChange = (index, event) => {
-    //     let data = [...project];
-    //     console.log("Data value");
-    // console.log(data);
-    // console.log(data[index][event.target.name]);
-        // data[index][event.target.name] = event.target.value;
-        // dispatch(setProject(data));
-//        dispatch(setProject({...project, [event.target.name]: event.target.value}));
-        // let data = [...projectInputFields];
-        // data[index][event.target.name] = event.target.value;
-        // setProjectInputFields(data);
-        // console.log(projectInputFields);
-//    }
+    const handleSourceLinkChange = (event, projectIndex) => dispatch(setGitHubLink(projectIndex, event.target.value));
 
     const addProjFields = () => {
         let newField = {
@@ -83,7 +54,6 @@ function ProjectsSection() {
         dispatch(setNewProject(newField));
         console.log("After adding new field");
         console.log(projects);
-        //setProjectInputFields([...projectInputFields, newField]);
     }
 
     return(
@@ -146,12 +116,7 @@ function ProjectsSection() {
                                                 name="skillsUsed"
                                             />
                                         )}
-                                onChange={(event, values) => 
-                                {
-                                    handleSkillsChange(index, values)
-                                    //project[0].skillsUsed = values;
-                                    // projectInputFields[index].skillsUsed = values;
-                                }}
+                                onChange={(event, values) => handleSkillsChange(index, values)}
                                 sx={{margin: "15px 0", width: "50%"}}
                             />
 

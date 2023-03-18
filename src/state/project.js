@@ -84,5 +84,5 @@ export const setGitHubLink = (projectIndex, projectSourceLink) => ({
       projectSourceLink
     }
 });
-//export const { setProject, setProperty } = projectSlice.actions;
+
 export default projectSlice.reducer;

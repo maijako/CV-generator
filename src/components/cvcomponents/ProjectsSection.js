@@ -8,40 +8,64 @@ import skillSet from "./skills.json";
 
 //import useDispatch and useSElector hooks from react-redux into the form
 import { useDispatch, useSelector } from "react-redux";
-import { setProfile } from "../../state/profile";
+//import { setProject, setProperty } from "../../state/project";
+import { setProjectTitle, setProjectSummary } from "../../state/project";
 
 function ProjectsSection() {
-    const [projectInputFields, setProjectInputFields] = useState([{
-                                                            projectTitle: "",
-                                                            projectSummary: "",
-                                                            skillsUsed: null,
-                                                            deployedLink: "",
-                                                            gitHubLink: ""
-                                                        }]);
-    
-    const handleInputChange = (index, event) => {
-        let data = [...projectInputFields];
-        data[index][event.target.name] = event.target.value;
-        setProjectInputFields(data);
-        console.log(projectInputFields);
-    }
+    // const [projectInputFields, setProjectInputFields] = useState([{
+    //                                                         projectTitle: "",
+    //                                                         projectSummary: "",
+    //                                                         skillsUsed: null,
+    //                                                         deployedLink: "",
+    //                                                         gitHubLink: ""
+    //                                                     }]);
 
-    const addProjFields = () => {
-        let newField = {
-            projectTitle: "",
-            projectSummary: "",
-            skillsUsed: "",
-            deployedLink: "",
-            gitHubLink: ""
-        };
-        setProjectInputFields([...projectInputFields, newField]);
-    }
+    const selectProjects = state => state.project;
+    const projects = useSelector(selectProjects);
+    //let project = useSelector(state => state.project[0]);
+    const dispatch = useDispatch();
+    
+    const handleTitleChange = (event, projectIndex) => {
+        const newTitle = event.target.value;
+        dispatch(setProjectTitle(projectIndex, newTitle));
+    };
+
+    const handleSummaryChange = (event, projectIndex) => {
+        const newSummary = event.target.value;
+        dispatch(setProjectSummary(projectIndex, newSummary));
+    };
+
+ //   const handleInputChange = (index, event) => {
+    //     let data = [...project];
+    //     console.log("Data value");
+    // console.log(data);
+    // console.log(data[index][event.target.name]);
+        // data[index][event.target.name] = event.target.value;
+        // dispatch(setProject(data));
+//        dispatch(setProject({...project, [event.target.name]: event.target.value}));
+        // let data = [...projectInputFields];
+        // data[index][event.target.name] = event.target.value;
+        // setProjectInputFields(data);
+        // console.log(projectInputFields);
+//    }
+
+    // const addProjFields = () => {
+    //     let newField = {
+    //         projectTitle: "",
+    //         projectSummary: "",
+    //         skillsUsed: "",
+    //         deployedLink: "",
+    //         gitHubLink: ""
+    //     };
+    //     dispatch(setProject([...project, newField]));
+    //     //setProjectInputFields([...projectInputFields, newField]);
+    // }
 
     return(
         <>
             <h3>Project Details</h3>
             {
-                projectInputFields.map((input, index) => {
+                projects.map((project, index) => {
                     return(
                         <div key={index} className="containerStyles">
             
@@ -59,8 +83,8 @@ function ProjectsSection() {
                                 variant="outlined"
                                 sx={{margin: "15px 0"}}
                                 name="projectTitle"
-                                value={input.projectTitle}
-                                onChange={event => handleInputChange(index, event)}
+                                value={project.projectTitle}
+                                onChange={event => handleTitleChange(event, index)}
                             />
 
                             <TextField
@@ -79,8 +103,8 @@ function ProjectsSection() {
                                 maxRows={8}
                                 sx={{width: "50%"}}
                                 name="projectSummary"
-                                value={input.projectSummary}
-                                onChange={event => handleInputChange(index, event)}
+                                value={project.projectSummary}
+                                onChange={event => handleSummaryChange(event, index)}
                             />
 
                             <Autocomplete
@@ -99,7 +123,8 @@ function ProjectsSection() {
                                         )}
                                 onChange={(event, values) => 
                                 {
-                                    projectInputFields[index].skillsUsed = values;
+                                    project[0].skillsUsed = values;
+                                    // projectInputFields[index].skillsUsed = values;
                                 }}
                                 sx={{margin: "15px 0", width: "50%"}}
                             />
@@ -118,8 +143,8 @@ function ProjectsSection() {
                                 variant="outlined"
                                 sx={{margin: "15px 0"}}
                                 name="deployedLink"
-                                value={input.deployedLink}
-                                onChange={event => handleInputChange(index, event)}
+                                value={project.deployedLink}
+                                //onChange={event => handleInputChange(0, event)}
                             />
 
                             <TextField
@@ -136,14 +161,14 @@ function ProjectsSection() {
                                 variant="outlined"
                                 sx={{margin: "15px 0"}}
                                 name="gitHubLink"
-                                value={input.gitHubLink}
-                                onChange={event => handleInputChange(index, event)}
+                                value={project.gitHubLink}
+                                //onChange={event => handleInputChange(0, event)}
                             />
                         </div>
                     )
                 })
-            }
-            <button onClick={addProjFields}>Add Project</button>
+            } 
+            {/* <button onClick={addProjFields}>Add Project</button> */}
         </>
     );
 }

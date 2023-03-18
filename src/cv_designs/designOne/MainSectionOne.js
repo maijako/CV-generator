@@ -8,8 +8,10 @@ import { useSelector } from 'react-redux';
 
 
 function MainSectionOne() {
-  const profile = useSelector(state => state.profile)//use the useSElector and store it in a profile const
-  console.log(profile)//the profile const is the passed down in the html 
+  //use the useSElector and store it in a profile const
+  //the profile const is the passed down in the html 
+  const profile = useSelector(state => state.profile)
+  console.log(profile)
   return (
     <>
       <header className="candidateName">

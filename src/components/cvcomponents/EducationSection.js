@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
@@ -20,6 +20,11 @@ function EducationSection() {
       qualificationVal: "",
       startDate: "",
       endDate: "",
+      errors: {
+        instituteName: "",
+        courseTitle: "",
+        qualificationVal:"",
+      },
     },
   ]);
 
@@ -48,22 +53,32 @@ function EducationSection() {
     );
   }, [educationInputFields]);
 
+  const validateInput = (name, value) => {
+    let errorMessage = "";
+    if (!value) {
+      errorMessage = "This field is required.";
+    }
+    return errorMessage;
+  };
+
   const handleInputChange = (index, event) => {
     let data = [...educationInputFields];
-
     if (event.target !== undefined) {
       data[index][event.target.name] = event.target.value;
+      data[index].errors[event.target.name] = validateInput(
+        event.target.name,
+        event.target.value
+      );
       setEducationInputFields(data);
-      console.log(educationInputFields);
     }
   };
 
-  const handleFocus = (index, event) => {
-    let data = [...experienceInputFields];
-    data[index].errors[event.target.name] = "";
-    setExperienceInputFields(data);
-  };
 
+  const handleFocus = (index, event) => {
+    let data = [...educationInputFields];
+    data[index].errors[event.target.name] = "";
+    setEducationInputFields(data);
+  };
 
   const addEdFields = () => {
     let newField = {
@@ -99,6 +114,9 @@ function EducationSection() {
                 name="instituteName"
                 value={input.instituteName}
                 onChange={(event) => handleInputChange(index, event)}
+                onFocus={(event) => handleFocus(index, event)}
+                error={Boolean(input.errors.instituteName)}
+                helperText={input.errors.instituteName}
               />
               <TextField
                 id="input-title-name"
@@ -116,6 +134,9 @@ function EducationSection() {
                 name="courseTitle"
                 value={input.courseTitle}
                 onChange={(event) => handleInputChange(index, event)}
+                onFocus={(event) => handleFocus(index, event)}
+                error={Boolean(input.errors.courseTitle)}
+                helperText={input.errors.courseTitle}
               />
               <FormControl sx={{ minWidth: 150 }}>
                 <InputLabel id="selectedQualificationLabel">
@@ -128,6 +149,9 @@ function EducationSection() {
                   name="qualificationVal"
                   value={input.qualificationVal}
                   onChange={(event) => handleInputChange(index, event)}
+                  onFocus={(event) => handleFocus(index, event)}
+                  error={Boolean(input.errors.qualificationVal)}
+                  helperText={input.errors.qualificationVal}
                 >
                   <MenuItem value={"BA"}>BA</MenuItem>
                   <MenuItem value={"BSc"}>BSc</MenuItem>
@@ -147,9 +171,19 @@ function EducationSection() {
                 views={["month", "year"]}
                 name="startDate"
                 onChange={(newValue) => {
-                  educationInputFields[index].startDate =
-                    newValue.format("MMM YYYY");
-                }}
+                    const data = [...educationInputFields];
+                    data[index].startDate = newValue.format("MMM YYYY");
+                    if (data[index].endDate && newValue > data[index].endDate) {
+                      data[index].errors.startDate =
+                        "Start date cannot be after end date.";
+                    } else {
+                      data[index].errors.startDate = "";
+                    }
+                    setEducationInputFields(data);
+                  }}
+                  error={Boolean(input.errors.startDate)}
+                  helperText={input.errors.startDate}
+                
               />
 
               <DatePicker
@@ -159,11 +193,21 @@ function EducationSection() {
                 views={["month", "year"]}
                 name="endDate"
                 onChange={(newValue) => {
-                  console.log(educationInputFields);
-                  educationInputFields[index].endDate =
-                    newValue.format("MMM YYYY");
-                  console.log(educationInputFields[index].endDate);
-                }}
+                    const data = [...educationInputFields];
+                    data[index].endDate = newValue.format("MMM YYYY");
+                    if (
+                      data[index].startDate &&
+                      newValue < data[index].startDate
+                    ) {
+                      data[index].errors.endDate =
+                        "End date cannot be before start date.";
+                    } else {
+                      data[index].errors.endDate = "";
+                    }
+                    setEducationInputFields(data);
+                  }}
+                  error={Boolean(input.errors.endDate)}
+                  helperText={input.errors.endDate}
               />
             </LocalizationProvider>
           </div>
@@ -171,6 +215,9 @@ function EducationSection() {
       })}
 
       <button onClick={addEdFields}>Add Education</button>
+      <button disabled={!formValid} onClick={() => {}}>
+        Submit
+      </button>
     </>
   );
 }

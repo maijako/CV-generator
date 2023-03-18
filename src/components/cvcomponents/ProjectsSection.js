@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import DescriptionIcon from '@mui/icons-material/Description';
 import TitleIcon from '@mui/icons-material/Title';
 import { TextField, InputAdornment, Autocomplete } from '@mui/material';
@@ -6,38 +6,61 @@ import WebAssetIcon from '@mui/icons-material/WebAsset';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import skillSet from "./skills.json";
 
+//import useDispatch and useSElector hooks from react-redux into the form
+import { useDispatch, useSelector } from "react-redux";
+import { 
+    setNewProject, 
+    setProjectTitle, 
+    setProjectSummary, 
+    setSkillsUsed, 
+    setDeployedLink,  
+    setGitHubLink
+} from "../../state/project";
+
 function ProjectsSection() {
-    const [projectInputFields, setProjectInputFields] = useState([{
-                                                            projectTitle: "",
-                                                            projectSummary: "",
-                                                            skillsUsed: null,
-                                                            deployedLink: "",
-                                                            gitHubLink: ""
-                                                        }]);
+
+    const selectProjects = state => state.project;
+    const projects = useSelector(selectProjects);
+    const dispatch = useDispatch();
     
-    const handleInputChange = (index, event) => {
-        let data = [...projectInputFields];
-        data[index][event.target.name] = event.target.value;
-        setProjectInputFields(data);
-        console.log(projectInputFields);
-    }
+    const handleTitleChange = (event, projectIndex) => {
+        const newTitle = event.target.value;
+        dispatch(setProjectTitle(projectIndex, newTitle));
+        console.log("After Title Change");
+        console.log(projects);
+    };
+
+    const handleSummaryChange = (event, projectIndex) => {
+        const newSummary = event.target.value;
+        dispatch(setProjectSummary(projectIndex, newSummary));
+        console.log("After Summary Change");
+        console.log(projects);
+    };
+
+    const handleSkillsChange = (projectIndex, values) => dispatch(setSkillsUsed(projectIndex, values));
+
+    const handleDeployedLinkChange = (event, projectIndex) => dispatch(setDeployedLink(projectIndex, event.target.value));
+
+    const handleSourceLinkChange = (event, projectIndex) => dispatch(setGitHubLink(projectIndex, event.target.value));
 
     const addProjFields = () => {
         let newField = {
             projectTitle: "",
             projectSummary: "",
-            skillsUsed: "",
+            skillsUsed: [],
             deployedLink: "",
             gitHubLink: ""
         };
-        setProjectInputFields([...projectInputFields, newField]);
+        dispatch(setNewProject(newField));
+        console.log("After adding new field");
+        console.log(projects);
     }
 
     return(
         <>
             <h3>Project Details</h3>
             {
-                projectInputFields.map((input, index) => {
+                projects.map((project, index) => {
                     return(
                         <div key={index} className="containerStyles">
             
@@ -55,8 +78,8 @@ function ProjectsSection() {
                                 variant="outlined"
                                 sx={{margin: "15px 0"}}
                                 name="projectTitle"
-                                value={input.projectTitle}
-                                onChange={event => handleInputChange(index, event)}
+                                value={project.projectTitle}
+                                onChange={event => handleTitleChange(event, index)}
                             />
 
                             <TextField
@@ -75,8 +98,8 @@ function ProjectsSection() {
                                 maxRows={8}
                                 sx={{width: "50%"}}
                                 name="projectSummary"
-                                value={input.projectSummary}
-                                onChange={event => handleInputChange(index, event)}
+                                value={project.projectSummary}
+                                onChange={event => handleSummaryChange(event, index)}
                             />
 
                             <Autocomplete
@@ -93,10 +116,7 @@ function ProjectsSection() {
                                                 name="skillsUsed"
                                             />
                                         )}
-                                onChange={(event, values) => 
-                                {
-                                    projectInputFields[index].skillsUsed = values;
-                                }}
+                                onChange={(event, values) => handleSkillsChange(index, values)}
                                 sx={{margin: "15px 0", width: "50%"}}
                             />
 
@@ -114,8 +134,8 @@ function ProjectsSection() {
                                 variant="outlined"
                                 sx={{margin: "15px 0"}}
                                 name="deployedLink"
-                                value={input.deployedLink}
-                                onChange={event => handleInputChange(index, event)}
+                                value={project.deployedLink}
+                                onChange={event => handleDeployedLinkChange(event, index)}
                             />
 
                             <TextField
@@ -132,13 +152,13 @@ function ProjectsSection() {
                                 variant="outlined"
                                 sx={{margin: "15px 0"}}
                                 name="gitHubLink"
-                                value={input.gitHubLink}
-                                onChange={event => handleInputChange(index, event)}
+                                value={project.gitHubLink}
+                                onChange={event => handleSourceLinkChange(event, index)}
                             />
                         </div>
                     )
                 })
-            }
+            } 
             <button onClick={addProjFields}>Add Project</button>
         </>
     );

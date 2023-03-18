@@ -10,8 +10,10 @@ import { useSelector } from 'react-redux';
 function MainSectionOne() {
   //use the useSElector and store it in a profile const
   //the profile const is the passed down in the html 
-  const profile = useSelector(state => state.profile)
-  console.log(profile)
+  const profile = useSelector(state => state.profile);
+  console.log(profile);
+
+  const projects = useSelector(state => state.project);
   return (
     <>
       <header className="candidateName">
@@ -63,6 +65,29 @@ function MainSectionOne() {
           <BsFillRocketTakeoffFill className="cv__icon" />
         </div>
         <div className="section-content">
+
+          {
+            projects.map((project, index) => (
+              <div key={index}>
+                <div className="projects">{project.projectTitle}
+                  <p>
+                    <FaLink className="pro__icon" />
+                    {project.deployedLink}</p>
+
+                  <p>
+                    <FaGithub className="pro__icon" />
+                    {project.gitHubLink}</p>
+                </div>
+                <p>{project.projectSummary}</p>
+                <p>Skills Used:</p>
+                <ul>
+                  {
+                    project.skillsUsed.map((skill, skillIndex) => (<li>{skill.title}</li>))
+                  }
+                </ul>
+              </div>
+            ))
+          }
           <div className="projects">Recipe App
             <p>
               <FaLink className="pro__icon" />

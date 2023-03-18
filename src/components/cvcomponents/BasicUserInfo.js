@@ -11,7 +11,7 @@ import { setProfile } from "../../state/profile";
 //pass the state.profile down as props in Basic User Info
 //store useSelector and useDispatch in variables
 
-function BasicUserInfo(props) {
+function BasicUserInfo() {
 
   const profile = useSelector(state => state.profile)
   const dispatch = useDispatch();
@@ -58,26 +58,26 @@ function BasicUserInfo(props) {
 
   const validateForm = () => {
     let valid = true;
-    if (!props.profile.firstName) {
+    if (!profile.firstName) {
       setFirstNameError("Please enter your first name.");
       valid = false;
     } else {
       setFirstNameError("");
     }
     
-    if (!props.profile.lastName) {
+    if (!profile.lastName) {
       setLastNameError("Please enter your last name.");
       valid = false;
     } else {
       setLastNameError("");
     }
-    if (!props.profile.email || !/\S+@\S+\.\S+/.test(props.profile.email)) {
+    if (!profile.email || !/\S+@\S+\.\S+/.test(profile.email)) {
       setEmailError("Please enter a valid email address.");
       valid = false;
     } else {
       setEmailError("");
     }
-    if (!props.profile.phone || !/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/.test(props.profile.phone)) {
+    if (!profile.phone || !/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/.test(profile.phone)) {
       setPhoneError("Please enter a valid phone number.");
       valid = false;
     } else {
@@ -102,6 +102,7 @@ function BasicUserInfo(props) {
           <TextField
             id="input-first-name"
             label="First Name"
+            name="firstName"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -121,6 +122,7 @@ function BasicUserInfo(props) {
           <TextField
             id="input-second-name"
             label="Last Name"
+            name="lastName"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -140,6 +142,7 @@ function BasicUserInfo(props) {
           <TextField
             id="input-email-address"
             label="Email ID"
+            name="email"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -159,6 +162,7 @@ function BasicUserInfo(props) {
           <TextField
             id="input-phone-number"
             label="Phone Number"
+            name="phone"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">

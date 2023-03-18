@@ -22,6 +22,18 @@ const projectSlice = createSlice({
         setNewProject(state, action) {
             const { newProject } = action.payload;
             state.push(newProject);
+        },
+        setSkillsUsed(state, action) {
+            const { projectIndex, projectSkills } = action.payload;
+            state[projectIndex].skillsUsed = projectSkills;
+        },
+        setDeployedLink(state, action) {
+            const { projectIndex, projectWebsite } = action.payload;
+            state[projectIndex].deployedLink = projectWebsite;
+        },
+        setGitHubLink(state, action) {
+            const { projectIndex, projectSourceLink } = action.payload;
+            state[projectIndex].gitHubLink = projectSourceLink;
         }
     }
 })
@@ -46,6 +58,30 @@ export const setProjectSummary = (projectIndex, projectSummary) => ({
     payload: {
       projectIndex,
       projectSummary
+    }
+});
+
+export const setSkillsUsed = (projectIndex, projectSkills) => ({
+    type: 'project/setSkillsUsed',
+    payload: {
+      projectIndex,
+      projectSkills
+    }
+});
+
+export const setDeployedLink = (projectIndex, projectWebsite) => ({
+    type: 'project/setDeployedLink',
+    payload: {
+      projectIndex,
+      projectWebsite
+    }
+});
+
+export const setGitHubLink = (projectIndex, projectSourceLink) => ({
+    type: 'project/setGitHubLink',
+    payload: {
+      projectIndex,
+      projectSourceLink
     }
 });
 //export const { setProject, setProperty } = projectSlice.actions;

@@ -9,7 +9,14 @@ import skillSet from "./skills.json";
 //import useDispatch and useSElector hooks from react-redux into the form
 import { useDispatch, useSelector } from "react-redux";
 //import { setProject, setProperty } from "../../state/project";
-import { setNewProject, setProjectTitle, setProjectSummary } from "../../state/project";
+import { 
+    setNewProject, 
+    setProjectTitle, 
+    setProjectSummary, 
+    setSkillsUsed, 
+    setDeployedLink,  
+    setGitHubLink
+} from "../../state/project";
 
 function ProjectsSection() {
     // const [projectInputFields, setProjectInputFields] = useState([{
@@ -39,6 +46,18 @@ function ProjectsSection() {
         console.log(projects);
     };
 
+    const handleSkillsChange = (projectIndex, values) => {
+        dispatch(setSkillsUsed(projectIndex, values));
+    }
+
+    const handleDeployedLinkChange = (event, projectIndex) => {
+        dispatch(setDeployedLink(projectIndex, event.target.value));
+    }
+
+    const handleSourceLinkChange = (event, projectIndex) => {
+        dispatch(setGitHubLink(projectIndex, event.target.value));
+    }
+
  //   const handleInputChange = (index, event) => {
     //     let data = [...project];
     //     console.log("Data value");
@@ -57,7 +76,7 @@ function ProjectsSection() {
         let newField = {
             projectTitle: "",
             projectSummary: "",
-            skillsUsed: "",
+            skillsUsed: null,
             deployedLink: "",
             gitHubLink: ""
         };
@@ -129,7 +148,8 @@ function ProjectsSection() {
                                         )}
                                 onChange={(event, values) => 
                                 {
-                                    project[0].skillsUsed = values;
+                                    handleSkillsChange(index, values)
+                                    //project[0].skillsUsed = values;
                                     // projectInputFields[index].skillsUsed = values;
                                 }}
                                 sx={{margin: "15px 0", width: "50%"}}
@@ -150,7 +170,7 @@ function ProjectsSection() {
                                 sx={{margin: "15px 0"}}
                                 name="deployedLink"
                                 value={project.deployedLink}
-                                //onChange={event => handleInputChange(0, event)}
+                                onChange={event => handleDeployedLinkChange(event, index)}
                             />
 
                             <TextField
@@ -168,7 +188,7 @@ function ProjectsSection() {
                                 sx={{margin: "15px 0"}}
                                 name="gitHubLink"
                                 value={project.gitHubLink}
-                                //onChange={event => handleInputChange(0, event)}
+                                onChange={event => handleSourceLinkChange(event, index)}
                             />
                         </div>
                     )

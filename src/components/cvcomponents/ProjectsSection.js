@@ -47,7 +47,7 @@ function ProjectsSection() {
         let newField = {
             projectTitle: "",
             projectSummary: "",
-            skillsUsed: null,
+            skillsUsed: [],
             deployedLink: "",
             gitHubLink: ""
         };

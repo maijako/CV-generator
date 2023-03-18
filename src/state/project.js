@@ -5,7 +5,7 @@ const projectSlice = createSlice({
     initialState: [{
       projectTitle: "",
       projectSummary: "",
-      skillsUsed: null,
+      skillsUsed: [],
       deployedLink: "",
       gitHubLink: ""
     }],

@@ -18,9 +18,20 @@ const projectSlice = createSlice({
         setProjectSummary(state, action) {
             const { projectIndex, projectSummary } = action.payload;
             state[projectIndex].projectSummary = projectSummary;
+        },
+        setNewProject(state, action) {
+            const { newProject } = action.payload;
+            state.push(newProject);
         }
     }
 })
+
+export const setNewProject = (newProject) => ({
+    type: 'project/setNewProject',
+    payload: {
+        newProject
+    }
+});
 
 export const setProjectTitle = (projectIndex, projectTitle) => ({
     type: 'project/setProjectTitle',
@@ -28,7 +39,7 @@ export const setProjectTitle = (projectIndex, projectTitle) => ({
       projectIndex,
       projectTitle
     }
-  });
+});
   
 export const setProjectSummary = (projectIndex, projectSummary) => ({
     type: 'project/setProjectSummary',

@@ -9,7 +9,7 @@ import skillSet from "./skills.json";
 //import useDispatch and useSElector hooks from react-redux into the form
 import { useDispatch, useSelector } from "react-redux";
 //import { setProject, setProperty } from "../../state/project";
-import { setProjectTitle, setProjectSummary } from "../../state/project";
+import { setNewProject, setProjectTitle, setProjectSummary } from "../../state/project";
 
 function ProjectsSection() {
     // const [projectInputFields, setProjectInputFields] = useState([{
@@ -28,11 +28,15 @@ function ProjectsSection() {
     const handleTitleChange = (event, projectIndex) => {
         const newTitle = event.target.value;
         dispatch(setProjectTitle(projectIndex, newTitle));
+        console.log("After Title Change");
+        console.log(projects);
     };
 
     const handleSummaryChange = (event, projectIndex) => {
         const newSummary = event.target.value;
         dispatch(setProjectSummary(projectIndex, newSummary));
+        console.log("After Summary Change");
+        console.log(projects);
     };
 
  //   const handleInputChange = (index, event) => {
@@ -49,17 +53,19 @@ function ProjectsSection() {
         // console.log(projectInputFields);
 //    }
 
-    // const addProjFields = () => {
-    //     let newField = {
-    //         projectTitle: "",
-    //         projectSummary: "",
-    //         skillsUsed: "",
-    //         deployedLink: "",
-    //         gitHubLink: ""
-    //     };
-    //     dispatch(setProject([...project, newField]));
-    //     //setProjectInputFields([...projectInputFields, newField]);
-    // }
+    const addProjFields = () => {
+        let newField = {
+            projectTitle: "",
+            projectSummary: "",
+            skillsUsed: "",
+            deployedLink: "",
+            gitHubLink: ""
+        };
+        dispatch(setNewProject(newField));
+        console.log("After adding new field");
+        console.log(projects);
+        //setProjectInputFields([...projectInputFields, newField]);
+    }
 
     return(
         <>
@@ -168,7 +174,7 @@ function ProjectsSection() {
                     )
                 })
             } 
-            {/* <button onClick={addProjFields}>Add Project</button> */}
+            <button onClick={addProjFields}>Add Project</button>
         </>
     );
 }

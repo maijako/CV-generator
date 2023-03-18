@@ -9,8 +9,10 @@ import { setProfile } from "../../state/profile";
 
 
 //pass the state.profile down as props in Basic User Info
-function BasicUserInfo(props) {
 //store useSelector and useDispatch in variables
+
+function BasicUserInfo(props) {
+
   const profile = useSelector(state => state.profile)
   const dispatch = useDispatch();
   const handleChange = (e) => {
@@ -21,10 +23,12 @@ function BasicUserInfo(props) {
   // const [lastName, setLastName] = useState("");
   // const [email, setEmail] = useState("");
   // const [phone, setPhone] = useState("");
+
   const [firstNameError, setFirstNameError] = useState("");
   const [lastNameError, setLastNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
+
   // const handleFirstNameChange = (event) => {
   //   setFirstName(event.target.value);
 
@@ -38,6 +42,7 @@ function BasicUserInfo(props) {
   // const handlePhoneChange = (event) => {
   //   setPhone(event.target.value);
   // };
+
   const handleFieldFocus = (field) => {
     if (field === "firstName") {
       setFirstNameError("");
@@ -49,16 +54,17 @@ function BasicUserInfo(props) {
       setPhoneError("");
     }
   };
+    //accessing all values below via profile reducer, replacing handle[uniqueName]Change with 'handleChange'
+
   const validateForm = () => {
     let valid = true;
-    //adding accessing all values below via profile reducer
-    if (!profile.firstName) {
+    if (!props.profile.firstName) {
       setFirstNameError("Please enter your first name.");
       valid = false;
     } else {
       setFirstNameError("");
     }
-    //why is the below accessed via props but the above is only accessed via profile?
+    
     if (!props.profile.lastName) {
       setLastNameError("Please enter your last name.");
       valid = false;
@@ -105,9 +111,9 @@ function BasicUserInfo(props) {
             }}
             placeholder="Enter First Name"
             variant="outlined"
-            sx={textFieldStyles}
-            value={profile.firstName} //this is now accessed via profile reducer
-            onChange={handleChange} //this is now just 'handleChange' not 'handleFirstNameChange'
+            // sx={textFieldStyles}
+            value={profile.firstName} 
+            onChange={(e) => handleChange(e)} //changed from 'onChange={handleChange}'
             onFocus={() => handleFieldFocus("firstName")}
             error={!!firstNameError}
             helperText={firstNameError}
@@ -125,8 +131,8 @@ function BasicUserInfo(props) {
             placeholder="Enter Last Name"
             variant="outlined"
             sx={textFieldStyles}
-            value={profile.lastName} //accessing lastName via profile reducer
-            onChange={handleChange} //this is now just 'handleChange' not 'handleLastNameChange'
+            value={profile.lastName} 
+            onChange={handleChange} 
             onFocus={() => handleFieldFocus("lastName")}
             error={!!lastNameError}
             helperText={lastNameError}
@@ -144,8 +150,8 @@ function BasicUserInfo(props) {
             placeholder="Enter Email Address"
             variant="outlined"
             sx={textFieldStyles}
-            value={profile.email} //accessing email via profile reducer
-            onChange={handleChange} //this is now just 'handleChange', not 'handleEmailChange'
+            value={profile.email} 
+            onChange={handleChange} 
             onFocus={() => handleFieldFocus("email")}
             error={!!emailError}
             helperText={emailError}
@@ -163,8 +169,8 @@ function BasicUserInfo(props) {
             placeholder="Enter Phone Number"
             variant="outlined"
             sx={textFieldStyles}
-            value={profile.phone} //we are now accessing phone from profile reducer 
-            onChange={handleChange} //this is now just 'handleChange', not 'handlePhoneChange'
+            value={profile.phone} 
+            onChange={handleChange} 
             onFocus={() => handleFieldFocus("phone")}
             error={!!phoneError}
             helperText={phoneError}

@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Configuration, OpenAIApi} from "openai";
 import APIKEY from "../APIKey.json";
-//import GPTResponse from "./components/GPTResponse";
 
 function ChatGPTAI() {
   const [result, setResult] = useState("");
@@ -16,15 +15,20 @@ function ChatGPTAI() {
     //const getResponse = async () => {
       try{
         const respObj = await openai.createCompletion({
-          "model": "text-curie-001",
-          "prompt": "Write a professional summary for Front End Developer",
-          "max_tokens": 7,
-          "temperature": 0
+            model: "text-davinci-003",
+            prompt: "Write a professional summary for front end development",
+            temperature: 0.6,
+            max_tokens: 10,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0
         });
 
-        console.log("Response object: "+JSON.stringify(respObj));
-        console.log("Response object: "+respObj["data"]["choices"][0]["text"]);
-        //setResult(response)
+        console.log("Response object: ");
+        console.log(respObj);
+        console.log("Data:");
+        console.log(respObj["data"]["choices"][0]["text"]);
+        setResult(respObj["data"]["choices"][0]["text"]);
       }catch(error){
         console.error(error);
       }
@@ -34,22 +38,11 @@ function ChatGPTAI() {
     <div>
       <h3>This website is for testing the gpt responses</h3>
       <button onClick={getResponse}>Genterate Response</button>
-      {/* <GPTResponse result={result}/> */}
+      <p>{result}</p>
     </div>
   );
 }
 
+// Generate a summary that elaborates my unique selling points and sets me apart from other candidates, using the following details:\n5 years experience in cutomer service.\nCurrently looking for a role in software development.\nCompleted a bootcamp in front end web development.
+
 export default ChatGPTAI;
-
-// useEffect(() => {
-//   const getUsers = async () => {
-//     const users = await fetchUsers();
-//     setUsers(users);
-//   };
-
-//   getUsers(); // run it, run it
-
-//   return () => {
-//     // this now gets called when the component unmounts
-//   };
-// }, []);

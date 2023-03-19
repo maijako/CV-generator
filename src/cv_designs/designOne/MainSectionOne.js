@@ -13,6 +13,7 @@ function MainSectionOne() {
   console.log(profile);
   const projects = useSelector(state => state.project);
   const technologies = useSelector(state => state.technologies.technologies);
+  const summary = useSelector(state => state.summary.summary);
 
 
   return (
@@ -39,7 +40,8 @@ function MainSectionOne() {
           <BsFillPersonFill className="cv__icon" />
         </div>
         <div className="section-content">
-          <p>A highly skilled software engineer with over 5 years of experience developing web applications using various programming languages and frameworks.</p>
+          {/* <p>A highly skilled software engineer with over 5 years of experience developing web applications using various programming languages and frameworks.</p> */}
+          <p>{summary}</p>
         </div>
       </div>
 

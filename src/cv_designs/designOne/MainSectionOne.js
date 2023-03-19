@@ -176,7 +176,6 @@ function MainSectionOne() {
               </ul>
             </div>
           ))}
-          {/* ... */}
         </div>
       </div>
 

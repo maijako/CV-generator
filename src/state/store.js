@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import profileReducer from './profile';
 import projectReducer from './project';
-// import filtersReducer from '../features/filters/filtersSlice'
+import skillsReducer from './skills';
+//import reducers here
 
 export const store = configureStore({
   reducer: {
     profile: profileReducer,
-    project: projectReducer
-    // filters: filtersReducer
+    project: projectReducer,
+    skills: skillsReducer,
+   //add reducers here
   }
 })

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 //redux imports
 import { useDispatch, useSelector } from "react-redux";
-import { setExperiences } from "../state/experience";
+import { setExperiences } from "../../state/experience";
 import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import BusinessIcon from "@mui/icons-material/Business";

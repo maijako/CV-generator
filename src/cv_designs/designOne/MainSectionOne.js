@@ -14,12 +14,13 @@ function MainSectionOne() {
   const projects = useSelector(state => state.project);
   const technologies = useSelector(state => state.technologies.technologies);
   const summary = useSelector(state => state.summary.summary);
+  const experienceDetails = useSelector(state => state.experience.experiences);
 
 
   return (
     <>
       <header className="candidateName">
-      <h1>{profile.firstName} {profile.lastName}</h1>
+        <h1>{profile.firstName} {profile.lastName}</h1>
         <p className="contact__details">
           <FaPhone className="header__icon" /> {profile.phone}
           <FaEnvelope className="header__icon" /> {profile.email}
@@ -129,7 +130,7 @@ function MainSectionOne() {
         </div>
       </div>
 
-      <div className="section">
+      {/* <div className="section">
         <div className="section-header">
           <BsBriefcaseFill className="cv__icon" />
         </div>
@@ -156,6 +157,26 @@ function MainSectionOne() {
             <li>Created and executed test plans.</li>
             <li>Provided technical support to clients.</li>
           </ul>
+        </div>
+      </div> */}
+
+      <div className="section">
+        <div className="section-header">
+          <BsBriefcaseFill className="cv__icon" />
+        </div>
+        <div className="section-content">
+          {experienceDetails.map((experience, index) => (
+            <div key={index}>
+              <div className="job">{experience.jotTitle}
+                <p className="dates">{experience.startDate} - {experience.endDate}</p>
+              </div>
+              <p>{experience.companyName}</p>
+              <ul>
+                <li>{experience.roleDetails}</li>
+              </ul>
+            </div>
+          ))}
+          {/* ... */}
         </div>
       </div>
 

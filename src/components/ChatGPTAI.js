@@ -14,6 +14,11 @@ function ChatGPTAI() {
 
     const [open, setOpen] = useState(false);
     const [numPrevExperience, setNumPrevExperience] = useState(0);
+    const [promptValues, setPromptValues] = useState({
+                                                    prevRole: "",
+                                                    jobRole: "",
+                                                    relExpEdu: ""
+                                                })
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
@@ -41,6 +46,11 @@ function ChatGPTAI() {
             setNumPrevExperience(value);
         }
         
+    }
+
+    const handlePromptValues = (event) => {
+        setPromptValues({...promptValues, [event.target.name]: event.target.value})
+        console.log(promptValues);
     }
     const dispatch = useDispatch();
     const configuration = new Configuration({
@@ -89,6 +99,8 @@ function ChatGPTAI() {
                 name="prevRole"
                 placeholder="Enter Previous Role"
                 variant="outlined"
+                value={promptValues.prevRole}
+                onChange={(event) => handlePromptValues(event)}
                 sx={{ margin: "15px 0" }}
             />
 
@@ -100,6 +112,28 @@ function ChatGPTAI() {
                 variant="outlined"
                 value={numPrevExperience}
                 onChange={(event) => handlePrevExperience(event)}
+                sx={{ margin: "15px 0" }}
+            />
+
+            <TextField
+                id="input-job-role"
+                label="Job Role"
+                name="jobRole"
+                placeholder="Enter Job Role To Apply"
+                variant="outlined"
+                value={promptValues.jobRole}
+                onChange={(event) => handlePromptValues(event)}
+                sx={{ margin: "15px 0" }}
+            />
+
+            <TextField
+                id="input-expedu-role"
+                label="Relavant Experience/Education"
+                name="relExpEdu"
+                placeholder="Enter Relavent Experience or Education for the role"
+                variant="outlined"
+                value={promptValues.relExpEdu}
+                onChange={(event) => handlePromptValues(event)}
                 sx={{ margin: "15px 0" }}
             />
         </Box>

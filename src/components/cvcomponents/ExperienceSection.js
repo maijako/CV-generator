@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
+//redux imports
+import { useDispatch, useSelector } from "react-redux";
+import { setExperiences } from "../state/experience";
 import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import BusinessIcon from "@mui/icons-material/Business";
 import BadgeIcon from "@mui/icons-material/Badge";
 import { TextField, InputAdornment } from "@mui/material";
 import "./cv-component-styles.css";
+
 
 function ExperienceSection() {
   const [experienceInputFields, setExperienceInputFields] = useState([
@@ -22,6 +26,16 @@ function ExperienceSection() {
   ]);
 
   const [formValid, setFormValid] = useState(false);
+
+  //add dispatch and useSelector
+  const dispatch = useDispatch();
+  const experienceDetails = useSelector((state) => state.experience.experiences);
+
+  //useEffect to set experience input fields 
+  useEffect(() => {
+    setExperienceInputFields(experienceDetails);
+  }, [experienceDetails]);
+
 
   useEffect(() => {
     const formHasErrors = experienceInputFields.some((input) =>
@@ -41,7 +55,7 @@ function ExperienceSection() {
     );
 
     setFormValid(!formHasErrors && !formHasEmptyRequiredFields && !formHasStartDateAfterEndDate);
-}, [experienceInputFields]);
+  }, [experienceInputFields]);
 
   const validateInput = (name, value) => {
     let errorMessage = "";
@@ -83,6 +97,11 @@ function ExperienceSection() {
       },
     };
     setExperienceInputFields([...experienceInputFields, newField]);
+  };
+
+  //add handleSubmit via redux
+  const handleSubmit = () => {
+    dispatch(setExperiences({ experiences: experienceInputFields }));
   };
 
   return (
@@ -198,7 +217,8 @@ function ExperienceSection() {
       })}
 
       <button onClick={addExpFields}>Add Experience</button>
-      <button disabled={!formValid} onClick={() => {}}>
+      {/* <button disabled={!formValid} onClick={() => { }}> */}
+      <button disabled={!formValid} onClick={handleSubmit}>
         Submit
       </button>
     </>

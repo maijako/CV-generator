@@ -27,11 +27,13 @@ function ExperienceSection() {
 
   const [formValid, setFormValid] = useState(false);
 
-  //add dispatch and useSelector
+  //Using useDispatch from react-redux to dispatch actions ot the Redux store
   const dispatch = useDispatch();
+
+  // useSelector retreives the experience data from the Redux store
   const experienceDetails = useSelector((state) => state.experience.experiences);
 
-  //useEffect to set experience input fields 
+  //When experienceDetails change, update the local state with the new data
   useEffect(() => {
     setExperienceInputFields(experienceDetails);
   }, [experienceDetails]);
@@ -99,7 +101,7 @@ function ExperienceSection() {
     setExperienceInputFields([...experienceInputFields, newField]);
   };
 
-  //add handleSubmit via redux
+  // Dispatches the action to set the experience data in the Redux store
   const handleSubmit = () => {
     dispatch(setExperiences({ experiences: experienceInputFields }));
   };

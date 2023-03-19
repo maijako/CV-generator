@@ -14,7 +14,7 @@ function MainSectionOne() {
   const projects = useSelector(state => state.project);
   const technologies = useSelector(state => state.technologies.technologies);
   const summary = useSelector(state => state.summary.summary);
-  const experienceDetails = useSelector(state => state.experience.experiences);
+  const experienceDetails = useSelector(state => state.experience);
 
 
   return (
@@ -55,14 +55,6 @@ function MainSectionOne() {
             {technologies.map((technology, index) => (
               <li key={index} className="skills-li">{technology.title}</li>
             ))}
-            {/* <li className="skills-li">JavaScript</li>
-            <li className="skills-li">React</li>
-            <li className="skills-li">Node.js</li>
-            <li className="skills-li">Express.js</li>
-            <li className="skills-li">SQL</li>
-            <li className="skills-li">NoSQL</li>
-            <li className="skills-li">Git</li>
-            <li className="skills-li">AWS</li> */}
           </ul>
         </div>
       </div>
@@ -95,12 +87,12 @@ function MainSectionOne() {
               </div>
             ))
           }
-          <div className="projects">Recipe App
+          {/* <div className="projects">Recipe App
             <p>
               <FaLink className="pro__icon" />
-              www.netlify.com</p>
+              www.netlify.com</p> */}
 
-            <p>
+            {/* <p>
               <FaGithub className="pro__icon" />
               www.github.com/water-tracker</p>
           </div>
@@ -126,7 +118,7 @@ function MainSectionOne() {
             <li>Developed using React Native and Firebase.</li>
             <li>Implemented push notifications using Firebase Cloud Messaging.</li>
             <li>Published on the App Store and Google Play.</li>
-          </ul>
+          </ul> */}
         </div>
       </div>
 
@@ -167,7 +159,7 @@ function MainSectionOne() {
         <div className="section-content">
           {experienceDetails.map((experience, index) => (
             <div key={index}>
-              <div className="job">{experience.jotTitle}
+              <div className="job">{experience.jobTitle}
                 <p className="dates">{experience.startDate} - {experience.endDate}</p>
               </div>
               <p>{experience.companyName}</p>

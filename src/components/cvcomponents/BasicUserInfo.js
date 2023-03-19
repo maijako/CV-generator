@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setProfile } from "../../state/profile";
 
 
-//pass the state.profile down as props in Basic User Info
+//pass the state.profile in Basic User Info
 //store useSelector and useDispatch in variables
 
 function BasicUserInfo() {

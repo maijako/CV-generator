@@ -8,12 +8,14 @@ import { useSelector } from 'react-redux';
 
 
 function MainSectionOne() {
-  //use the useSElector and store it in a profile const
-  //the profile const is the passed down in the html 
+  //useSelectors for accessing data from the redux store
   const profile = useSelector(state => state.profile);
   console.log(profile);
-
   const projects = useSelector(state => state.project);
+  const technologies = useSelector(state => state.technologies.technologies);
+  const summary = useSelector(state => state.summary.summary);
+
+
   return (
     <>
       <header className="candidateName">
@@ -38,7 +40,8 @@ function MainSectionOne() {
           <BsFillPersonFill className="cv__icon" />
         </div>
         <div className="section-content">
-          <p>A highly skilled software engineer with over 5 years of experience developing web applications using various programming languages and frameworks.</p>
+          {/* <p>A highly skilled software engineer with over 5 years of experience developing web applications using various programming languages and frameworks.</p> */}
+          <p>{summary}</p>
         </div>
       </div>
 
@@ -48,14 +51,17 @@ function MainSectionOne() {
         </div>
         <div className="section-skills">
           <ul className="skills-ul">
-            <li className="skills-li">JavaScript</li>
+            {technologies.map((technology, index) => (
+              <li key={index} className="skills-li">{technology.title}</li>
+            ))}
+            {/* <li className="skills-li">JavaScript</li>
             <li className="skills-li">React</li>
             <li className="skills-li">Node.js</li>
             <li className="skills-li">Express.js</li>
             <li className="skills-li">SQL</li>
             <li className="skills-li">NoSQL</li>
             <li className="skills-li">Git</li>
-            <li className="skills-li">AWS</li>
+            <li className="skills-li">AWS</li> */}
           </ul>
         </div>
       </div>

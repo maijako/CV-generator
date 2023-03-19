@@ -1,18 +1,22 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import {Configuration, OpenAIApi} from "openai";
 import APIKEY from "../APIKey.json";
 
-function ChatGPTAI() {
-  const [result, setResult] = useState("");
+//import useDispatch and useSElector hooks from react-redux into the form
+import { useDispatch} from "react-redux";
+import { setSummary } from "../state/summary";
 
+function ChatGPTAI() {
+    const dispatch = useDispatch();
     const configuration = new Configuration({
       apiKey: APIKEY.APIKeyAI,
     });
+
     console.log("After Configuration call");
     const openai = new OpenAIApi(configuration);
+
     const getResponse = async () => {
       console.log("Inside response");
-    //const getResponse = async () => {
       try{
         const respObj = await openai.createCompletion({
             model: "text-davinci-003",
@@ -24,11 +28,10 @@ function ChatGPTAI() {
             presence_penalty: 0
         });
 
-        console.log("Response object: ");
-        console.log(respObj);
-        console.log("Data:");
-        console.log(respObj["data"]["choices"][0]["text"]);
-        setResult(respObj["data"]["choices"][0]["text"]);
+        let responseData = respObj["data"]["choices"][0]["text"];
+        const responseText = responseData.slice(2);
+        dispatch(setSummary({ summary: responseText }));
+
       }catch(error){
         console.error(error);
       }
@@ -36,9 +39,7 @@ function ChatGPTAI() {
 
   return (
     <div>
-      <h3>This website is for testing the gpt responses</h3>
       <button onClick={getResponse}>Genterate Response</button>
-      <p>{result}</p>
     </div>
   );
 }

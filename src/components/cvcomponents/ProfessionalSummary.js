@@ -1,5 +1,6 @@
 import React from "react";
 import { TextField } from '@mui/material';
+import ChatGPTAI from "../ChatGPTAI";
 
 //import useDispatch and useSElector hooks from react-redux into the form
 import { useDispatch, useSelector } from "react-redux";
@@ -31,6 +32,7 @@ function ProfessionalSummary() {
                 maxRows={8}
                 sx={{margin: 2, width: "50%"}}
             />
+            <ChatGPTAI />
         </>
     );
 }

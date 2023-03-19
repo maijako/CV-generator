@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {Configuration, OpenAIApi} from "openai";
-import APIKEY from "../APIKey.json";
+//import APIKEY from "../APIKey.json";
 
 import Box from '@mui/material/Box';
 import { TextField, Button } from "@mui/material";
@@ -54,7 +54,8 @@ function ChatGPTAI() {
     }
     const dispatch = useDispatch();
     const configuration = new Configuration({
-      apiKey: APIKEY.APIKeyAI,
+    //   apiKey: APIKEY.APIKeyAI,
+    apiKey: "",
     });
 
     console.log("After Configuration call");

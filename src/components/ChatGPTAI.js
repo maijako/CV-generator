@@ -5,7 +5,7 @@ import APIKEY from "../APIKey.json";
 import Box from '@mui/material/Box';
 import { TextField, Button } from "@mui/material";
 import Modal from '@mui/material/Modal';
-
+import SendIcon from '@mui/icons-material/Send';
 //import useDispatch and useSElector hooks from react-redux into the form
 import { useDispatch} from "react-redux";
 import { setSummary } from "../state/summary";
@@ -61,13 +61,15 @@ function ChatGPTAI() {
     const openai = new OpenAIApi(configuration);
 
     const getResponse = async () => {
-      console.log("Inside response");
+
+        const generatedPrompt = `Generate a summary that elaborates my unique selling points and sets me apart from other candidates, using the following details:\nPrevious Role ${promptValues.prevRole} with ${numPrevExperience} years experience.\nLooking to apply for ${promptValues.jobRole} \n ${promptValues.relExpEdu} relate to jobe role`;
+
       try{
         const respObj = await openai.createCompletion({
             model: "text-davinci-003",
-            prompt: "Write a professional summary for front end development",
+            prompt: generatedPrompt,
             temperature: 0.6,
-            max_tokens: 10,
+            max_tokens: 256,
             top_p: 1,
             frequency_penalty: 0,
             presence_penalty: 0
@@ -77,6 +79,8 @@ function ChatGPTAI() {
         const responseText = responseData.slice(2);
         dispatch(setSummary({ summary: responseText }));
 
+        // Closes the Modal after the response has been generated.
+        handleClose();
       }catch(error){
         console.error(error);
       }
@@ -84,8 +88,11 @@ function ChatGPTAI() {
 
   return (
     <div>
-      <button onClick={getResponse}>Genterate Response</button>
-      <Button onClick={handleOpen}>Summary Suggestion</Button>
+      <Button 
+        variant="contained" 
+        size="small" 
+        color="secondary"
+        onClick={handleOpen}>Summary Suggestion</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -136,12 +143,11 @@ function ChatGPTAI() {
                 onChange={(event) => handlePromptValues(event)}
                 sx={{ margin: "15px 0" }}
             />
+            <Button variant="contained" endIcon={<SendIcon />} onClick={getResponse}>Generate Response</Button>
         </Box>
       </Modal>
     </div>
   );
 }
-
-// Generate a summary that elaborates my unique selling points and sets me apart from other candidates, using the following details:\n5 years experience in cutomer service.\nCurrently looking for a role in software development.\nCompleted a bootcamp in front end web development.
 
 export default ChatGPTAI;

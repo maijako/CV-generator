@@ -4,6 +4,7 @@ import projectReducer from './project';
 import technologiesReducer from './technologies';
 import summaryReducer from './summary';
 import experienceReducer from './experience';
+import educationReducer from './education';
 //import reducers here
 
 export const store = configureStore({
@@ -13,6 +14,7 @@ export const store = configureStore({
     technologies: technologiesReducer,
     summary: summaryReducer,
     experience: experienceReducer,
+    education: educationReducer,
    //add reducers here
   }
 })

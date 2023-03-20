@@ -6,6 +6,7 @@ import {
   setDegreeLevel,
   setStartDate,
   setEndDate,
+  deleteEducation
 } from "../../state/education";
 
 import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
@@ -24,7 +25,7 @@ import "./cv-component-styles.css";
 function EducationSection() {
 
   const selectEducation = state => state.education;
-  const education = useSelector(selectEducation);
+  const educations = useSelector(selectEducation);
   const dispatch = useDispatch();
 
   const handleUniChange = (event, educationIndex) => {
@@ -63,10 +64,17 @@ function EducationSection() {
     dispatch(setNewEducation(newField));
   }
 
+  const deleteEduFields = (index) => {
+    console.log("Delete education field called");
+    dispatch(deleteEducation(index));
+    console.log("After deleting education");
+    console.log(educations);
+  }
+
   return (
     <>
       <h3>Education Details</h3>
-      {education.map((education, index) => {
+      {educations.map((education, index) => {
         return (
           <div key={index}>
             <div className="containerStyles">
@@ -131,6 +139,7 @@ function EducationSection() {
                   <MenuItem value={"Diploma"}>Diploma</MenuItem>
                 </Select>
               </FormControl>
+              <button onClick={() => deleteEduFields(index)}>Remove Education</button>
             </div>
             <LocalizationProvider dateAdapter={AdapterMoment}>
               <DatePicker
@@ -152,6 +161,7 @@ function EducationSection() {
                 onChange={(date) => handleEndChange(date, index)}
               />
             </LocalizationProvider>
+            
           </div>
         );
       })}

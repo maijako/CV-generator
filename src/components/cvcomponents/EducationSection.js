@@ -139,7 +139,7 @@ function EducationSection() {
                   <MenuItem value={"Diploma"}>Diploma</MenuItem>
                 </Select>
               </FormControl>
-              <button onClick={() => deleteEduFields(index)}>Remove Education</button>
+              
             </div>
             <LocalizationProvider dateAdapter={AdapterMoment}>
               <DatePicker
@@ -161,7 +161,7 @@ function EducationSection() {
                 onChange={(date) => handleEndChange(date, index)}
               />
             </LocalizationProvider>
-            
+            <button onClick={() => deleteEduFields(index)}>Remove Education</button>
           </div>
         );
       })}

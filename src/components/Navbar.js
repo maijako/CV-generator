@@ -17,19 +17,19 @@ function Navbar() {
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul className="navbar-nav mt-2 mt-lg-0 ms-auto">
                     <li className="nav-item">
-                        <NavLink to="/" className="nav-link">
+                        <NavLink to="/" className="nav-link" >
                             HOME
                         </NavLink>
                     </li>
 
                     <li className="nav-item">
-                        <NavLink to="buildCV" className="nav-link">
+                        <NavLink to="buildCV" className="nav-link" >
                             BUILD CV
                         </NavLink>
                     </li>
 
                     <li className="nav-item">
-                        <NavLink to="preview" className="nav-link">
+                        <NavLink to="preview" className="nav-link" >
                             PREVIEW
                         </NavLink>
                     </li>

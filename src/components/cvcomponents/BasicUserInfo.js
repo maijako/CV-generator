@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { TextField, InputAdornment, Button } from "@mui/material";
 import { AccountCircle, ContactMail, PhoneAndroid } from "@mui/icons-material";
+import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import PublicIcon from '@mui/icons-material/Public';
 import "./cv-component-styles.css";
 
 //import useDispatch and useSElector hooks from react-redux into the form
@@ -178,6 +182,90 @@ function BasicUserInfo() {
             onFocus={() => handleFieldFocus("phone")}
             error={!!phoneError}
             helperText={phoneError}
+          />
+
+          <TextField
+            id="input-user-location"
+            label="Location"
+            name="userLocation"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <AddLocationAltIcon sx={{ fontSize: "large" }} />
+                </InputAdornment>
+              ),
+            }}
+            placeholder="Enter Location"
+            variant="outlined"
+            sx={textFieldStyles}
+            value={profile.userLocation} 
+            onChange={handleChange} 
+            // onFocus={() => handleFieldFocus("phone")}
+            // error={!!phoneError}
+            // helperText={phoneError}
+          />
+
+          <TextField
+            id="input-user-linkedin-username"
+            label="LinkedIn Username"
+            name="userNameLinkedIn"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <LinkedInIcon sx={{ fontSize: "large" }} />
+                </InputAdornment>
+              ),
+            }}
+            placeholder="Enter Your LinkedIn User Name"
+            variant="outlined"
+            sx={textFieldStyles}
+            value={profile.userNameLinkedIn} 
+            onChange={handleChange} 
+            // onFocus={() => handleFieldFocus("phone")}
+            // error={!!phoneError}
+            // helperText={phoneError}
+          />
+
+          <TextField
+            id="input-user-github-username"
+            label="GitHub Username"
+            name="userNameGitHub"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <GitHubIcon sx={{ fontSize: "large" }} />
+                </InputAdornment>
+              ),
+            }}
+            placeholder="Enter GitHub UserName"
+            variant="outlined"
+            sx={textFieldStyles}
+            value={profile.userNameGitHub} 
+            onChange={handleChange} 
+            // onFocus={() => handleFieldFocus("phone")}
+            // error={!!phoneError}
+            // helperText={phoneError}
+          />
+
+          <TextField
+            id="input-web-portfolio"
+            label="Portfolio Website"
+            name="webPortfolio"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <PublicIcon sx={{ fontSize: "large" }} />
+                </InputAdornment>
+              ),
+            }}
+            placeholder="Enter Portfolio Website"
+            variant="outlined"
+            sx={textFieldStyles}
+            value={profile.webPortfolio} 
+            onChange={handleChange} 
+            // onFocus={() => handleFieldFocus("phone")}
+            // error={!!phoneError}
+            // helperText={phoneError}
           />
         </div>
         <Button variant="contained" type="submit">

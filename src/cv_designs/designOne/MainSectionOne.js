@@ -25,15 +25,15 @@ function MainSectionOne() {
         <p className="contact__details">
           <FaPhone className="header__icon" /> {profile.phone}
           <FaEnvelope className="header__icon" /> {profile.email}
-          <ImLocation2 className="header__icon" /> Deep Space 9
+          <ImLocation2 className="header__icon" /> {profile.userLocation}
         </p>
       </header>
 
       <div className="websites">
         <p className="website__details">
-          <GiEarthAmerica className="website__icon" /> www.spacemiles.com
-          <FaGithub className="website__icon" /> www.github.com/starbrien
-          <FaLinkedin className="website__icon" /> www.linkedin.com/in/mobrien
+          <GiEarthAmerica className="website__icon" /> {profile.webPortfolio}
+          <FaGithub className="website__icon" /> www.github.com/{profile.userNameGitHub}
+          <FaLinkedin className="website__icon" /> www.linkedin.com/in/{profile.userNameLinkedIn}
         </p>
       </div>
 

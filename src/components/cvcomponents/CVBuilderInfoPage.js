@@ -6,6 +6,7 @@ import ExperienceSection from "./ExperienceSection";
 import ProfessionalSummary from "./ProfessionalSummary";
 import SkillsSection from "./SkillsSection";
 import ProjectsSection from "./ProjectsSection";
+import "./styleForm.css";
 
 function CVBuilderInfoPage() {
     return(

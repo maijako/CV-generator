@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { TextField, InputAdornment, Button } from "@mui/material";
 import { AccountCircle, ContactMail, PhoneAndroid } from "@mui/icons-material";
+import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import PublicIcon from '@mui/icons-material/Public';
 import "./cv-component-styles.css";
 
 //import useDispatch and useSElector hooks from react-redux into the form
@@ -187,7 +191,7 @@ function BasicUserInfo() {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <PhoneAndroid sx={{ fontSize: "large" }} />
+                  <AddLocationAltIcon sx={{ fontSize: "large" }} />
                 </InputAdornment>
               ),
             }}
@@ -208,7 +212,7 @@ function BasicUserInfo() {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <PhoneAndroid sx={{ fontSize: "large" }} />
+                  <LinkedInIcon sx={{ fontSize: "large" }} />
                 </InputAdornment>
               ),
             }}
@@ -229,7 +233,7 @@ function BasicUserInfo() {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <PhoneAndroid sx={{ fontSize: "large" }} />
+                  <GitHubIcon sx={{ fontSize: "large" }} />
                 </InputAdornment>
               ),
             }}
@@ -250,7 +254,7 @@ function BasicUserInfo() {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <PhoneAndroid sx={{ fontSize: "large" }} />
+                  <PublicIcon sx={{ fontSize: "large" }} />
                 </InputAdornment>
               ),
             }}

@@ -1,4 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setNewEducation,
+  setUniName,
+  setCourseName,
+  setDegreeLevel,
+  setStartDate,
+  setEndDate,
+} from "../../state/education";
+
 import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";

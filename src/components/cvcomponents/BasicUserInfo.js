@@ -1,48 +1,30 @@
 import React, { useState } from "react";
-import { TextField, InputAdornment, Button } from "@mui/material";
+import { ThemeProvider, TextField, InputAdornment, Box, createTheme } from "@mui/material";
 import { AccountCircle, ContactMail, PhoneAndroid } from "@mui/icons-material";
+import { blue } from "@mui/material/colors"
 import "./cv-component-styles.css";
 
-//import useDispatch and useSElector hooks from react-redux into the form
-import { useDispatch, useSelector } from "react-redux";
-import { setProfile } from "../../state/profile";
-
-
-//pass the state.profile down as props in Basic User Info
-//store useSelector and useDispatch in variables
-
-function BasicUserInfo(props) {
-
-  const profile = useSelector(state => state.profile)
-  const dispatch = useDispatch();
-  const handleChange = (e) => {
-    dispatch(setProfile({ ...profile, [e.target.name]: e.target.value }))
-  }
-
-  // const [firstName, setFirstName] = useState("");
-  // const [lastName, setLastName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [phone, setPhone] = useState("");
-
+function BasicUserInfo() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [firstNameError, setFirstNameError] = useState("");
   const [lastNameError, setLastNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
-
-  // const handleFirstNameChange = (event) => {
-  //   setFirstName(event.target.value);
-
-  // };
-  // const handleLastNameChange = (event) => {
-  //   setLastName(event.target.value);
-  // };
-  // const handleEmailChange = (event) => {
-  //   setEmail(event.target.value);
-  // };
-  // const handlePhoneChange = (event) => {
-  //   setPhone(event.target.value);
-  // };
-
+  const handleFirstNameChange = (event) => {
+    setFirstName(event.target.value);
+  };
+  const handleLastNameChange = (event) => {
+    setLastName(event.target.value);
+  };
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+  const handlePhoneChange = (event) => {
+    setPhone(event.target.value);
+  };
   const handleFieldFocus = (field) => {
     if (field === "firstName") {
       setFirstNameError("");
@@ -54,30 +36,27 @@ function BasicUserInfo(props) {
       setPhoneError("");
     }
   };
-    //accessing all values below via profile reducer, replacing handle[uniqueName]Change with 'handleChange'
-
   const validateForm = () => {
     let valid = true;
-    if (!props.profile.firstName) {
+    if (!firstName) {
       setFirstNameError("Please enter your first name.");
       valid = false;
     } else {
       setFirstNameError("");
     }
-    
-    if (!props.profile.lastName) {
+    if (!lastName) {
       setLastNameError("Please enter your last name.");
       valid = false;
     } else {
       setLastNameError("");
     }
-    if (!props.profile.email || !/\S+@\S+\.\S+/.test(props.profile.email)) {
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
       setEmailError("Please enter a valid email address.");
       valid = false;
     } else {
       setEmailError("");
     }
-    if (!props.profile.phone || !/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/.test(props.profile.phone)) {
+    if (!phone || !/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/.test(phone)) {
       setPhoneError("Please enter a valid phone number.");
       valid = false;
     } else {
@@ -85,23 +64,36 @@ function BasicUserInfo(props) {
     }
     return valid;
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (validateForm()) {
-      // Submit the form data
-      console.log("Form submitted successfully.");
-    }
-  };
 
-  const textFieldStyles = { margin: "15px 0" };
+  const theme = createTheme({
+    palette: {
+      primary: blue,
+    },
+    components: {
+      MuiTextField: {
+        styleOverrides: {
+          root: {
+            '& .MuiInputLabel-root.Mui-focused': {
+              color: blue[500],
+            },
+            '& .MuiInput-underline:after': {
+              borderBottomColor: blue[500],
+            },
+          },
+        },
+      },
+    },
+  });
+
   return (
-    <>
-      <h3>Basic Information</h3>
-      <form onSubmit={handleSubmit}> 
-        <div className="containerStyles">
-          <TextField
+    <ThemeProvider theme={theme}>
+      <Box sx={{ padding: "20px" }}>
+        <h3 style={{ color: "black", marginBottom: "10px" }}>Basic Information</h3>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+          <TextField 
             id="input-first-name"
             label="First Name"
+            margin="dense"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -110,10 +102,10 @@ function BasicUserInfo(props) {
               ),
             }}
             placeholder="Enter First Name"
-            variant="outlined"
-            // sx={textFieldStyles}
-            value={profile.firstName} 
-            onChange={(e) => handleChange(e)} //changed from 'onChange={handleChange}'
+            variant="filled"
+            color="primary"
+            value={firstName}
+            onChange={handleFirstNameChange}
             onFocus={() => handleFieldFocus("firstName")}
             error={!!firstNameError}
             helperText={firstNameError}
@@ -121,6 +113,7 @@ function BasicUserInfo(props) {
           <TextField
             id="input-second-name"
             label="Last Name"
+            margin="dense"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -129,10 +122,10 @@ function BasicUserInfo(props) {
               ),
             }}
             placeholder="Enter Last Name"
-            variant="outlined"
-            sx={textFieldStyles}
-            value={profile.lastName} 
-            onChange={handleChange} 
+            variant="filled"
+            color="primary"
+            value={lastName}
+            onChange={handleLastNameChange}
             onFocus={() => handleFieldFocus("lastName")}
             error={!!lastNameError}
             helperText={lastNameError}
@@ -140,6 +133,7 @@ function BasicUserInfo(props) {
           <TextField
             id="input-email-address"
             label="Email ID"
+            margin="dense"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -148,10 +142,10 @@ function BasicUserInfo(props) {
               ),
             }}
             placeholder="Enter Email Address"
-            variant="outlined"
-            sx={textFieldStyles}
-            value={profile.email} 
-            onChange={handleChange} 
+            variant="filled"
+            color="primary"
+            value={email}
+            onChange={handleEmailChange}
             onFocus={() => handleFieldFocus("email")}
             error={!!emailError}
             helperText={emailError}
@@ -159,6 +153,7 @@ function BasicUserInfo(props) {
           <TextField
             id="input-phone-number"
             label="Phone Number"
+            margin="dense"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -167,20 +162,17 @@ function BasicUserInfo(props) {
               ),
             }}
             placeholder="Enter Phone Number"
-            variant="outlined"
-            sx={textFieldStyles}
-            value={profile.phone} 
-            onChange={handleChange} 
+            variant="filled"
+            color="primary"
+            value={phone}
+            onChange={handlePhoneChange}
             onFocus={() => handleFieldFocus("phone")}
             error={!!phoneError}
             helperText={phoneError}
           />
-        </div>
-        <Button variant="contained" type="submit">
-          Submit
-        </Button>
-      </form>
-    </>
+        </Box>
+      </Box>
+    </ThemeProvider>
   );
 }
 export default BasicUserInfo;

@@ -9,8 +9,13 @@ import {
   MenuItem,
   FormControl,
   Select,
+  ThemeProvider,
+  createTheme,
+  Button,
+  Box,
 } from "@mui/material";
 import "./cv-component-styles.css";
+import { blue } from "@mui/material/colors";
 
 function EducationSection() {
   const [educationInputFields, setEducationInputFields] = useState([
@@ -23,7 +28,7 @@ function EducationSection() {
       errors: {
         instituteName: "",
         courseTitle: "",
-        qualificationVal:"",
+        qualificationVal: "",
       },
     },
   ]);
@@ -73,7 +78,6 @@ function EducationSection() {
     }
   };
 
-
   const handleFocus = (index, event) => {
     let data = [...educationInputFields];
     data[index].errors[event.target.name] = "";
@@ -90,135 +94,174 @@ function EducationSection() {
     };
     setEducationInputFields([...educationInputFields, newField]);
   };
+  const theme = createTheme({
+    palette: {
+      primary: blue,
+    },
+    components: {
+      MuiTextField: {
+        styleOverrides: {
+          root: {
+            "& .MuiInputLabel-root.Mui-focused": {
+              color: blue[500],
+            },
+            "& .MuiInput-underline:after": {
+              borderBottomColor: blue[500],
+            },
+          },
+        },
+      },
+    },
+  });
 
   return (
-    <>
-      <h3>Education Details</h3>
-      {educationInputFields.map((input, index) => {
-        return (
-          <div key={index}>
-            <div className="containerStyles">
-              <TextField
-                id="input-institute-name"
-                label="Institute Name"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SchoolRoundedIcon />
-                    </InputAdornment>
-                  ),
-                }}
-                placeholder="Enter Institute Name"
-                variant="outlined"
-                sx={{ margin: "15px 0" }}
-                name="instituteName"
-                value={input.instituteName}
-                onChange={(event) => handleInputChange(index, event)}
-                onFocus={(event) => handleFocus(index, event)}
-                error={Boolean(input.errors.instituteName)}
-                helperText={input.errors.instituteName}
-              />
-              <TextField
-                id="input-title-name"
-                label="Title"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SchoolRoundedIcon />
-                    </InputAdornment>
-                  ),
-                }}
-                placeholder="Enter Title"
-                variant="outlined"
-                sx={{ margin: "15px 0" }}
-                name="courseTitle"
-                value={input.courseTitle}
-                onChange={(event) => handleInputChange(index, event)}
-                onFocus={(event) => handleFocus(index, event)}
-                error={Boolean(input.errors.courseTitle)}
-                helperText={input.errors.courseTitle}
-              />
-              <FormControl sx={{ minWidth: 150 }}>
-                <InputLabel id="selectedQualificationLabel">
-                  Qualification
-                </InputLabel>
-                <Select
-                  labelId="selectedQualificationLabel"
-                  id="selectedQualification"
-                  label="Qualification"
-                  name="qualificationVal"
-                  value={input.qualificationVal}
-                  onChange={(event) => handleInputChange(index, event)}
-                  onFocus={(event) => handleFocus(index, event)}
-                  error={Boolean(input.errors.qualificationVal)}
-                  helperText={input.errors.qualificationVal}
-                >
-                  <MenuItem value={"BA"}>BA</MenuItem>
-                  <MenuItem value={"BSc"}>BSc</MenuItem>
-                  <MenuItem value={"MA"}>MA</MenuItem>
-                  <MenuItem value={"MSc"}>MSc</MenuItem>
-                  <MenuItem value={"PhD"}>PhD</MenuItem>
-                  <MenuItem value={"Certificate"}>Certificate</MenuItem>
-                  <MenuItem value={"Diploma"}>Diploma</MenuItem>
-                </Select>
-              </FormControl>
-            </div>
-            <LocalizationProvider dateAdapter={AdapterMoment}>
-              <DatePicker
-                sx={{ margin: 2 }}
-                label="Enter Start Date"
-                format="MMM YY"
-                views={["month", "year"]}
-                name="startDate"
-                onChange={(newValue) => {
-                    const data = [...educationInputFields];
-                    data[index].startDate = newValue.format("MMM YYYY");
-                    if (data[index].endDate && newValue > data[index].endDate) {
-                      data[index].errors.startDate =
-                        "Start date cannot be after end date.";
-                    } else {
-                      data[index].errors.startDate = "";
-                    }
-                    setEducationInputFields(data);
-                  }}
-                  error={Boolean(input.errors.startDate)}
-                  helperText={input.errors.startDate}
-                
-              />
+    <ThemeProvider theme={theme}>
+      <Box sx={{ padding: "20px", borderRadius: "10px" }}>
+        <h3 style={{ color: "black", marginBottom: "10px" }}>
+          Education Details
+        </h3>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+          {educationInputFields.map((input, index) => {
+            return (
+              <div key={index}>
+                <div className="containerStyles">
+                  <TextField
+                    id="input-institute-name"
+                    label="Institute Name"
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <SchoolRoundedIcon />
+                        </InputAdornment>
+                      ),
+                    }}
+                    placeholder="Enter Institute Name"
+                    variant="filled"
+                    sx={{ margin: "15px 0" }}
+                    name="instituteName"
+                    value={input.instituteName}
+                    onChange={(event) => handleInputChange(index, event)}
+                    onFocus={(event) => handleFocus(index, event)}
+                    error={Boolean(input.errors.instituteName)}
+                    helperText={input.errors.instituteName}
+                  />
+                  <TextField
+                    id="input-title-name"
+                    label="Title"
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <SchoolRoundedIcon />
+                        </InputAdornment>
+                      ),
+                    }}
+                    placeholder="Enter Title"
+                    variant="filled"
+                    sx={{ margin: "15px 0" }}
+                    name="courseTitle"
+                    value={input.courseTitle}
+                    onChange={(event) => handleInputChange(index, event)}
+                    onFocus={(event) => handleFocus(index, event)}
+                    error={Boolean(input.errors.courseTitle)}
+                    helperText={input.errors.courseTitle}
+                  />
+                  <FormControl sx={{ minWidth: 150 }}>
+                    <InputLabel id="selectedQualificationLabel">
+                      Qualification
+                    </InputLabel>
+                    <Select
+                      labelId="selectedQualificationLabel"
+                      id="selectedQualification"
+                      label="Qualification"
+                      variant="filled"
+                      name="qualificationVal"
+                      value={input.qualificationVal}
+                      onChange={(event) => handleInputChange(index, event)}
+                      onFocus={(event) => handleFocus(index, event)}
+                      error={Boolean(input.errors.qualificationVal)}
+                      helperText={input.errors.qualificationVal}
+                    >
+                      <MenuItem value={"BA"}>BA</MenuItem>
+                      <MenuItem value={"BSc"}>BSc</MenuItem>
+                      <MenuItem value={"MA"}>MA</MenuItem>
+                      <MenuItem value={"MSc"}>MSc</MenuItem>
+                      <MenuItem value={"PhD"}>PhD</MenuItem>
+                      <MenuItem value={"Certificate"}>Certificate</MenuItem>
+                      <MenuItem value={"Diploma"}>Diploma</MenuItem>
+                    </Select>
+                  </FormControl>
+                </div>
+                <LocalizationProvider dateAdapter={AdapterMoment}>
+                  <DatePicker
+                    sx={{ margin: 2 }}
+                    label="Enter Start Date"
+                    variant="filled"
+                    format="MMM YY"
+                    views={["month", "year"]}
+                    name="startDate"
+                    onChange={(newValue) => {
+                      const data = [...educationInputFields];
+                      data[index].startDate = newValue.format("MMM YYYY");
+                      if (
+                        data[index].endDate &&
+                        newValue > data[index].endDate
+                      ) {
+                        data[index].errors.startDate =
+                          "Start date cannot be after end date.";
+                      } else {
+                        data[index].errors.startDate = "";
+                      }
+                      setEducationInputFields(data);
+                    }}
+                    error={Boolean(input.errors.startDate)}
+                    helperText={input.errors.startDate}
+                  />
 
-              <DatePicker
-                sx={{ margin: 2 }}
-                label="Enter End Date"
-                format="MMM YY"
-                views={["month", "year"]}
-                name="endDate"
-                onChange={(newValue) => {
-                    const data = [...educationInputFields];
-                    data[index].endDate = newValue.format("MMM YYYY");
-                    if (
-                      data[index].startDate &&
-                      newValue < data[index].startDate
-                    ) {
-                      data[index].errors.endDate =
-                        "End date cannot be before start date.";
-                    } else {
-                      data[index].errors.endDate = "";
-                    }
-                    setEducationInputFields(data);
-                  }}
-                  error={Boolean(input.errors.endDate)}
-                  helperText={input.errors.endDate}
-              />
-            </LocalizationProvider>
-          </div>
-        );
-      })}
+                  <DatePicker
+                    sx={{ margin: 2 }}
+                    label="Enter End Date"
+                    variant="filled"
+                    format="MMM YY"
+                    views={["month", "year"]}
+                    name="endDate"
+                    onChange={(newValue) => {
+                      const data = [...educationInputFields];
+                      data[index].endDate = newValue.format("MMM YYYY");
+                      if (
+                        data[index].startDate &&
+                        newValue < data[index].startDate
+                      ) {
+                        data[index].errors.endDate =
+                          "End date cannot be before start date.";
+                      } else {
+                        data[index].errors.endDate = "";
+                      }
+                      setEducationInputFields(data);
+                    }}
+                    error={Boolean(input.errors.endDate)}
+                    helperText={input.errors.endDate}
+                  />
+                </LocalizationProvider>
+              </div>
+            );
+          })}
 
-      <button onClick={addEdFields}>Add Education</button>
-      <button disabled={!formValid} onClick={() => {}}>
-        Submit
-      </button>
-    </>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{
+              backgroundColor: "skyblue",
+              "&:hover": {
+                backgroundColor: "deepskyblue",
+              },
+            }}
+            onClick={addEdFields}
+          >
+            Add Education
+          </Button>
+        </Box>
+      </Box>
+    </ThemeProvider>
   );
 }
 

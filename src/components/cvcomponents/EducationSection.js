@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setNewEducation,
@@ -23,88 +22,51 @@ import {
 import "./cv-component-styles.css";
 
 function EducationSection() {
-  const [educationInputFields, setEducationInputFields] = useState([
-    {
-      instituteName: "",
-      courseTitle: "",
-      qualificationVal: "",
-      startDate: "",
-      endDate: "",
-      errors: {
-        instituteName: "",
-        courseTitle: "",
-        qualificationVal:"",
-      },
-    },
-  ]);
 
-  const [formValid, setFormValid] = useState(false);
+  const selectEducation = state => state.education;
+  const education = useSelector(selectEducation);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const formHasErrors = educationInputFields.some((input) =>
-      Object.values(input.errors).some((error) => error)
-    );
-    const formHasEmptyRequiredFields = educationInputFields.some(
-      (input) =>
-        !input.instituteName ||
-        !input.courseTitle ||
-        !input.qualificationVal ||
-        !input.startDate ||
-        !input.endDate
-    );
-    const formHasStartDateAfterEndDate = educationInputFields.some(
-      (input) => input.startDate > input.endDate
-    );
-
-    setFormValid(
-      !formHasErrors &&
-        !formHasEmptyRequiredFields &&
-        !formHasStartDateAfterEndDate
-    );
-  }, [educationInputFields]);
-
-  const validateInput = (name, value) => {
-    let errorMessage = "";
-    if (!value) {
-      errorMessage = "This field is required.";
-    }
-    return errorMessage;
+  const handleUniChange = (event, educationIndex) => {
+    const newUni = event.target.value;
+    dispatch(setUniName(educationIndex, newUni));
   };
 
-  const handleInputChange = (index, event) => {
-    let data = [...educationInputFields];
-    if (event.target !== undefined) {
-      data[index][event.target.name] = event.target.value;
-      data[index].errors[event.target.name] = validateInput(
-        event.target.name,
-        event.target.value
-      );
-      setEducationInputFields(data);
-    }
+  const handleCourseChange = (event, educationIndex) => {
+    const newCourse = event.target.value;
+    dispatch(setCourseName(educationIndex, newCourse));
   };
 
-
-  const handleFocus = (index, event) => {
-    let data = [...educationInputFields];
-    data[index].errors[event.target.name] = "";
-    setEducationInputFields(data);
+  const handleDegreeChange = (event, educationIndex) => {
+    const newDegree = event.target.value;
+    dispatch(setDegreeLevel(educationIndex, newDegree));
   };
 
-  const addEdFields = () => {
+  const handleStartChange = (date, educationIndex) => {
+    const newStart = date.format("MMM YYYY");
+    dispatch(setStartDate(educationIndex, newStart));
+  };
+
+   const handleEndChange = (date, educationIndex) => {
+    const newEnd = date.format("MMM YYYY");
+    dispatch(setEndDate(educationIndex, newEnd));
+  };
+
+  const addEduFields = () => {
     let newField = {
-      instituteName: "",
-      courseTitle: "",
-      qualificationVal: "",
-      startDate: "",
-      endDate: "",
+      uniName: "",
+        courseName: "",
+        degreeLevel: "",
+        startDate: "",
+        endDate: "",
     };
-    setEducationInputFields([...educationInputFields, newField]);
-  };
+    dispatch(setNewEducation(newField));
+  }
 
   return (
     <>
       <h3>Education Details</h3>
-      {educationInputFields.map((input, index) => {
+      {education.map((education, index) => {
         return (
           <div key={index}>
             <div className="containerStyles">
@@ -122,11 +84,10 @@ function EducationSection() {
                 variant="outlined"
                 sx={{ margin: "15px 0" }}
                 name="instituteName"
-                value={input.instituteName}
-                onChange={(event) => handleInputChange(index, event)}
-                onFocus={(event) => handleFocus(index, event)}
-                error={Boolean(input.errors.instituteName)}
-                helperText={input.errors.instituteName}
+                value={education.uniName}
+                onChange={(event) => handleUniChange(event, index)}
+                // onFocus={(event) => handleFocus(index, event)}
+              
               />
               <TextField
                 id="input-title-name"
@@ -142,11 +103,10 @@ function EducationSection() {
                 variant="outlined"
                 sx={{ margin: "15px 0" }}
                 name="courseTitle"
-                value={input.courseTitle}
-                onChange={(event) => handleInputChange(index, event)}
-                onFocus={(event) => handleFocus(index, event)}
-                error={Boolean(input.errors.courseTitle)}
-                helperText={input.errors.courseTitle}
+                value={education.courseName}
+                onChange={(event) => handleCourseChange(event, index)}
+                // onFocus={(event) => handleFocus(index, event)}
+               
               />
               <FormControl sx={{ minWidth: 150 }}>
                 <InputLabel id="selectedQualificationLabel">
@@ -157,11 +117,10 @@ function EducationSection() {
                   id="selectedQualification"
                   label="Qualification"
                   name="qualificationVal"
-                  value={input.qualificationVal}
-                  onChange={(event) => handleInputChange(index, event)}
-                  onFocus={(event) => handleFocus(index, event)}
-                  error={Boolean(input.errors.qualificationVal)}
-                  helperText={input.errors.qualificationVal}
+                  value={education.degreeLevel}
+                  onChange={(event) => handleDegreeChange(event, index)}
+                  // onFocus={(event) => handleFocus(index, event)}
+          
                 >
                   <MenuItem value={"BA"}>BA</MenuItem>
                   <MenuItem value={"BSc"}>BSc</MenuItem>
@@ -180,19 +139,7 @@ function EducationSection() {
                 format="MMM YY"
                 views={["month", "year"]}
                 name="startDate"
-                onChange={(newValue) => {
-                    const data = [...educationInputFields];
-                    data[index].startDate = newValue.format("MMM YYYY");
-                    if (data[index].endDate && newValue > data[index].endDate) {
-                      data[index].errors.startDate =
-                        "Start date cannot be after end date.";
-                    } else {
-                      data[index].errors.startDate = "";
-                    }
-                    setEducationInputFields(data);
-                  }}
-                  error={Boolean(input.errors.startDate)}
-                  helperText={input.errors.startDate}
+                onChange={(date) => handleStartChange(date, index)}
                 
               />
 
@@ -202,32 +149,14 @@ function EducationSection() {
                 format="MMM YY"
                 views={["month", "year"]}
                 name="endDate"
-                onChange={(newValue) => {
-                    const data = [...educationInputFields];
-                    data[index].endDate = newValue.format("MMM YYYY");
-                    if (
-                      data[index].startDate &&
-                      newValue < data[index].startDate
-                    ) {
-                      data[index].errors.endDate =
-                        "End date cannot be before start date.";
-                    } else {
-                      data[index].errors.endDate = "";
-                    }
-                    setEducationInputFields(data);
-                  }}
-                  error={Boolean(input.errors.endDate)}
-                  helperText={input.errors.endDate}
+                onChange={(date) => handleEndChange(date, index)}
               />
             </LocalizationProvider>
           </div>
         );
       })}
 
-      <button onClick={addEdFields}>Add Education</button>
-      <button disabled={!formValid} onClick={() => {}}>
-        Submit
-      </button>
+      <button onClick={addEduFields}>Add Education</button>
     </>
   );
 }

@@ -47,6 +47,7 @@ function ProjectsSection() {
         let newField = {
             projectTitle: "",
             projectSummary: "",
+            projectContribution: "",
             skillsUsed: [],
             deployedLink: "",
             gitHubLink: ""
@@ -99,6 +100,26 @@ function ProjectsSection() {
                                 sx={{width: "50%"}}
                                 name="projectSummary"
                                 value={project.projectSummary}
+                                onChange={event => handleSummaryChange(event, index)}
+                            />
+
+                            <TextField
+                                id="project-contribution"
+                                label="Contribution"
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <DescriptionIcon />
+                                        </InputAdornment>
+                                    ),
+                                }}
+                                placeholder="Enter a short description of your contributions towards this project..."
+                                multiline
+                                minRows={3}
+                                maxRows={8}
+                                sx={{margin: "15px 0", width: "50%"}}
+                                name="projectContribution"
+                                value={project.projectContribution}
                                 onChange={event => handleSummaryChange(event, index)}
                             />
 

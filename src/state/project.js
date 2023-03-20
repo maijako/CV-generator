@@ -39,6 +39,10 @@ const projectSlice = createSlice({
         setGitHubLink(state, action) {
             const { projectIndex, projectSourceLink } = action.payload;
             state[projectIndex].gitHubLink = projectSourceLink;
+        },
+        deleteProject(state, action) {
+            const { projectIndex } = action.payload;
+            state.splice(projectIndex, 1);
         }
     }
 })
@@ -47,6 +51,13 @@ export const setNewProject = (newProject) => ({
     type: 'project/setNewProject',
     payload: {
         newProject
+    }
+});
+
+export const deleteProject = (projectIndex) => ({
+    type: 'project/deleteProject',
+    payload: {
+        projectIndex
     }
 });
 

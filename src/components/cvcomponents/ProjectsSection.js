@@ -15,7 +15,8 @@ import {
     setProjectContribution,
     setSkillsUsed, 
     setDeployedLink,  
-    setGitHubLink
+    setGitHubLink,
+    deleteProject
 } from "../../state/project";
 
 function ProjectsSection() {
@@ -61,6 +62,10 @@ function ProjectsSection() {
         dispatch(setNewProject(newField));
         console.log("After adding new field");
         console.log(projects);
+    }
+
+    const removeProjectFields = (index) => {
+        dispatch(deleteProject(index));
     }
 
     return(
@@ -182,6 +187,7 @@ function ProjectsSection() {
                                 value={project.gitHubLink}
                                 onChange={event => handleSourceLinkChange(event, index)}
                             />
+                            <button onClick={() => removeProjectFields(index)}>Remove Project</button>
                         </div>
                     )
                 })

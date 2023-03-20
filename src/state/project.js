@@ -5,6 +5,7 @@ const projectSlice = createSlice({
     initialState: [{
       projectTitle: "",
       projectSummary: "",
+      projectContribution: "",
       skillsUsed: [],
       deployedLink: "",
       gitHubLink: ""
@@ -18,6 +19,10 @@ const projectSlice = createSlice({
         setProjectSummary(state, action) {
             const { projectIndex, projectSummary } = action.payload;
             state[projectIndex].projectSummary = projectSummary;
+        },
+        setProjectContribution(state, action) {
+            const { projectIndex, projectContribution } = action.payload;
+            state[projectIndex].projectContribution = projectContribution;
         },
         setNewProject(state, action) {
             const { newProject } = action.payload;
@@ -58,6 +63,14 @@ export const setProjectSummary = (projectIndex, projectSummary) => ({
     payload: {
       projectIndex,
       projectSummary
+    }
+});
+
+export const setProjectContribution = (projectIndex, projectContribution) => ({
+    type: 'project/setProjectContribution',
+    payload: {
+      projectIndex,
+      projectContribution
     }
 });
 

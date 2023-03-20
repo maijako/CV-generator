@@ -12,6 +12,7 @@ import {
     setNewProject, 
     setProjectTitle, 
     setProjectSummary, 
+    setProjectContribution,
     setSkillsUsed, 
     setDeployedLink,  
     setGitHubLink
@@ -35,6 +36,11 @@ function ProjectsSection() {
         dispatch(setProjectSummary(projectIndex, newSummary));
         console.log("After Summary Change");
         console.log(projects);
+    };
+
+    const handleContributionChange = (event, projectIndex) => {
+        const newContribution = event.target.value;
+        dispatch(setProjectContribution(projectIndex, newContribution));
     };
 
     const handleSkillsChange = (projectIndex, values) => dispatch(setSkillsUsed(projectIndex, values));
@@ -120,7 +126,7 @@ function ProjectsSection() {
                                 sx={{margin: "15px 0", width: "50%"}}
                                 name="projectContribution"
                                 value={project.projectContribution}
-                                onChange={event => handleSummaryChange(event, index)}
+                                onChange={event => handleContributionChange(event, index)}
                             />
 
                             <Autocomplete

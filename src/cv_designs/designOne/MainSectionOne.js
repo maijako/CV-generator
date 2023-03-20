@@ -79,11 +79,23 @@ function MainSectionOne() {
                     {project.gitHubLink}</p>
                 </div>
                 <p>{project.projectSummary}</p>
-                <p>Skills Used:</p>
+                
                 <ul>
-                  {
-                    project.skillsUsed.map((skill, skillIndex) => (<li>{skill.title}</li>))
-                  }
+                  <li>{project.projectContribution}</li>
+                  <li>
+                    Skills Used:&nbsp;&nbsp;
+                    {
+                      project.skillsUsed.map((skill, skillIndex, skillsList) => {
+                        
+                        if(skillsList.length-1 === skillIndex){
+                          return(skill.title);
+                        } else {
+                          return(skill.title+', ');
+                        }
+                        
+                      })
+                    }
+                  </li>
                 </ul>
               </div>
             ))

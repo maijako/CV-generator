@@ -17,6 +17,7 @@ function App() {
             <Route path="preview" element={<PrintCV/>} />
             <Route path="PDF" element={<SamplePDF />} />
           </Routes>
+          
         </div>
       </Router>
   );

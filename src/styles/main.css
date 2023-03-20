@@ -84,6 +84,47 @@
 .start-building-button {
   margin-top: auto;
   background-image: linear-gradient(80deg, #359bbc, #050e37) !important;
+  border-color: #359bbc !important;
+}
+
+.wiggle-btn {
+  animation: wiggle 2s linear infinite;
+  transform-origin: 50% 8em;
+  animation-delay: 1s;
+}
+
+.wiggle-btn:hover{
+  animation: none;
+  transform: 1.1;
+}
+
+@keyframes wiggle {
+  0%,
+  5%{
+    transform: rotateZ(0);
+  }
+  15%{
+    transform: rotateZ(-15deg);
+  }
+  20%{
+    transform: rotateZ(10deg);
+  }
+  25%{
+    transform: rotateZ(-10deg);
+  }
+    30%{
+    transform:
+     rotateZ(6deg);
+  }
+  35%{
+    transform: rotateZ(-4deg);
+  }
+  40%,
+  100%{
+    transform: rotateZ(0);
+  }
+
+
 }
 
 

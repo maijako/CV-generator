@@ -35,6 +35,10 @@ const experienceSlice = createSlice({
       const { experienceIndex, endDate } = action.payload;
       state[experienceIndex].endDate = endDate;
     },
+    deleteExperience(state, action) {
+      const { experienceIndex } = action.payload;
+      state.splice(experienceIndex, 1);
+    }
   },
 });
 
@@ -43,6 +47,13 @@ export const setNewExperience = (newExperience) => ({
     payload: {
         newExperience
     }
+});
+
+export const deleteExperience = (experienceIndex) => ({
+  type: 'experience/deleteExperience',
+  payload: {
+    experienceIndex
+  }
 });
 
 export const setCompanyName = (experienceIndex, companyName ) => ({

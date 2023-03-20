@@ -6,6 +6,7 @@ import {
   setRoleDetails,
   setStartDate,
   setEndDate,
+  deleteExperience
 } from "../../state/experience";
 import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
@@ -59,6 +60,9 @@ function ExperienceSection() {
     dispatch(setNewExperience(newField));
   };
 
+  const removeExpFields = (index) => {
+    dispatch(deleteExperience(index));
+  }
 
   return (
     <>
@@ -132,6 +136,7 @@ function ExperienceSection() {
               onChange={(date) => handleEndChange(date, index)}
             />
           </LocalizationProvider>
+          <button onClick={() => removeExpFields(index)}>Remove Experience</button>
         </div>
       ))}
       <button onClick={addExpFields}>Add Experience</button>

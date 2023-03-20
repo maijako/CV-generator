@@ -15,6 +15,12 @@ const educationSlice = createSlice({
         const { newEducation } = action.payload;
         state.push(newEducation);
     },
+    deleteEducation(state, action) {
+      const { educationIndex } = action.payload;
+      console.log("Education Index");
+      console.log(educationIndex);
+      state.splice(educationIndex, 1);
+    },
     setUniName(state, action) {
       const { educationIndex, uniName } = action.payload;
       state[educationIndex].uniName = uniName;
@@ -43,6 +49,13 @@ export const setNewEducation = (newEducation) => ({
     payload: {
         newEducation
     }
+});
+
+export const deleteEducation = (educationIndex) => ({
+  type: 'education/deleteEducation',
+  payload: {
+    educationIndex
+  }
 });
 
 export const setUniName = (educationIndex, uniName ) => ({

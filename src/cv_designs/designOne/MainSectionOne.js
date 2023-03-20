@@ -15,6 +15,7 @@ function MainSectionOne() {
   const technologies = useSelector(state => state.technologies.technologies);
   const summary = useSelector(state => state.summary.summary);
   const experienceDetails = useSelector(state => state.experience);
+  const educationDetails = useSelector(state => state.education);
 
 
   return (
@@ -92,7 +93,7 @@ function MainSectionOne() {
               <FaLink className="pro__icon" />
               www.netlify.com</p> */}
 
-            {/* <p>
+          {/* <p>
               <FaGithub className="pro__icon" />
               www.github.com/water-tracker</p>
           </div>
@@ -176,7 +177,7 @@ function MainSectionOne() {
           <BsFillMortarboardFill className="cv__icon" />
         </div>
         <div className="section-content">
-          <div className="edu">Front-end Web Development Bootcamp Certificate
+          {/* <div className="edu">Front-end Web Development Bootcamp Certificate
             <p className="edu__dates">Nov 2022 - March 2023</p>
           </div>
           <p className="school">EdX</p>
@@ -185,7 +186,16 @@ function MainSectionOne() {
           <div className="edu">BSc, Computer Science
             <p className="edu__dates">June 2010 - June 2015</p>
           </div>
-          <p className="school">Starfleet Academy</p>
+          <p className="school">Starfleet Academy</p> */}
+
+          {educationDetails.map((education, index) => (
+            <div key={index}>
+              <div className="edu">{education.degreeLevel}, {education.courseName}
+                <p className="edu__dates">{education.startDate} - {education.endDate}</p>
+              </div>
+              <p className="school">{education.uniName}</p>
+            </div>
+          ))}
         </div>
       </div>
     </>

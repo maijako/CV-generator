@@ -58,7 +58,7 @@ function BasicUserInfo() {
       setPhoneError("");
     }
   };
-    //accessing all values below via profile reducer, replacing handle[uniqueName]Change with 'handleChange'
+  //accessing all values below via profile reducer, replacing handle[uniqueName]Change with 'handleChange'
 
   const validateForm = () => {
     let valid = true;
@@ -68,7 +68,7 @@ function BasicUserInfo() {
     } else {
       setFirstNameError("");
     }
-    
+
     if (!profile.lastName) {
       setLastNameError("Please enter your last name.");
       valid = false;
@@ -100,178 +100,194 @@ function BasicUserInfo() {
   const textFieldStyles = { margin: "15px 0" };
   return (
     <>
-      <h3>Basic Information</h3>
-      <form onSubmit={handleSubmit}> 
-        <div className="containerStyles">
-          <TextField
-            id="input-first-name"
-            label="First Name"
-            name="firstName"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <AccountCircle />
-                </InputAdornment>
-              ),
-            }}
-            placeholder="Enter First Name"
-            variant="outlined"
-            // sx={textFieldStyles}
-            value={profile.firstName} 
-            onChange={(e) => handleChange(e)} //changed from 'onChange={handleChange}'
-            onFocus={() => handleFieldFocus("firstName")}
-            error={!!firstNameError}
-            helperText={firstNameError}
-          />
-          <TextField
-            id="input-second-name"
-            label="Last Name"
-            name="lastName"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <AccountCircle />
-                </InputAdornment>
-              ),
-            }}
-            placeholder="Enter Last Name"
-            variant="outlined"
-            sx={textFieldStyles}
-            value={profile.lastName} 
-            onChange={handleChange} 
-            onFocus={() => handleFieldFocus("lastName")}
-            error={!!lastNameError}
-            helperText={lastNameError}
-          />
-          <TextField
-            id="input-email-address"
-            label="Email ID"
-            name="email"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <ContactMail sx={{ fontSize: "large" }} />
-                </InputAdornment>
-              ),
-            }}
-            placeholder="Enter Email Address"
-            variant="outlined"
-            sx={textFieldStyles}
-            value={profile.email} 
-            onChange={handleChange} 
-            onFocus={() => handleFieldFocus("email")}
-            error={!!emailError}
-            helperText={emailError}
-          />
-          <TextField
-            id="input-phone-number"
-            label="Phone Number"
-            name="phone"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <PhoneAndroid sx={{ fontSize: "large" }} />
-                </InputAdornment>
-              ),
-            }}
-            placeholder="Enter Phone Number"
-            variant="outlined"
-            sx={textFieldStyles}
-            value={profile.phone} 
-            onChange={handleChange} 
-            onFocus={() => handleFieldFocus("phone")}
-            error={!!phoneError}
-            helperText={phoneError}
-          />
+      <div className="containerStyles">
+        <h3>Basic Information</h3>
+        <form onSubmit={handleSubmit}>
+          <div className="form-row">
+            <TextField
+              id="input-first-name"
+              className="form-row"
+              label="First Name"
+              name="firstName"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AccountCircle />
+                  </InputAdornment>
+                ),
+              }}
+              placeholder="Enter First Name"
+              variant="outlined"
+              // sx={textFieldStyles}
+              value={profile.firstName}
+              onChange={(e) => handleChange(e)} //changed from 'onChange={handleChange}'
+              onFocus={() => handleFieldFocus("firstName")}
+              error={!!firstNameError}
+              helperText={firstNameError}
+            />
+            <TextField
+              id="input-second-name"
+              className="form-row"
+              label="Last Name"
+              name="lastName"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AccountCircle />
+                  </InputAdornment>
+                ),
+              }}
+              placeholder="Enter Last Name"
+              variant="outlined"
+              sx={textFieldStyles}
+              value={profile.lastName}
+              onChange={handleChange}
+              onFocus={() => handleFieldFocus("lastName")}
+              error={!!lastNameError}
+              helperText={lastNameError}
+            />
+          </div>
+          <div className="form-row">
+            <TextField
+              id="input-email-address"
+              className="form-row"
+              label="Email ID"
+              name="email"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <ContactMail sx={{ fontSize: "large" }} />
+                  </InputAdornment>
+                ),
+              }}
+              placeholder="Enter Email Address"
+              variant="outlined"
+              sx={textFieldStyles}
+              value={profile.email}
+              onChange={handleChange}
+              onFocus={() => handleFieldFocus("email")}
+              error={!!emailError}
+              helperText={emailError}
+            />
 
-          <TextField
-            id="input-user-location"
-            label="Location"
-            name="userLocation"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <AddLocationAltIcon sx={{ fontSize: "large" }} />
-                </InputAdornment>
-              ),
-            }}
-            placeholder="Enter Location"
-            variant="outlined"
-            sx={textFieldStyles}
-            value={profile.userLocation} 
-            onChange={handleChange} 
+            <TextField
+              id="input-phone-number"
+              className="form-row"
+              label="Phone Number"
+              name="phone"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <PhoneAndroid sx={{ fontSize: "large" }} />
+                  </InputAdornment>
+                ),
+              }}
+              placeholder="Enter Phone Number"
+              variant="outlined"
+              sx={textFieldStyles}
+              value={profile.phone}
+              onChange={handleChange}
+              onFocus={() => handleFieldFocus("phone")}
+              error={!!phoneError}
+              helperText={phoneError}
+            />
+
+            <TextField
+              id="input-user-location"
+              className="form-row"
+              label="Location"
+              name="userLocation"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AddLocationAltIcon sx={{ fontSize: "large" }} />
+                  </InputAdornment>
+                ),
+              }}
+              placeholder="Enter Location"
+              variant="outlined"
+              sx={textFieldStyles}
+              value={profile.userLocation}
+              onChange={handleChange}
             // onFocus={() => handleFieldFocus("phone")}
             // error={!!phoneError}
             // helperText={phoneError}
-          />
-
-          <TextField
-            id="input-user-linkedin-username"
-            label="LinkedIn Username"
-            name="userNameLinkedIn"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <LinkedInIcon sx={{ fontSize: "large" }} />
-                </InputAdornment>
-              ),
-            }}
-            placeholder="Enter Your LinkedIn User Name"
-            variant="outlined"
-            sx={textFieldStyles}
-            value={profile.userNameLinkedIn} 
-            onChange={handleChange} 
+            />
+          </div>
+          <div className="form-row">
+            <TextField
+              id="input-user-linkedin-username"
+              className="form-row"
+              label="LinkedIn Username"
+              name="userNameLinkedIn"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LinkedInIcon sx={{ fontSize: "large" }} />
+                  </InputAdornment>
+                ),
+              }}
+              placeholder="Enter Your LinkedIn User Name"
+              variant="outlined"
+              sx={textFieldStyles}
+              value={profile.userNameLinkedIn}
+              onChange={handleChange}
             // onFocus={() => handleFieldFocus("phone")}
             // error={!!phoneError}
             // helperText={phoneError}
-          />
+            />
 
-          <TextField
-            id="input-user-github-username"
-            label="GitHub Username"
-            name="userNameGitHub"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <GitHubIcon sx={{ fontSize: "large" }} />
-                </InputAdornment>
-              ),
-            }}
-            placeholder="Enter GitHub UserName"
-            variant="outlined"
-            sx={textFieldStyles}
-            value={profile.userNameGitHub} 
-            onChange={handleChange} 
+            <TextField
+              id="input-user-github-username"
+              className="form-row"
+              label="GitHub Username"
+              name="userNameGitHub"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <GitHubIcon sx={{ fontSize: "large" }} />
+                  </InputAdornment>
+                ),
+              }}
+              placeholder="Enter GitHub UserName"
+              variant="outlined"
+              sx={textFieldStyles}
+              value={profile.userNameGitHub}
+              onChange={handleChange}
             // onFocus={() => handleFieldFocus("phone")}
             // error={!!phoneError}
             // helperText={phoneError}
-          />
+            />
 
-          <TextField
-            id="input-web-portfolio"
-            label="Portfolio Website"
-            name="webPortfolio"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <PublicIcon sx={{ fontSize: "large" }} />
-                </InputAdornment>
-              ),
-            }}
-            placeholder="Enter Portfolio Website"
-            variant="outlined"
-            sx={textFieldStyles}
-            value={profile.webPortfolio} 
-            onChange={handleChange} 
+            <TextField
+              id="input-web-portfolio"
+              className="form-row"
+              label="Portfolio Website"
+              name="webPortfolio"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <PublicIcon sx={{ fontSize: "large" }} />
+                  </InputAdornment>
+                ),
+              }}
+              placeholder="Enter Portfolio Website"
+              variant="outlined"
+              sx={textFieldStyles}
+              value={profile.webPortfolio}
+              onChange={handleChange}
             // onFocus={() => handleFieldFocus("phone")}
             // error={!!phoneError}
             // helperText={phoneError}
-          />
-        </div>
-        <Button variant="contained" type="submit">
-          Submit
-        </Button>
-      </form>
+            />
+             
+        
+          </div>
+          <Button variant="contained" type="submit">
+            Submit
+          </Button>
+        </form>
+      </div>
     </>
   );
 }

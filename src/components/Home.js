@@ -46,7 +46,7 @@ function Main() {
         </div>
       </div>
       <div className="start-building-container">
-      <Link to="/build-cv">
+      <Link to="buildCV">
           <Button className="btn-lg btn-primary start-building-button wiggle-btn">START BUILDING</Button>
           </Link>
       </div>

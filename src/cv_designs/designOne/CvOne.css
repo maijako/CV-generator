@@ -4,7 +4,7 @@ body {
   background-image: linear-gradient(75deg, #359bbc, #050e37);
 }
 
-.container {
+/* .container {
   max-width: 900px;
   margin-top: 2.3cm;
   padding-left: 0;
@@ -12,6 +12,29 @@ body {
   box-sizing: border-box;
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+} */
+
+.container {
+  width: 210mm;
+  height: 297mm;
+  margin: 30mm auto;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.empty-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-message {
+  font-size: 24px;
+  font-weight: bold;
+  color: #aaa;
 }
 
 header {

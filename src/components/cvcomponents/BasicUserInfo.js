@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextField, InputAdornment } from "@mui/material";
+import { TextField, InputAdornment, ThemeProvider, createTheme, Box } from "@mui/material";
 import { AccountCircle, ContactMail, PhoneAndroid } from "@mui/icons-material";
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -42,11 +42,22 @@ function BasicUserInfo() {
     }
   };
   
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#3f51b5',
+      },
+      secondary: {
+        main: '#f50057',
+      },
+    },
+  });
 
   const textFieldStyles = { margin: "15px 0", width: "100%" };
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <h3>Basic Information</h3>
+      <Box sx={{ mb: 2 }}>
       <div className="containerStyles">
         <Grid container spacing={2}>
           <Grid item sm={2}></Grid>
@@ -103,7 +114,7 @@ function BasicUserInfo() {
             <TextField
               id="input-email-address"
               className="form-row"
-              label="Email ID"
+              label="Email"
               name="email"
               InputProps={{
                 startAdornment: (
@@ -210,7 +221,9 @@ function BasicUserInfo() {
                 ),
               }}
               placeholder="Enter GitHub UserName"
-              variant="outlined"
+              variant="filled"
+              color="warning"
+              focused
               sx={textFieldStyles}
               value={profile.userNameGitHub}
               onChange={handleChange}
@@ -231,7 +244,9 @@ function BasicUserInfo() {
                 ),
               }}
               placeholder="Enter Portfolio Website"
-              variant="outlined"
+              variant="filled"
+              color="warning"
+              focused
               sx={textFieldStyles}
               value={profile.webPortfolio}
               onChange={handleChange}
@@ -240,7 +255,8 @@ function BasicUserInfo() {
           </Grid>
         </Grid>
       </div>
-    </>
+    </Box>
+    </ThemeProvider>
   );
 }
 export default BasicUserInfo;

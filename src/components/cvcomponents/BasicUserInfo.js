@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { TextField, InputAdornment, Button } from "@mui/material";
+import { TextField, InputAdornment } from "@mui/material";
 import { AccountCircle, ContactMail, PhoneAndroid } from "@mui/icons-material";
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import PublicIcon from '@mui/icons-material/Public';
+import Grid from '@mui/material/Grid';
 import "./cv-component-styles.css";
 
 //import useDispatch and useSElector hooks from react-redux into the form
@@ -60,53 +61,53 @@ function BasicUserInfo() {
   };
   //accessing all values below via profile reducer, replacing handle[uniqueName]Change with 'handleChange'
 
-  const validateForm = () => {
-    let valid = true;
-    if (!profile.firstName) {
-      setFirstNameError("Please enter your first name.");
-      valid = false;
-    } else {
-      setFirstNameError("");
-    }
+  // const validateForm = () => {
+  //   let valid = true;
+  //   if (!profile.firstName) {
+  //     setFirstNameError("Please enter your first name.");
+  //     valid = false;
+  //   } else {
+  //     setFirstNameError("");
+  //   }
 
-    if (!profile.lastName) {
-      setLastNameError("Please enter your last name.");
-      valid = false;
-    } else {
-      setLastNameError("");
-    }
-    if (!profile.email || !/\S+@\S+\.\S+/.test(profile.email)) {
-      setEmailError("Please enter a valid email address.");
-      valid = false;
-    } else {
-      setEmailError("");
-    }
-    if (!profile.phone || !/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/.test(profile.phone)) {
-      setPhoneError("Please enter a valid phone number.");
-      valid = false;
-    } else {
-      setPhoneError("");
-    }
-    return valid;
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (validateForm()) {
-      // Submit the form data
-      console.log("Form submitted successfully.");
-    }
-  };
+  //   if (!profile.lastName) {
+  //     setLastNameError("Please enter your last name.");
+  //     valid = false;
+  //   } else {
+  //     setLastNameError("");
+  //   }
+  //   if (!profile.email || !/\S+@\S+\.\S+/.test(profile.email)) {
+  //     setEmailError("Please enter a valid email address.");
+  //     valid = false;
+  //   } else {
+  //     setEmailError("");
+  //   }
+  //   if (!profile.phone || !/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/.test(profile.phone)) {
+  //     setPhoneError("Please enter a valid phone number.");
+  //     valid = false;
+  //   } else {
+  //     setPhoneError("");
+  //   }
+  //   return valid;
+  // };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   if (validateForm()) {
+  //     // Submit the form data
+  //     console.log("Form submitted successfully.");
+  //   }
+  // };
 
-  const textFieldStyles = { margin: "15px 0" };
+  const textFieldStyles = { margin: "15px 0", width: "100%" };
   return (
     <>
+      <h3>Basic Information</h3>
       <div className="containerStyles">
-        <h3>Basic Information</h3>
-        <form onSubmit={handleSubmit}>
-          <div className="form-row">
+        <Grid container spacing={2}>
+          <Grid item sm={2}></Grid>
+          <Grid item xs={12} sm={4}>
             <TextField
               id="input-first-name"
-              className="form-row"
               label="First Name"
               name="firstName"
               InputProps={{
@@ -118,16 +119,18 @@ function BasicUserInfo() {
               }}
               placeholder="Enter First Name"
               variant="outlined"
-              // sx={textFieldStyles}
+              sx={textFieldStyles}
               value={profile.firstName}
               onChange={(e) => handleChange(e)} //changed from 'onChange={handleChange}'
               onFocus={() => handleFieldFocus("firstName")}
               error={!!firstNameError}
               helperText={firstNameError}
             />
+          </Grid>
+          <Grid item xs={12} sm={4}>
             <TextField
               id="input-second-name"
-              className="form-row"
+              // className="form-row"
               label="Last Name"
               name="lastName"
               InputProps={{
@@ -146,8 +149,9 @@ function BasicUserInfo() {
               error={!!lastNameError}
               helperText={lastNameError}
             />
-          </div>
-          <div className="form-row">
+          </Grid>
+          <Grid item sm={2}></Grid>
+          <Grid item xs={12} sm={4}>
             <TextField
               id="input-email-address"
               className="form-row"
@@ -169,6 +173,8 @@ function BasicUserInfo() {
               error={!!emailError}
               helperText={emailError}
             />
+          </Grid>
+          <Grid item xs={12} sm={4}>
 
             <TextField
               id="input-phone-number"
@@ -191,7 +197,8 @@ function BasicUserInfo() {
               error={!!phoneError}
               helperText={phoneError}
             />
-
+          </Grid>
+          <Grid item xs={12} sm={4}>
             <TextField
               id="input-user-location"
               className="form-row"
@@ -213,8 +220,8 @@ function BasicUserInfo() {
             // error={!!phoneError}
             // helperText={phoneError}
             />
-          </div>
-          <div className="form-row">
+          </Grid>
+          <Grid item xs={12} sm={4}>
             <TextField
               id="input-user-linkedin-username"
               className="form-row"
@@ -236,7 +243,8 @@ function BasicUserInfo() {
             // error={!!phoneError}
             // helperText={phoneError}
             />
-
+          </Grid>
+          <Grid item xs={12} sm={4}>
             <TextField
               id="input-user-github-username"
               className="form-row"
@@ -258,7 +266,8 @@ function BasicUserInfo() {
             // error={!!phoneError}
             // helperText={phoneError}
             />
-
+          </Grid>
+          <Grid item xs={12} sm={4}>
             <TextField
               id="input-web-portfolio"
               className="form-row"
@@ -280,13 +289,8 @@ function BasicUserInfo() {
             // error={!!phoneError}
             // helperText={phoneError}
             />
-             
-        
-          </div>
-          <Button variant="contained" type="submit">
-            Submit
-          </Button>
-        </form>
+          </Grid>
+        </Grid>
       </div>
     </>
   );

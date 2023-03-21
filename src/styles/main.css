@@ -88,44 +88,36 @@
 }
 
 .wiggle-btn {
-  animation: wiggle 7s linear infinite;
-  transform-origin: 50% 8em;
-  animation-delay: 1s;
+  animation: wiggle 3s ease-in-out infinite;
+  transform-origin: center center;
 }
 
-.wiggle-btn:hover{
+.wiggle-btn:hover {
   animation: none;
-  transform: 1.1;
+  transform: scale(1.1);
+  background-image: linear-gradient(70deg, #00ffd3, #03715f) !important;
+  font-weight: bold !important;
 }
 
 @keyframes wiggle {
-  0%,
-  5%{
-    transform: rotateZ(0);
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
   }
-  15%{
-    transform: rotateZ(-15deg);
+  5%, 15%, 25% {
+    transform: rotate(-5deg) scale(1.05);
   }
-  20%{
-    transform: rotateZ(10deg);
+  10%, 20% {
+    transform: rotate(5deg) scale(1.05);
   }
-  25%{
-    transform: rotateZ(-10deg);
+  30% {
+    transform: rotate(0deg) scale(1);
   }
-    30%{
-    transform:
-     rotateZ(6deg);
-  }
-  35%{
-    transform: rotateZ(-4deg);
-  }
-  40%,
-  100%{
-    transform: rotateZ(0);
-  }
-
 
 }
+
+
+
+
 
 
 @media screen and (max-width: 800px) {
@@ -152,12 +144,13 @@
   .border {
     border-width: 6px !important;
   }
+
   .hero__image {
     -webkit-filter: blur(5px);
     -moz-filter: blur(5px);
     -o-filter: blur(5px);
     -ms-filter: blur(5px);
     filter: blur(5px);
-    
+
   }
 }

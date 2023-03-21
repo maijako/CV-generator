@@ -58,7 +58,7 @@ Button {
 }
 
 .formContainer {
-  flex: 1;
+  flex: 7; /*display 70% of the screen */
   position: sticky;
   top: 10px;
   overflow-y: auto;
@@ -66,6 +66,7 @@ Button {
 }
 
 .cvContainer {
+  flex: 3; /*display 30% of the screen */
   position: sticky;
   top: 10px;
 }

@@ -84,11 +84,11 @@ Button {
   flex: 1;
   position: sticky;
   top: 10px;
+  overflow-y: auto;
+  max-height: 90vh;
 }
 
 .cvContainer {
   position: sticky;
   top: 10px;
-  max-height: 90vh;
-  overflow-y: auto;
 }

@@ -59,15 +59,16 @@ function SkillsSection() {
               <TextField
                 {...params}
                 label="Skills Set"
-                margin="dense"
+                margin="dense "
                 placeholder="Choose Your Skill Set"
                 variant="filled"
-                color="primary"
+                color="warning" focused
               />
             )}
-            sx={{ margin: "15px 0", width: "50%" }}
+            sx={{ margin: "15px 0", width: "100%" }}
             variant="filled"
-            color="primary"
+            color="warning"
+            focused
           />
         </Box>
       </Box>

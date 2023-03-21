@@ -25,20 +25,20 @@ function ProfessionalSummary() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ padding: "20px", borderRadius: "10px" }}>
+      <Box sx={{ padding: "20px" , borderRadius: "10px" }}>
         <h3 style={{ color: "black", marginBottom: "10px" }}>Professional Summary</h3>
         <Box sx={{ display: "flex", flexDirection: "column", gap: "15px" }}>
-          <TextField fullWidth
+          <TextField 
             id="professional-summary"
             label="Summary"
-            margin="dense"
             placeholder="Provide Professional details about yourself. Use the AI feature for some suggestion."
             multiline
             minRows={3}
             maxRows={8}
-            sx={{ margin: 2, width: "50%" }}
+            sx={{ margin: "15px 0", width: "100%" }}
             variant="filled"
-            color="primary"
+            color="warning"
+            focused
           />
         </Box>
       </Box>

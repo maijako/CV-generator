@@ -86,7 +86,9 @@ function ProjectsSection() {
                   }}
                   placeholder="Enter Project Title"
                   variant="filled"
-                  sx={{ margin: "15px 0" }}
+                  color="warning"
+                  focused
+                  sx={{ width:"100%", margin: "15px 0" }}
                   name="projectTitle"
                   value={input.projectTitle}
                   onChange={(event) => handleInputChange(index, event)}
@@ -104,10 +106,12 @@ function ProjectsSection() {
                   }}
                   placeholder="Enter a short summary of the project..."
                   variant="filled"
+                  color="warning"
+                  focused
                   multiline
                   minRows={3}
                   maxRows={8}
-                  sx={{ width: "50%" }}
+                  sx={{ width: "100%" }}
                   name="projectSummary"
                   value={input.projectSummary}
                   onChange={(event) => handleInputChange(index, event)}
@@ -125,13 +129,15 @@ function ProjectsSection() {
                       label="Skills Used"
                       placeholder="Select skills used"
                       variant="filled"
+                      color="warning"
+                      focused
                       name="skillsUsed"
                     />
                   )}
                   onChange={(event, values) => {
                     projectInputFields[index].skillsUsed = values;
                   }}
-                  sx={{ margin: "15px 0", width: "50%" }}
+                  sx={{ margin: "15px 0", width: "100%" }}
                 />
 
                 <TextField
@@ -146,7 +152,9 @@ function ProjectsSection() {
                   }}
                   placeholder="Enter Application URL"
                   variant="filled"
-                  sx={{ margin: "15px 0" }}
+                  color="warning"
+                  focused
+                  sx={{ margin: "15px 0", width: "100%" }}
                   name="deployedLink"
                   value={input.deployedLink}
                   onChange={(event) => handleInputChange(index, event)}
@@ -164,7 +172,9 @@ function ProjectsSection() {
                   }}
                   placeholder="Enter Development URL"
                   variant="filled"
-                  sx={{ margin: "15px 0" }}
+                  color="warning"
+                  focused
+                  sx={{ margin: "15px 0" , width: "100%" }}
                   name="gitHubLink"
                   value={input.gitHubLink}
                   onChange={(event) => handleInputChange(index, event)}

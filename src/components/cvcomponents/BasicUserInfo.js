@@ -103,7 +103,8 @@ function BasicUserInfo() {
             }}
             placeholder="Enter First Name"
             variant="filled"
-            color="primary"
+            color="warning"
+            focused
             value={firstName}
             onChange={handleFirstNameChange}
             onFocus={() => handleFieldFocus("firstName")}
@@ -123,7 +124,8 @@ function BasicUserInfo() {
             }}
             placeholder="Enter Last Name"
             variant="filled"
-            color="primary"
+            color="warning"
+            focused
             value={lastName}
             onChange={handleLastNameChange}
             onFocus={() => handleFieldFocus("lastName")}
@@ -143,7 +145,8 @@ function BasicUserInfo() {
             }}
             placeholder="Enter Email Address"
             variant="filled"
-            color="primary"
+            color="warning"
+            focused
             value={email}
             onChange={handleEmailChange}
             onFocus={() => handleFieldFocus("email")}
@@ -163,7 +166,8 @@ function BasicUserInfo() {
             }}
             placeholder="Enter Phone Number"
             variant="filled"
-            color="primary"
+            color="warning"
+            focused
             value={phone}
             onChange={handlePhoneChange}
             onFocus={() => handleFieldFocus("phone")}

@@ -138,7 +138,9 @@ function ExperienceSection() {
                     }}
                     placeholder="Enter Company Name"
                     variant="filled"
-                    sx={{ margin: "15px 0" }}
+                    color="warning"
+                    focused
+                    sx={{ margin: "15px 0", width:"100%" }}
                     name="companyName"
                     value={input.companyName}
                     onChange={(event) => handleInputChange(index, event)}
@@ -158,7 +160,9 @@ function ExperienceSection() {
                     }}
                     placeholder="Enter Job Title"
                     variant="filled"
-                    sx={{ margin: "15px 0" }}
+                    color="warning"
+                    focused
+                    sx={{ margin: "15px 0", width:"100%" }}
                     name="jotTitle"
                     value={input.jotTitle}
                     onChange={(event) => handleInputChange(index, event)}
@@ -171,10 +175,12 @@ function ExperienceSection() {
                     label="Role Details"
                     placeholder="Give a detailed description of your role."
                     variant="filled"
+                    color="warning"
+                    focused
                     multiline
                     minRows={3}
                     maxRows={8}
-                    sx={{ width: "50%" }}
+                    sx={{ width: "100%" }}
                     name="roleDetails"
                     value={input.roleDetails}
                     onChange={(event) => handleInputChange(index, event)}
@@ -188,6 +194,8 @@ function ExperienceSection() {
                     sx={{ margin: 2 }}
                     label="Enter Start Date"
                     variant="filled"
+                    color="warning"
+                    focused
                     format="MMM YYYY"
                     name="startDate"
                     views={["month", "year"]}
@@ -212,6 +220,8 @@ function ExperienceSection() {
                     sx={{ margin: 2 }}
                     label="Enter End Date"
                     variant="filled"
+                    color="warning"
+                    focused
                     format="MMM YYYY"
                     views={["month", "year"]}
                     name="endDate"

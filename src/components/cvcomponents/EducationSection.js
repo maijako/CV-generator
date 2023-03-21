@@ -137,7 +137,9 @@ function EducationSection() {
                     }}
                     placeholder="Enter Institute Name"
                     variant="filled"
-                    sx={{ margin: "15px 0" }}
+                    color="warning"
+                    focused
+                    sx={{ margin: "15px 0", width: "100%" }}
                     name="instituteName"
                     value={input.instituteName}
                     onChange={(event) => handleInputChange(index, event)}
@@ -157,7 +159,9 @@ function EducationSection() {
                     }}
                     placeholder="Enter Title"
                     variant="filled"
-                    sx={{ margin: "15px 0" }}
+                    color="warning"
+                    focused
+                    sx={{ margin: "15px 0", width: "100%" }}
                     name="courseTitle"
                     value={input.courseTitle}
                     onChange={(event) => handleInputChange(index, event)}
@@ -165,7 +169,7 @@ function EducationSection() {
                     error={Boolean(input.errors.courseTitle)}
                     helperText={input.errors.courseTitle}
                   />
-                  <FormControl sx={{ minWidth: 150 }}>
+                  <FormControl sx={{ minWidth: "100%" }}>
                     <InputLabel id="selectedQualificationLabel">
                       Qualification
                     </InputLabel>
@@ -174,6 +178,8 @@ function EducationSection() {
                       id="selectedQualification"
                       label="Qualification"
                       variant="filled"
+                      color="warning"
+                      focused
                       name="qualificationVal"
                       value={input.qualificationVal}
                       onChange={(event) => handleInputChange(index, event)}

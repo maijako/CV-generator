@@ -107,7 +107,7 @@ function BasicUserInfo() {
             focused
             value={firstName}
             onChange={handleFirstNameChange}
-            onFocus={() => handleFieldFocus("firstName")}
+            onFocus={() => handleFieldFocus("firstNam")}
             error={!!firstNameError}
             helperText={firstNameError}
           />

@@ -107,7 +107,9 @@ function ProjectsSection() {
                                         ),
                                     }}
                                     placeholder="Enter Project Title"
-                                    variant="outlined"
+                                    variant="filled"
+                                    color="warning"
+                                    focused
                                     sx={{margin: "15px 0", width: "100%"}}
                                     name="projectTitle"
                                     value={project.projectTitle}
@@ -156,7 +158,7 @@ function ProjectsSection() {
 
                                 <Autocomplete
                                     multiple
-                                    id="skill-outlined"
+                                    id="skill-filled"
                                     options={skillSet}
                                     getOptionLabel={(option) => option.title}
                                     filterSelectedOptions
@@ -183,7 +185,10 @@ function ProjectsSection() {
                                         ),
                                     }}
                                     placeholder="Enter Application URL"
-                                    variant="outlined"
+                                    variant="filled"
+                                    color="warning"
+                                    color="warning"
+                                    focused
                                     sx={{margin: "15px 0", width: "100%"}}
                                     name="deployedLink"
                                     value={project.deployedLink}
@@ -201,7 +206,9 @@ function ProjectsSection() {
                                         ),
                                     }}
                                     placeholder="Enter Development URL"
-                                    variant="outlined"
+                                    variant="filled"
+                                    color="warning"
+                                    focused
                                     sx={{margin: "15px 0", width: "100%"}}
                                     name="gitHubLink"
                                     value={project.gitHubLink}

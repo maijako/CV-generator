@@ -21,6 +21,7 @@ function SkillsSection() {
     return (
         <>
             <h3>Skills</h3>
+            <div className="containerStyles">
             <Autocomplete
                 multiple
                 id="tags-outlined"
@@ -42,6 +43,7 @@ function SkillsSection() {
                 )}
                 sx={{margin: "50px 0", width: "50%", padding: 2}}
             />
+            </div>
         </>
     );
 }

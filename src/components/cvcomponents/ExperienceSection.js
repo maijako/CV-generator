@@ -118,7 +118,7 @@ function ExperienceSection() {
               value={experience.roleDetails}
               onChange={(event) => handleRoleChange(event, index)}
             />
-            {/* <div sx={{display:"flex", flexDirection: "row", width: "100%"}}> */}
+            
               <LocalizationProvider dateAdapter={AdapterMoment}>
           
                 <DatePicker

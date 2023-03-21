@@ -20,6 +20,7 @@ import {
   FormControl,
   Select,
 } from "@mui/material";
+import Grid from '@mui/material/Grid';
 import "./cv-component-styles.css";
 
 function EducationSection() {
@@ -74,9 +75,10 @@ function EducationSection() {
   return (
     <>
       <h3>Education Details</h3>
+      <Grid container spacing={3}>
       {educations.map((education, index) => {
         return (
-          <div key={index}>
+          <Grid key={index} item xs={12} sm={6}>
             <div className="containerStyles">
               <TextField
                 id="input-institute-name"
@@ -90,7 +92,7 @@ function EducationSection() {
                 }}
                 placeholder="Enter Institute Name"
                 variant="outlined"
-                sx={{ margin: "15px 0" }}
+                sx={{ margin: "15px 0", width: "100%" }}
                 name="instituteName"
                 value={education.uniName}
                 onChange={(event) => handleUniChange(event, index)}
@@ -109,14 +111,14 @@ function EducationSection() {
                 }}
                 placeholder="Enter Title"
                 variant="outlined"
-                sx={{ margin: "15px 0" }}
+                sx={{ margin: "15px 0", width: "100%" }}
                 name="courseTitle"
                 value={education.courseName}
                 onChange={(event) => handleCourseChange(event, index)}
                 // onFocus={(event) => handleFocus(index, event)}
                
               />
-              <FormControl sx={{ minWidth: 150 }}>
+              <FormControl sx={{ minWidth: 150, width: "100%" }}>
                 <InputLabel id="selectedQualificationLabel">
                   Qualification
                 </InputLabel>
@@ -139,34 +141,34 @@ function EducationSection() {
                   <MenuItem value={"Diploma"}>Diploma</MenuItem>
                 </Select>
               </FormControl>
-              
-            </div>
-            <LocalizationProvider dateAdapter={AdapterMoment}>
-              <DatePicker
-                sx={{ margin: 2 }}
-                label="Enter Start Date"
-                format="MMM YY"
-                views={["month", "year"]}
-                name="startDate"
-                onChange={(date) => handleStartChange(date, index)}
-                
-              />
+              <LocalizationProvider dateAdapter={AdapterMoment}>
+                <DatePicker
+                  sx={{ margin: 2, width: "100%" }}
+                  label="Enter Start Date"
+                  format="MMM YY"
+                  views={["month", "year"]}
+                  name="startDate"
+                  onChange={(date) => handleStartChange(date, index)}
+                  
+                />
 
-              <DatePicker
-                sx={{ margin: 2 }}
-                label="Enter End Date"
-                format="MMM YY"
-                views={["month", "year"]}
-                name="endDate"
-                onChange={(date) => handleEndChange(date, index)}
-              />
-            </LocalizationProvider>
-            <button onClick={() => deleteEduFields(index)}>Remove Education</button>
-          </div>
+                <DatePicker
+                  sx={{ margin: 2, width: "100%" }}
+                  label="Enter End Date"
+                  format="MMM YY"
+                  views={["month", "year"]}
+                  name="endDate"
+                  onChange={(date) => handleEndChange(date, index)}
+                />
+              </LocalizationProvider>
+              <button className="addButton removeButton" onClick={() => deleteEduFields(index)}>Remove Education</button>
+            </div>
+          </Grid>
         );
       })}
+      </Grid>
 
-      <button onClick={addEduFields}>Add Education</button>
+      <button className="addButton" onClick={addEduFields}>Add Education</button>
     </>
   );
 }

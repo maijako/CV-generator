@@ -41,3 +41,9 @@
     background: linear-gradient(45deg, #db3704, #ed977c);
     border: 1px solid #ed977c;
   }
+
+  .dateField {
+    width: 47%;
+    margin: 5px;
+    /* margin: 5px; */
+  }

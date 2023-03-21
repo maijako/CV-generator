@@ -13,6 +13,7 @@ import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import BusinessIcon from "@mui/icons-material/Business";
 import BadgeIcon from "@mui/icons-material/Badge";
 import { TextField, InputAdornment } from "@mui/material";
+import Grid from '@mui/material/Grid';
 import "./cv-component-styles.css";
 
 
@@ -65,10 +66,11 @@ function ExperienceSection() {
   }
 
   return (
-    <>
+    <> 
       <h3>Experience Details</h3>
+      <Grid container spacing={3}>
       {experiences.map((experience, index) => (
-        <div key={index}>
+        <Grid key={index} item xs={12} sm={6}>
           <div className="containerStyles">
             <TextField
               id={`input-company-name-${index}`}
@@ -82,7 +84,7 @@ function ExperienceSection() {
               }}
               placeholder="Enter Company Name"
               variant="outlined"
-              sx={{ margin: "15px 0" }}
+              sx={{ margin: "15px 0", width: "100%" }}
               name="companyName"
               value={experience.companyName}
               onChange={(event) => handleCompanyChange(event, index)}
@@ -99,7 +101,7 @@ function ExperienceSection() {
               }}
               placeholder="Enter Job Title"
               variant="outlined"
-              sx={{ margin: "15px 0" }}
+              sx={{ margin: "15px 0", width: "100%" }}
               name="jobTitle"
               value={experience.jobTitle}
               onChange={(event) => handleJobChange(event, index)}
@@ -111,16 +113,17 @@ function ExperienceSection() {
               multiline
               minRows={3}
               maxRows={8}
-              sx={{ width: "50%" }}
+              sx={{ width: "100%" }}
               name="roleDetails"
               value={experience.roleDetails}
               onChange={(event) => handleRoleChange(event, index)}
             />
-            <div sx={{display:"flex", flexDirection: "row"}}>
+            {/* <div sx={{display:"flex", flexDirection: "row", width: "100%"}}> */}
               <LocalizationProvider dateAdapter={AdapterMoment}>
           
                 <DatePicker
-                  sx={{ margin: 2 }}
+                  sx={{ margin: 2, width: "100%" }}
+                  //className="dateField"
                   label="Enter Start Date"
                   format="MMM YYYY"
                   name="startDate"
@@ -128,7 +131,8 @@ function ExperienceSection() {
                   onChange={(date) => handleStartChange(date, index)}
                 />
                 <DatePicker
-                  sx={{ margin: 2 }}
+                  sx={{ margin: 2, width: "100%" }}
+                  //className="dateField"
                   label="Enter End Date"
                   format="MMM YYYY"
                   views={["month", "year"]}
@@ -136,12 +140,12 @@ function ExperienceSection() {
                   onChange={(date) => handleEndChange(date, index)}
                 />
               </LocalizationProvider>
-            </div>
-            <button onClick={() => removeExpFields(index)}>Remove Experience</button>
+            <button className="addButton removeButton" onClick={() => removeExpFields(index)}>Remove Experience</button>
           </div>
-        </div>
+        </Grid>
       ))}
-      <button onClick={addExpFields}>Add Experience</button>
+      </Grid>
+      <button className="addButton" onClick={addExpFields}>Add Experience</button>
     </>
   );
 }

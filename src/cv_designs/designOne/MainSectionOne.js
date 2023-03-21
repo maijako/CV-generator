@@ -32,8 +32,8 @@ function MainSectionOne() {
       <div className="websites">
         <p className="website__details">
           <GiEarthAmerica className="website__icon" /> {profile.webPortfolio}
-          <FaGithub className="website__icon" /> www.github.com/{profile.userNameGitHub}
-          <FaLinkedin className="website__icon" /> www.linkedin.com/in/{profile.userNameLinkedIn}
+          <FaGithub className="website__icon" /> {profile.userNameGitHub}
+          <FaLinkedin className="website__icon" />{profile.userNameLinkedIn}
         </p>
       </div>
 

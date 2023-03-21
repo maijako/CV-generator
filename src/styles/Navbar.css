@@ -1,3 +1,20 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    background-color: rgba(0, 0, 0, 0.6); /* Set the background color and transparency */
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  .active {
+    text-decoration: none;
+  }
+  
+
+
 nav a.nav-link {
     letter-spacing: 0.6px;
     cursor: pointer;
@@ -19,11 +36,13 @@ nav ul li {
     margin-left: 0.75rem;
     color: var(--primary-white);
 }
-.navbar-nav > li > a:hover {
-    color: rgb(182, 58, 176);
+.navbar-nav > li > a:hover,
+.navbar-nav > li > .nav-link:hover {
+  color: rgb(182, 58, 176);
 }
 
-.navbar-nav > li > a:focus {
+.navbar-nav > li > a:focus,
+.navbar-nav > li > .nav-link:focus {
     color: rgb(13, 150, 97);
 }
 

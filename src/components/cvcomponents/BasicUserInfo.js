@@ -283,9 +283,9 @@ function BasicUserInfo() {
              
         
           </div>
-          <Button variant="contained" type="submit">
+          {/* <Button variant="contained" type="submit">
             Submit
-          </Button>
+          </Button> */}
         </form>
       </div>
     </>

@@ -116,27 +116,29 @@ function ExperienceSection() {
               value={experience.roleDetails}
               onChange={(event) => handleRoleChange(event, index)}
             />
+            <div sx={{display:"flex", flexDirection: "row"}}>
+              <LocalizationProvider dateAdapter={AdapterMoment}>
+          
+                <DatePicker
+                  sx={{ margin: 2 }}
+                  label="Enter Start Date"
+                  format="MMM YYYY"
+                  name="startDate"
+                  views={["month", "year"]}
+                  onChange={(date) => handleStartChange(date, index)}
+                />
+                <DatePicker
+                  sx={{ margin: 2 }}
+                  label="Enter End Date"
+                  format="MMM YYYY"
+                  views={["month", "year"]}
+                  name="endDate"
+                  onChange={(date) => handleEndChange(date, index)}
+                />
+              </LocalizationProvider>
+            </div>
+            <button onClick={() => removeExpFields(index)}>Remove Experience</button>
           </div>
-          <LocalizationProvider dateAdapter={AdapterMoment}>
-         
-            <DatePicker
-              sx={{ margin: 2 }}
-              label="Enter Start Date"
-              format="MMM YYYY"
-              name="startDate"
-              views={["month", "year"]}
-              onChange={(date) => handleStartChange(date, index)}
-            />
-            <DatePicker
-              sx={{ margin: 2 }}
-              label="Enter End Date"
-              format="MMM YYYY"
-              views={["month", "year"]}
-              name="endDate"
-              onChange={(date) => handleEndChange(date, index)}
-            />
-          </LocalizationProvider>
-          <button onClick={() => removeExpFields(index)}>Remove Experience</button>
         </div>
       ))}
       <button onClick={addExpFields}>Add Experience</button>

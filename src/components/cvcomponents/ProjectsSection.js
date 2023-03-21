@@ -127,6 +127,9 @@ function ProjectsSection() {
                                         ),
                                     }}
                                     placeholder="Enter a short summary of the project..."
+                                    variant="filled"
+                                    color="warning"
+                                    focused
                                     multiline
                                     minRows={3}
                                     maxRows={8}
@@ -147,6 +150,9 @@ function ProjectsSection() {
                                         ),
                                     }}
                                     placeholder="Enter a short description of your contributions towards this project..."
+                                    variant="filled"
+                                    color="warning"
+                                    focused
                                     multiline
                                     minRows={3}
                                     maxRows={8}
@@ -167,6 +173,9 @@ function ProjectsSection() {
                                                     {...params}
                                                     label="Skills Used"
                                                     placeholder="Select skills used"
+                                                    variant="filled"
+                                                    color="warning"
+                                                    focused
                                                     name="skillsUsed"
                                                 />
                                             )}
@@ -186,7 +195,6 @@ function ProjectsSection() {
                                     }}
                                     placeholder="Enter Application URL"
                                     variant="filled"
-                                    color="warning"
                                     color="warning"
                                     focused
                                     sx={{margin: "15px 0", width: "100%"}}

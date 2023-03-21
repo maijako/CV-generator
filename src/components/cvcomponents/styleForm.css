@@ -58,7 +58,7 @@ Button {
 }
 
 .formContainer {
-  flex: 7; /*display 70% of the screen */
+  flex: 1; 
   position: sticky;
   top: 10px;
   overflow-y: auto;
@@ -66,10 +66,14 @@ Button {
 }
 
 .cvContainer {
-  flex: 3; /*display 30% of the screen */
+  flex: 1; 
   position: sticky;
   top: 10px;
 }
+
+
+
+
 
 /* custom scrollbar for the form */
 .customScrollbar::-webkit-scrollbar {
@@ -88,3 +92,22 @@ Button {
 .customScrollbar::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(80deg, #050e37, #359bbc); /* Change the scrollbar thumb color when hovered */
 }
+
+/* media queries */
+@media screen and (max-width: 768px) {
+  .buildWrapper {
+    flex-direction: column;
+  }
+
+  .formContainer {
+    width: 100%;
+    max-height: unset !important;
+    overflow-y: unset !important;
+  }
+
+  .cvContainer {
+    width: 100%;
+    display: none !important; /* Hide the CV container in mobile view */
+  }
+}
+

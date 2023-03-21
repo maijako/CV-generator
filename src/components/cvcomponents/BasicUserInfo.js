@@ -8,13 +8,10 @@ import PublicIcon from '@mui/icons-material/Public';
 import Grid from '@mui/material/Grid';
 import "./cv-component-styles.css";
 
-//import useDispatch and useSElector hooks from react-redux into the form
 import { useDispatch, useSelector } from "react-redux";
 import { setProfile } from "../../state/profile";
 
 
-//pass the state.profile in Basic User Info
-//store useSelector and useDispatch in variables
 
 function BasicUserInfo() {
 
@@ -24,29 +21,14 @@ function BasicUserInfo() {
     dispatch(setProfile({ ...profile, [e.target.name]: e.target.value }))
   }
 
-  // const [firstName, setFirstName] = useState("");
-  // const [lastName, setLastName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [phone, setPhone] = useState("");
+ 
 
   const [firstNameError, setFirstNameError] = useState("");
   const [lastNameError, setLastNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
 
-  // const handleFirstNameChange = (event) => {
-  //   setFirstName(event.target.value);
-
-  // };
-  // const handleLastNameChange = (event) => {
-  //   setLastName(event.target.value);
-  // };
-  // const handleEmailChange = (event) => {
-  //   setEmail(event.target.value);
-  // };
-  // const handlePhoneChange = (event) => {
-  //   setPhone(event.target.value);
-  // };
+  
 
   const handleFieldFocus = (field) => {
     if (field === "firstName") {
@@ -59,44 +41,7 @@ function BasicUserInfo() {
       setPhoneError("");
     }
   };
-  //accessing all values below via profile reducer, replacing handle[uniqueName]Change with 'handleChange'
-
-  // const validateForm = () => {
-  //   let valid = true;
-  //   if (!profile.firstName) {
-  //     setFirstNameError("Please enter your first name.");
-  //     valid = false;
-  //   } else {
-  //     setFirstNameError("");
-  //   }
-
-  //   if (!profile.lastName) {
-  //     setLastNameError("Please enter your last name.");
-  //     valid = false;
-  //   } else {
-  //     setLastNameError("");
-  //   }
-  //   if (!profile.email || !/\S+@\S+\.\S+/.test(profile.email)) {
-  //     setEmailError("Please enter a valid email address.");
-  //     valid = false;
-  //   } else {
-  //     setEmailError("");
-  //   }
-  //   if (!profile.phone || !/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/.test(profile.phone)) {
-  //     setPhoneError("Please enter a valid phone number.");
-  //     valid = false;
-  //   } else {
-  //     setPhoneError("");
-  //   }
-  //   return valid;
-  // };
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   if (validateForm()) {
-  //     // Submit the form data
-  //     console.log("Form submitted successfully.");
-  //   }
-  // };
+  
 
   const textFieldStyles = { margin: "15px 0", width: "100%" };
   return (
@@ -118,10 +63,12 @@ function BasicUserInfo() {
                 ),
               }}
               placeholder="Enter First Name"
-              variant="outlined"
+              variant="filled"
+              color="warning"
+              focused
               sx={textFieldStyles}
               value={profile.firstName}
-              onChange={(e) => handleChange(e)} //changed from 'onChange={handleChange}'
+              onChange={(e) => handleChange(e)} 
               onFocus={() => handleFieldFocus("firstName")}
               error={!!firstNameError}
               helperText={firstNameError}
@@ -130,7 +77,6 @@ function BasicUserInfo() {
           <Grid item xs={12} sm={4}>
             <TextField
               id="input-second-name"
-              // className="form-row"
               label="Last Name"
               name="lastName"
               InputProps={{
@@ -141,7 +87,9 @@ function BasicUserInfo() {
                 ),
               }}
               placeholder="Enter Last Name"
-              variant="outlined"
+              variant="filled"
+              color="warning"
+              focused
               sx={textFieldStyles}
               value={profile.lastName}
               onChange={handleChange}
@@ -165,7 +113,9 @@ function BasicUserInfo() {
                 ),
               }}
               placeholder="Enter Email Address"
-              variant="outlined"
+              variant="filled"
+              color="warning"
+              focused
               sx={textFieldStyles}
               value={profile.email}
               onChange={handleChange}
@@ -189,7 +139,9 @@ function BasicUserInfo() {
                 ),
               }}
               placeholder="Enter Phone Number"
-              variant="outlined"
+              variant="filled"
+              color="warning"
+              focused
               sx={textFieldStyles}
               value={profile.phone}
               onChange={handleChange}
@@ -212,13 +164,13 @@ function BasicUserInfo() {
                 ),
               }}
               placeholder="Enter Location"
-              variant="outlined"
+              variant="filled"
+              color="warning"
+              focused
               sx={textFieldStyles}
               value={profile.userLocation}
               onChange={handleChange}
-            // onFocus={() => handleFieldFocus("phone")}
-            // error={!!phoneError}
-            // helperText={phoneError}
+          
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -235,13 +187,13 @@ function BasicUserInfo() {
                 ),
               }}
               placeholder="Enter Your LinkedIn User Name"
-              variant="outlined"
+              variant="filled"
+              color="warning"
+              focused
               sx={textFieldStyles}
               value={profile.userNameLinkedIn}
               onChange={handleChange}
-            // onFocus={() => handleFieldFocus("phone")}
-            // error={!!phoneError}
-            // helperText={phoneError}
+        
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -262,9 +214,7 @@ function BasicUserInfo() {
               sx={textFieldStyles}
               value={profile.userNameGitHub}
               onChange={handleChange}
-            // onFocus={() => handleFieldFocus("phone")}
-            // error={!!phoneError}
-            // helperText={phoneError}
+         
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -285,9 +235,7 @@ function BasicUserInfo() {
               sx={textFieldStyles}
               value={profile.webPortfolio}
               onChange={handleChange}
-            // onFocus={() => handleFieldFocus("phone")}
-            // error={!!phoneError}
-            // helperText={phoneError}
+           
             />
           </Grid>
         </Grid>

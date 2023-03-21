@@ -51,33 +51,10 @@ Button {
 
 
 /* css for the main build display  */
-/* .buildWrapper {
-  display: flex;
-  height: 100%;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 10px;
-  max-width: 100vw;
-  overflow-x: auto;
-}
-
-.formContainer {
-  flex: 1;
-  max-width: 50%;
-  min-width: 300px;
-  position: sticky;
-}
-
-.cvContainer {
-  flex: 1;
-  max-width: 50%;
-  min-width: 300px;
-  position: sticky;
-} */
-
 .buildWrapper {
   display: flex;
   height: 100%;
+  padding: 10px;
 }
 
 .formContainer {

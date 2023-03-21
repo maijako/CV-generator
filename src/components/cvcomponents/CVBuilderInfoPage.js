@@ -12,7 +12,7 @@ import "./styleForm.css";
 function CVBuilderInfoPage() {
     return(
         <div className="buildWrapper">
-        <Container className="formContainer" fixed sx={{bgcolor: "#cfe8fc", marginTop: 10, padding: 3, borderRadius: 2}}>
+        <Container className="formContainer customScrollbar" fixed sx={{bgcolor: "#cfe8fc", marginTop: 10, padding: 3, borderRadius: 2}}>
             <BasicUserInfo />
             <ProfessionalSummary />
             <SkillsSection />

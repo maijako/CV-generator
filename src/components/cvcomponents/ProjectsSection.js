@@ -208,7 +208,7 @@ function ProjectsSection() {
                                         value={project.gitHubLink}
                                         onChange={event => handleSourceLinkChange(event, index)}
                                     />
-                                    <button onClick={() => removeProjectFields(index)}>Remove Project</button>
+                                    <button className="addButton removeButton" onClick={() => removeProjectFields(index)}>Remove Project</button>
                                 
                             </div>
                             </Grid>

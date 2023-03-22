@@ -30,7 +30,7 @@ function Navbar() {
 
                     <li className="nav-item">
                         <NavLink to="preview" className="nav-link" activeclassname="active">
-                            PRINT
+                            Preview CV
                         </NavLink>
                     </li>
                 </ul>

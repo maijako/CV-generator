@@ -51,7 +51,7 @@ Button {
 
 
 /* css for the main build display  */
-.buildWrapper {
+/*.buildWrapper {
   display: flex;
   height: 100%;
   padding: 10px;
@@ -69,7 +69,7 @@ Button {
   flex: 1; 
   position: sticky;
   top: 10px;
-}
+}*/
 
 
 
@@ -94,7 +94,7 @@ Button {
 }
 
 /* media queries */
-@media screen and (max-width: 768px) {
+/*@media screen and (max-width: 768px) {
   .buildWrapper {
     flex-direction: column;
   }
@@ -108,6 +108,6 @@ Button {
   .cvContainer {
     width: 100%;
     display: none !important; /* Hide the CV container in mobile view */
-  }
-}
+ /* }
+}*/
 

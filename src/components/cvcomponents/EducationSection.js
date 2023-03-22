@@ -94,7 +94,6 @@ function EducationSection() {
                       placeholder="Enter Institute Name"
                       variant="filled"
                       color="warning"
-                      focused
                       sx={{ margin: "15px 0", width: "100%" }}
                       name="instituteName"
                       value={education.uniName}
@@ -115,7 +114,6 @@ function EducationSection() {
                       placeholder="Enter Title"
                       variant="filled"
                       color="warning"
-                      focused
                       sx={{ margin: "15px 0", width: "100%" }}
                       name="courseTitle"
                       value={education.courseName}
@@ -133,7 +131,6 @@ function EducationSection() {
                         label="Qualification"
                         variant="filled"
                         color="warning"
-                        focused
                         name="qualificationVal"
                         value={education.degreeLevel}
                         onChange={(event) => handleDegreeChange(event, index)}
@@ -172,13 +169,18 @@ function EducationSection() {
                       />
                     </Grid>
                   </LocalizationProvider>
-                  
+                  <Grid item sm={4}></Grid>
+                  <Grid item xs={12} sm={4}>
+    
                   <button
                     className="addButton removeButton"
                     onClick={() => deleteEduFields(index)}
                   >
                     Remove Education
                   </button>
+                  </Grid>
+                  <Grid item sm={4}></Grid>
+
                 </Grid>
               </div>
             </Grid>

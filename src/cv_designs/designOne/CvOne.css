@@ -4,9 +4,12 @@ body {
   background-image: linear-gradient(75deg, #359bbc, #050e37);
 }
 
+
 .container {
-  max-width: 900px;
-  margin-top: 2.3cm;
+  width: 210mm;
+  height: 297mm;
+  margin-top: 20mm;
+  margin-bottom: 2mm;
   padding-left: 0;
   padding-right: 0;
   box-sizing: border-box;
@@ -193,5 +196,48 @@ ul li {
 
   .contact-section {
     margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Adjust styles for mobile screens */
+  .container {
+    font-size: 70%; /* Make the container and all child elements 70% of their original size */
+  }
+  
+  .candidateName h1 {
+    font-size: 2.5em; /* Increase the font size of the candidate name */
+    padding-top: 0.5cm; /* Decrease the padding */
+    margin-bottom: 0.5cm; /* Add some margin to separate from the contact details */
+  }
+  
+  .contact__details,
+  .website__details {
+    margin-bottom: 0.5cm; /* Add some margin to separate from the sections */
+  }
+  
+  .section-header {
+    font-size: 1.5em; /* Increase the font size of the section headers */
+    margin-bottom: 0.5cm; /* Add some margin to separate from the content */
+  }
+  
+  .section-content p,
+  .section-skills li {
+    font-size: 1.2em; /* Increase the font size of the section content */
+    margin-bottom: 0.5cm; /* Add some margin to separate from the next item */
+  }
+  
+  .job,
+  .edu,
+  .projects {
+    margin-bottom: 1cm; /* Add some margin to separate the sections */
+  }
+  
+  .skills-li {
+    margin-right: 0.5cm; /* Decrease the margin between the skills */
+    margin-bottom: 0.5cm;
+    margin-top: 0.5cm;
+    font-size: 1.2em; /* Increase the font size of the skills */
+    padding: 0.3cm 0.5cm; /* Decrease the padding */
   }
 }

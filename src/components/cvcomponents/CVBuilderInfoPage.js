@@ -6,11 +6,13 @@ import ExperienceSection from "./ExperienceSection";
 import ProfessionalSummary from "./ProfessionalSummary";
 import SkillsSection from "./SkillsSection";
 import ProjectsSection from "./ProjectsSection";
+import CvOne from "../../cv_designs/designOne/CvOne";
 import "./styleForm.css";
 
 function CVBuilderInfoPage() {
     return(
-        <Container fixed sx={{bgcolor: "#cfe8fc", marginTop: 10, padding: 3, borderRadius: 2}}>
+        <div className="buildWrapper">
+        <Container className="formContainer customScrollbar" fixed sx={{bgcolor: "#cfe8fc", marginTop: 10, padding: 3, borderRadius: 2}}>
             <BasicUserInfo />
             <ProfessionalSummary />
             <SkillsSection />
@@ -18,6 +20,10 @@ function CVBuilderInfoPage() {
             <EducationSection />
             <ExperienceSection />
         </Container>
+        <Container className="cvContainer">
+            < CvOne/>
+        </Container>
+        </div>
     );
 }
 

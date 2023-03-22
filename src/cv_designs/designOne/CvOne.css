@@ -185,6 +185,7 @@ ul li {
 @media print {
   body {
     margin: 0;
+    
   }
 
   .container {
@@ -201,18 +202,18 @@ ul li {
 
 /* Add a media query for mobile and small tablet screens */
 @media screen and (max-width: 768px) {
-.container {
-width: 100vw;
-height: calc(100vw * (297 / 210)); /* Maintain A4 aspect ratio */
-margin-top: 0;
-margin-bottom: 0;
-padding-left: 0;
-padding-right: 0;
-transform-origin: top left;
-}
+  .container {
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 20px;
+    box-sizing: border-box;
+  }
 
 body {
   padding-top: 80px; 
+  overflow-x: hidden;
 }
 
 /* Ensure proper scaling of header contents */

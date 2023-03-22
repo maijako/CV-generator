@@ -1,73 +1,69 @@
 # CV Builder
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This project is under construction. It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+This is a code for [CV Builder](https://main--serene-kelpie-1e2c47.netlify.app/) - a web application that lets the user dynamically generate a beautifully styled ATS friendly and industry standard CV by inputting their data into a form. 
 
-## Deployed link
-[Open CV Generator in Netlify](https://main--serene-kelpie-1e2c47.netlify.app/)
+## Use
+The app is aimed at recent university and bootcamp graduates looking for a job in the software development industry. It features a form that prompts the user to input their Skills, Projects, Experience and Education, as well as a ChatGPT powered Summary field that optionally lets the user answer a couple of simple prompts to generate a powerful suggestion for a professional summary that displays at the top of their CV.
 
-## Available Scripts
+## Reason for development
+With the release of ChatGPT, employers report a higher number of high-quality CVs that are closely aligned with the job description. Source: (www.computerworld.com)[https://www.computerworld.com/article/3688336/job-seekers-are-using-chatgpt-to-write-resumes-and-nabbing-jobs.html]
 
-In the project directory, you can run:
+This means that in order to stand out at the stage where a CV gets reviewed by a human, every little bit can help. A skillfully implemented design can add to the overall quality of a candidate's CV, distinguishing them from the field of other equally qualified candidates. 
 
-### `npm start`
+Implementing a beautiful design in a CV can be challenging both on a personal level (some people are better at aesthetic design than others), and on a practical level with word processing software such as Microsoft Word requiring a level of competence in terms of layout implementation. Most MS Word users can probably attest to having run into issues at one point or another when attempting to create a styled Word document.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Finally, most manual styling in Word requires Table and Column implementation, which is not an Applicant Tracking Software (ATS) friendly practice, since ATS reads CV data from left to right.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Our app was built as an attempt to address all of the issues above, and demonstrates how they can be solved in its current MVP stage.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
+* Build screen with form input fields
+* Preview screen with the formatted CV previewed
+* A print view available via the 'print' button
+* Real-time data update implemented with Redux 
+* A modal to prompt user to add data to Chat GPT prompt for summary generation
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies used
+* ReactJS
+* node
+* React Redux
+* [Chat GPT API](https://platform.openai.com/docs)
+* Netlify & Netlify environment variable 
+* Material UI
+* React-to-print
+* Bootstrap
+* CSS
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Deployment: Netlify
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Demo
+### Desktop Home page UI:
+<img src="./src/assets/demo/desktop.png" alt="Desktop Home" width="900"/>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Mobile Home page UI:
+<img src="./src/assets/demo/mobile.png" alt="Mobile Home" width="320"/>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Credits
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The app was built by a project team during [Trilogy Education](https://2u.com/) Front End Web Development bootcamp, sponsored by the [Skills For Life](https://skillsforlife.edx.org/) program.
 
-## Learn More
+The development team are:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* [Jayashree Karthikeyan](https://github.com/JayaPK21)
+* [Maija Kozlova](https://github.com/maijako)
+* [Hamza Osman](https://github.com/Realstranger01)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The home screen features these royalty free background images:
+* 1490541647
+* 2140212583
+* 2170929773
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Licence
+MIT

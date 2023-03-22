@@ -6,7 +6,7 @@ import ExperienceSection from "./ExperienceSection";
 import ProfessionalSummary from "./ProfessionalSummary";
 import SkillsSection from "./SkillsSection";
 import ProjectsSection from "./ProjectsSection";
-import CvOne from "../../cv_designs/designOne/CvOne";
+//import CvOne from "../../cv_designs/designOne/CvOne";
 import "./styleForm.css";
 
 function CVBuilderInfoPage() {
@@ -20,9 +20,9 @@ function CVBuilderInfoPage() {
             <EducationSection />
             <ExperienceSection />
         </Container>
-        <Container className="cvContainer">
+        {/* <Container className="cvContainer">
             < CvOne/>
-        </Container>
+        </Container> */}
         </div>
     );
 }

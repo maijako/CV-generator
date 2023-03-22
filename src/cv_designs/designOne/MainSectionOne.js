@@ -32,8 +32,8 @@ function MainSectionOne() {
       <div className="websites">
         <p className="website__details">
           <GiEarthAmerica className="website__icon" /> {profile.webPortfolio}
-          <FaGithub className="website__icon" /> {profile.userNameGitHub}
-          <FaLinkedin className="website__icon" />{profile.userNameLinkedIn}
+          <FaGithub className="website__icon" /> {profile.userNameGitHub === '' ? '' : "www.github.com/"+profile.userNameGitHub}
+          <FaLinkedin className="website__icon" />{profile.userNameLinkedIn === '' ? '' : "www.linkedin.com/in/"+profile.userNameLinkedIn}
         </p>
       </div>
 
@@ -173,7 +173,7 @@ function MainSectionOne() {
           {experienceDetails.map((experience, index) => (
             <div key={index}>
               <div className="job">{experience.jobTitle}
-                <p className="dates">{experience.startDate} - {experience.endDate}</p>
+                <p className="dates">{experience.startDate} - {experience.endDate === '' ? "Present" : experience.endDate}</p>
               </div>
               <p>{experience.companyName}</p>
               <ul>

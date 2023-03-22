@@ -221,15 +221,15 @@ body {
 font-size: 1.5rem;
 }
 .contact__details {
-font-size: 0.4rem;
+font-size: 1rem;
 }
 .header__icon {
-font-size: 1rem;
+font-size: .8rem;
 }
 
 /* Ensure proper scaling of sections and content */
 h2, .job, .edu, .projects, ul li, .section-content p, .section-skills, .skills-li {
-font-size: 0.4rem;
+font-size: .8rem;
 }
 .section-content, .section-skills {
 padding-left: 20px;

@@ -28,6 +28,9 @@ function ProfessionalSummary() {
                     onChange={handleChange}
                     
                     placeholder="Provide Professional details about yourself. Use the AI feature for some suggestion."
+                    variant="filled"
+                    color="warning"
+                    focused
                     multiline
                     minRows={5}
                     maxRows={8}

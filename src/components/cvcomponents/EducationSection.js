@@ -102,79 +102,77 @@ function EducationSection() {
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                  <TextField
-                    id="input-title-name"
-                    label="Title"
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <SchoolRoundedIcon />
-                        </InputAdornment>
-                      ),
-                    }}
-                    placeholder="Enter Title"
-                    variant="filled"
-                    color="warning"
-                    focused
-                    sx={{ margin: "15px 0", width: "100%" }}
-                    name="courseTitle"
-                    value={education.courseName}
-                    onChange={(event) => handleCourseChange(event, index)}
-                  />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                  <FormControl sx={{ margin:"15px 0", width: "100%" }}>
-                    <InputLabel id="selectedQualificationLabel">
-                      Qualification
-                    </InputLabel>
-                    <Select
-                      labelId="selectedQualificationLabel"
-                      id="selectedQualification"
-                      label="Qualification"
+                    <TextField
+                      id="input-title-name"
+                      label="Title"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <SchoolRoundedIcon />
+                          </InputAdornment>
+                        ),
+                      }}
+                      placeholder="Enter Title"
                       variant="filled"
                       color="warning"
                       focused
-                      name="qualificationVal"
-                      value={education.degreeLevel}
-                      onChange={(event) => handleDegreeChange(event, index)}
-                      // onFocus={(event) => handleFocus(index, event)}
-                    >
-                      <MenuItem value={"BA"}>BA</MenuItem>
-                      <MenuItem value={"BSc"}>BSc</MenuItem>
-                      <MenuItem value={"MA"}>MA</MenuItem>
-                      <MenuItem value={"MSc"}>MSc</MenuItem>
-                      <MenuItem value={"PhD"}>PhD</MenuItem>
-                      <MenuItem value={"Certificate"}>Certificate</MenuItem>
-                      <MenuItem value={"Diploma"}>Diploma</MenuItem>
-                    </Select>
-                  </FormControl>
-                  </Grid>
-                  
-                  <LocalizationProvider dateAdapter={AdapterMoment}>
-                  <Grid item xs={12} sm={6}>
-                    <DatePicker
                       sx={{ margin: "15px 0", width: "100%" }}
-                      label="Enter Start Date"
-                      format="MMM YY"
-                      views={["month", "year"]}
-                      name="startDate"
-                      onChange={(date) => handleStartChange(date, index)}
+                      name="courseTitle"
+                      value={education.courseName}
+                      onChange={(event) => handleCourseChange(event, index)}
                     />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <FormControl sx={{ margin: "15px 0", width: "100%" }}>
+                      <InputLabel id="selectedQualificationLabel">
+                        Qualification
+                      </InputLabel>
+                      <Select
+                        labelId="selectedQualificationLabel"
+                        id="selectedQualification"
+                        label="Qualification"
+                        variant="filled"
+                        color="warning"
+                        focused
+                        name="qualificationVal"
+                        value={education.degreeLevel}
+                        onChange={(event) => handleDegreeChange(event, index)}
+                        // onFocus={(event) => handleFocus(index, event)}
+                      >
+                        <MenuItem value={"BA"}>BA</MenuItem>
+                        <MenuItem value={"BSc"}>BSc</MenuItem>
+                        <MenuItem value={"MA"}>MA</MenuItem>
+                        <MenuItem value={"MSc"}>MSc</MenuItem>
+                        <MenuItem value={"PhD"}>PhD</MenuItem>
+                        <MenuItem value={"Certificate"}>Certificate</MenuItem>
+                        <MenuItem value={"Diploma"}>Diploma</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Grid>
+
+                  <LocalizationProvider dateAdapter={AdapterMoment}>
+                    <Grid item xs={12} sm={6}>
+                      <DatePicker
+                        sx={{ margin: "15px 0", width: "100%" }}
+                        label="Enter Start Date"
+                        format="MMM YY"
+                        views={["month", "year"]}
+                        name="startDate"
+                        onChange={(date) => handleStartChange(date, index)}
+                      />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                    <DatePicker
-                      sx={{ margin: "15px 0", width: "100%" }}
-                      variant="filled"
-                      color="warning"
-                      focused
-                      label="Enter End Date"
-                      format="MMM YY"
-                      views={["month", "year"]}
-                      name="endDate"
-                      onChange={(date) => handleEndChange(date, index)}
-                    />
+                      <DatePicker
+                        sx={{ margin: "15px 0", width: "100%" }}
+                        label="Enter End Date"
+                        format="MMM YY"
+                        views={["month", "year"]}
+                        name="endDate"
+                        onChange={(date) => handleEndChange(date, index)}
+                      />
                     </Grid>
                   </LocalizationProvider>
+                  
                   <button
                     className="addButton removeButton"
                     onClick={() => deleteEduFields(index)}

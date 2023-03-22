@@ -93,147 +93,156 @@ function ProjectsSection() {
       <Grid container spacing={3}>
         {projects.map((project, index) => {
           return (
-            <Grid key={index} item xs={12} sm={12}>
+            <Grid key={index} item xs={12}>
               <div className="containerStyles">
                 <Grid container spacing={3}>
-                    <Grid item sm={4}></Grid>
-                  <Grid item sm={4}>
-                  <TextField
-                    id="input-project-name"
-                    label="Project Title"
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <TitleIcon />
-                        </InputAdornment>
-                      ),
-                    }}
-                    placeholder="Enter Project Title"
-                    variant="filled"
-                    color="warning"
-                    focused
-                    sx={{ margin: "15px 0", width: "100%" }}
-                    name="projectTitle"
-                    value={project.projectTitle}
-                    onChange={(event) => handleTitleChange(event, index)}
-                  />
-                 </Grid>
-                 
-                  <TextField
-                    id="project-summary"
-                    label="Summary"
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <DescriptionIcon />
-                        </InputAdornment>
-                      ),
-                    }}
-                    placeholder="Enter a short summary of the project..."
-                    variant="filled"
-                    color="warning"
-                    focused
-                    multiline
-                    minRows={3}
-                    maxRows={8}
-                    sx={{ width: "100%" }}
-                    name="projectSummary"
-                    value={project.projectSummary}
-                    onChange={(event) => handleSummaryChange(event, index)}
-                  />
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      id="input-project-name"
+                      label="Project Title"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <TitleIcon />
+                          </InputAdornment>
+                        ),
+                      }}
+                      placeholder="Enter Project Title"
+                      variant="filled"
+                      color="warning"
+                      focused
+                      sx={{ margin: "15px 0", width: "100%" }}
+                      name="projectTitle"
+                      value={project.projectTitle}
+                      onChange={(event) => handleTitleChange(event, index)}
+                    />
+                  </Grid>
 
-                  <TextField
-                    id="project-contribution"
-                    label="Contribution"
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <DescriptionIcon />
-                        </InputAdornment>
-                      ),
-                    }}
-                    placeholder="Enter a short description of your contributions towards this project..."
-                    variant="filled"
-                    color="warning"
-                    focused
-                    multiline
-                    minRows={3}
-                    maxRows={8}
-                    sx={{ margin: "15px 0", width: "100%" }}
-                    name="projectContribution"
-                    value={project.projectContribution}
-                    onChange={(event) => handleContributionChange(event, index)}
-                  />
-
-                  <Autocomplete
-                    multiple
-                    id="skill-filled"
-                    options={skillSet}
-                    getOptionLabel={(option) => option.title}
-                    filterSelectedOptions
-                    renderInput={(params) => (
-                      <TextField
-                        {...params}
-                        label="Skills Used"
-                        placeholder="Select skills used"
-                        variant="filled"
-                        color="warning"
-                        focused
-                        name="skillsUsed"
-                      />
-                    )}
-                    onChange={(event, values) =>
-                      handleSkillsChange(index, values)
-                    }
-                    sx={{ margin: "15px 0", width: "100%" }}
-                  />
-
-                  <TextField
-                    id="input-deployed-link"
-                    label="Application Website"
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <WebAssetIcon />
-                        </InputAdornment>
-                      ),
-                    }}
-                    placeholder="Enter Application URL"
-                    variant="filled"
-                    color="warning"
-                    focused
-                    sx={{ margin: "15px 0", width: "100%" }}
-                    name="deployedLink"
-                    value={project.deployedLink}
-                    onChange={(event) => handleDeployedLinkChange(event, index)}
-                  />
-
-                  <TextField
-                    id="input-github-link"
-                    label="Development Link"
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <GitHubIcon />
-                        </InputAdornment>
-                      ),
-                    }}
-                    placeholder="Enter Development URL"
-                    variant="filled"
-                    color="warning"
-                    focused
-                    sx={{ margin: "15px 0", width: "100%" }}
-                    name="gitHubLink"
-                    value={project.gitHubLink}
-                    onChange={(event) => handleSourceLinkChange(event, index)}
-                  />
-                  <button
-                    className="addButton removeButton"
-                    onClick={() => removeProjectFields(index)}
-                  >
-                    Remove Project
-                  </button>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      id="project-summary"
+                      label="Summary"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <DescriptionIcon />
+                          </InputAdornment>
+                        ),
+                      }}
+                      placeholder="Enter a short summary of the project..."
+                      variant="filled"
+                      color="warning"
+                      focused
+                      multiline
+                      minRows={3}
+                      maxRows={8}
+                      sx={{ margin:"15px 0" , width: "100%" }}
+                      name="projectSummary"
+                      value={project.projectSummary}
+                      onChange={(event) => handleSummaryChange(event, index)}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      id="project-contribution"
+                      label="Contribution"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <DescriptionIcon />
+                          </InputAdornment>
+                        ),
+                      }}
+                      placeholder="Enter a short description of your contributions towards this project..."
+                      variant="filled"
+                      color="warning"
+                      focused
+                      multiline
+                      minRows={3}
+                      maxRows={8}
+                      sx={{ margin: "15px 0", width: "100%" }}
+                      name="projectContribution"
+                      value={project.projectContribution}
+                      onChange={(event) =>
+                        handleContributionChange(event, index)
+                      }
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <Autocomplete
+                      multiple
+                      id="skill-filled"
+                      options={skillSet}
+                      getOptionLabel={(option) => option.title}
+                      filterSelectedOptions
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          label="Skills Used"
+                          placeholder="Select skills used"
+                          variant="filled"
+                          color="warning"
+                          focused
+                          name="skillsUsed"
+                        />
+                      )}
+                      onChange={(event, values) =>
+                        handleSkillsChange(index, values)
+                      }
+                      sx={{ margin: "15px 0", width: "100%" }}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      id="input-deployed-link"
+                      label="Application Website"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <WebAssetIcon />
+                          </InputAdornment>
+                        ),
+                      }}
+                      placeholder="Enter Application URL"
+                      variant="filled"
+                      color="warning"
+                      focused
+                      sx={{ margin: "15px 0", width: "100%" }}
+                      name="deployedLink"
+                      value={project.deployedLink}
+                      onChange={(event) =>
+                        handleDeployedLinkChange(event, index)
+                      }
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      id="input-github-link"
+                      label="Development Link"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <GitHubIcon />
+                          </InputAdornment>
+                        ),
+                      }}
+                      placeholder="Enter Development URL"
+                      variant="filled"
+                      color="warning"
+                      focused
+                      sx={{ margin: "15px 0", width: "100%" }}
+                      name="gitHubLink"
+                      value={project.gitHubLink}
+                      onChange={(event) => handleSourceLinkChange(event, index)}
+                    />
+                  </Grid>
                 </Grid>
+                <button
+                  className="addButton removeButton"
+                  onClick={() => removeProjectFields(index)}
+                >
+                  Remove Project
+                </button>
               </div>
             </Grid>
           );

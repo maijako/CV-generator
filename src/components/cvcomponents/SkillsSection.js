@@ -39,6 +39,9 @@ function SkillsSection() {
                     {...params}
                     label="Skills Set"
                     placeholder="Choose Your Skill Set"
+                    variant="filled"
+                    color="warning"
+                    focused
                 />
                 )}
                 sx={{margin: "50px 0", width: "50%", padding: 2}}

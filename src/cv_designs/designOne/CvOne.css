@@ -4,9 +4,12 @@ body {
   background-image: linear-gradient(75deg, #359bbc, #050e37);
 }
 
+
 .container {
-  max-width: 900px;
-  margin-top: 2.3cm;
+  width: 210mm;
+  height: 297mm;
+  margin-top: 20mm;
+  margin-bottom: 2mm;
   padding-left: 0;
   padding-right: 0;
   box-sizing: border-box;
@@ -136,7 +139,7 @@ h2 {
   padding-bottom: 10px;
 }
 
-/* playing with code */
+
 
 .section-content p {
   margin: 0;
@@ -182,6 +185,7 @@ ul li {
 @media print {
   body {
     margin: 0;
+    
   }
 
   .container {
@@ -194,4 +198,60 @@ ul li {
   .contact-section {
     margin-right: 0;
   }
+}
+
+/* Add a media query for mobile and small tablet screens */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+
+body {
+  padding-top: 80px; 
+  overflow-x: hidden;
+}
+
+/* Ensure proper scaling of header contents */
+.candidateName h1 {
+font-size: 1.5rem;
+}
+.contact__details {
+font-size: 0.4rem;
+}
+.header__icon {
+font-size: 1rem;
+}
+
+/* Ensure proper scaling of sections and content */
+h2, .job, .edu, .projects, ul li, .section-content p, .section-skills, .skills-li {
+font-size: 0.4rem;
+}
+.section-content, .section-skills {
+padding-left: 20px;
+}
+.skills-li {
+margin-right: 10px;
+margin-bottom: 10px;
+margin-top: 10px;
+padding: 6px 12px 6px 12px;
+}
+.section {
+margin-right: 1.5cm;
+}
+.section-header {
+font-size: 1.1rem;
+}
+
+/* Adjust website details for proper scaling */
+.website__details {
+font-size: 0.9rem;
+}
+.website__icon {
+font-size: 1rem;
+}
 }

@@ -96,7 +96,7 @@ function ProjectsSection() {
             <Grid key={index} item xs={12}>
               <div className="containerStyles">
                 <Grid container spacing={3}>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={12} >
                     <TextField
                       id="input-project-name"
                       label="Project Title"
@@ -168,7 +168,7 @@ function ProjectsSection() {
                       }
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={12} >
                     <Autocomplete
                       multiple
                       id="skill-filled"

@@ -139,7 +139,7 @@ h2 {
   padding-bottom: 10px;
 }
 
-/* playing with code */
+
 
 .section-content p {
   margin: 0;
@@ -185,6 +185,7 @@ ul li {
 @media print {
   body {
     margin: 0;
+    
   }
 
   .container {
@@ -199,45 +200,58 @@ ul li {
   }
 }
 
+/* Add a media query for mobile and small tablet screens */
 @media screen and (max-width: 768px) {
-  /* Adjust styles for mobile screens */
   .container {
-    font-size: 70%; /* Make the container and all child elements 70% of their original size */
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0px;
+    box-sizing: border-box;
   }
-  
-  .candidateName h1 {
-    font-size: 2.5em; /* Increase the font size of the candidate name */
-    padding-top: 0.5cm; /* Decrease the padding */
-    margin-bottom: 0.5cm; /* Add some margin to separate from the contact details */
-  }
-  
-  .contact__details,
-  .website__details {
-    margin-bottom: 0.5cm; /* Add some margin to separate from the sections */
-  }
-  
-  .section-header {
-    font-size: 1.5em; /* Increase the font size of the section headers */
-    margin-bottom: 0.5cm; /* Add some margin to separate from the content */
-  }
-  
-  .section-content p,
-  .section-skills li {
-    font-size: 1.2em; /* Increase the font size of the section content */
-    margin-bottom: 0.5cm; /* Add some margin to separate from the next item */
-  }
-  
-  .job,
-  .edu,
-  .projects {
-    margin-bottom: 1cm; /* Add some margin to separate the sections */
-  }
-  
-  .skills-li {
-    margin-right: 0.5cm; /* Decrease the margin between the skills */
-    margin-bottom: 0.5cm;
-    margin-top: 0.5cm;
-    font-size: 1.2em; /* Increase the font size of the skills */
-    padding: 0.3cm 0.5cm; /* Decrease the padding */
-  }
+
+body {
+  padding-top: 80px; 
+  overflow-x: hidden;
+}
+
+/* Ensure proper scaling of header contents */
+.candidateName h1 {
+font-size: 1.5rem;
+}
+.contact__details {
+font-size: 0.4rem;
+}
+.header__icon {
+font-size: 1rem;
+}
+
+/* Ensure proper scaling of sections and content */
+h2, .job, .edu, .projects, ul li, .section-content p, .section-skills, .skills-li {
+font-size: 0.4rem;
+}
+.section-content, .section-skills {
+padding-left: 20px;
+}
+.skills-li {
+margin-right: 10px;
+margin-bottom: 10px;
+margin-top: 10px;
+padding: 6px 12px 6px 12px;
+}
+.section {
+margin-right: 1.5cm;
+}
+.section-header {
+font-size: 1.1rem;
+}
+
+/* Adjust website details for proper scaling */
+.website__details {
+font-size: 0.9rem;
+}
+.website__icon {
+font-size: 1rem;
+}
 }

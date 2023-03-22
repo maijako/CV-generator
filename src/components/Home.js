@@ -7,7 +7,8 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import img1 from "../assets/Shutterstock_2170929773.png";
 import img2 from "../assets/Shutterstock_2140212583.png";
-import img3 from "../assets/Shutterstock_1843058941.png";
+// import img3 from "../assets/Shutterstock_1843058941.png";
+import cvimg from "../assets/samplecv.png";
 
 
 function Main() {
@@ -39,7 +40,7 @@ function Main() {
             flipped={true}
           />
           <Slider
-            imageSrc={img3}
+            imageSrc={cvimg}
             title={"Generate CV"}
             subtitle={"Generate your styled professional technical CV to stand out from the crowd"}
           />

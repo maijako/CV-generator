@@ -70,8 +70,12 @@ function ExperienceSection() {
       <h3>Experience Details</h3>
       <Grid container spacing={3}>
       {experiences.map((experience, index) => (
-        <Grid key={index} item xs={12} sm={6}>
+        <Grid key={index} item xs={12} >
           <div className="containerStyles">
+          <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
+
+
             <TextField
               id={`input-company-name-${index}`}
               label="Company Name"
@@ -89,6 +93,9 @@ function ExperienceSection() {
               value={experience.companyName}
               onChange={(event) => handleCompanyChange(event, index)}
             />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+
             <TextField
               id={`input-job-title-${index}`}
               label="Job Title"
@@ -106,6 +113,9 @@ function ExperienceSection() {
               value={experience.jobTitle}
               onChange={(event) => handleJobChange(event, index)}
             />
+            </Grid>
+            <Grid item xs={12} >
+
             <TextField
               id={`job-detail-${index}`}
               label="Role Details"
@@ -118,11 +128,13 @@ function ExperienceSection() {
               value={experience.roleDetails}
               onChange={(event) => handleRoleChange(event, index)}
             />
+            </Grid>
             
               <LocalizationProvider dateAdapter={AdapterMoment}>
-          
+              <Grid item xs={12} sm={6}>
+
                 <DatePicker
-                  sx={{ margin: 2, width: "100%" }}
+                  sx={{ margin: "15px 0", width: "100%" }}
                   //className="dateField"
                   label="Enter Start Date"
                   format="MMM YYYY"
@@ -130,8 +142,11 @@ function ExperienceSection() {
                   views={["month", "year"]}
                   onChange={(date) => handleStartChange(date, index)}
                 />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+
                 <DatePicker
-                  sx={{ margin: 2, width: "100%" }}
+                  sx={{ margin: "15px 0", width: "100%" }}
                   //className="dateField"
                   label="Enter End Date"
                   format="MMM YYYY"
@@ -139,8 +154,13 @@ function ExperienceSection() {
                   name="endDate"
                   onChange={(date) => handleEndChange(date, index)}
                 />
+                </Grid>
               </LocalizationProvider>
+              <Grid item sm={4}></Grid>
+                  <Grid item xs={12} sm={4}>
             <button className="addButton removeButton" onClick={() => removeExpFields(index)}>Remove Experience</button>
+            </Grid>
+            </Grid>
           </div>
         </Grid>
       ))}

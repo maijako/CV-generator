@@ -111,3 +111,11 @@ Button {
   }
 }
 
+/* hover effects for form buttons */
+.addButton:hover {
+  background: linear-gradient(45deg, #4aed, #282881);
+}
+
+.removeButton:hover {
+  background: linear-gradient(45deg, #ed977c, #db3704);
+}

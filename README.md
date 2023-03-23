@@ -23,9 +23,13 @@ Our app was built as an attempt to address all of the issues above, and demonstr
 ```
 As a person looking for a job in software development industry,
 
-I want an app that lets me input my professional experience, skills and education, lets me enhance my data with AI, and then creates a nicely styled PDF for me,
+I want an app that lets me input my professional experience,skills and education,
+lets me enhance my data with AI,
+and then creates a nicely styled PDF for me,
 
-So that I could have a professionally designed CV that’s optimized for Applicant Tracking Software and is aesthetically pleasing increasing my chances for an interview.
+So that I could have a professionally designed CV
+that’s optimized for Applicant Tracking Software and is aesthetically pleasing,
+increasing my chances for an interview.
 
 ```
 

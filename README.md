@@ -70,8 +70,8 @@ The app was built by a project team during [Trilogy Education](https://2u.com/) 
 
 The development team are:
 
-* [Jayashree Karthikeyan](https://github.com/JayaPK21)
 * [Maija Kozlova](https://github.com/maijako)
+* [Jayashree Karthikeyan](https://github.com/JayaPK21)
 * [Hamza Osman](https://github.com/Realstranger01)
 
 The home screen features these royalty free [Shutterstock](www.shutterstock.com) background images:

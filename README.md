@@ -35,7 +35,7 @@ increasing my chances for an interview.
 
 
 ## Features
-* Build screen with form input fields
+* 'Build CV' screen with form input fields
 * Preview screen with the formatted CV previewed
 * A print view available via the 'print' button
 * Real-time data update implemented with Redux 

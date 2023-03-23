@@ -74,11 +74,11 @@ The development team are:
 * [Maija Kozlova](https://github.com/maijako)
 * [Hamza Osman](https://github.com/Realstranger01)
 
-The home screen features these royalty free background images:
-* 1490541647
-* 2140212583
-* 2170929773
+The home screen features these royalty free [Shutterstock](www.shutterstock.com) background images:
+* [1490541647](https://www.shutterstock.com/image-illustration/web-development-coding-programming-responsive-layout-1490541647)
+* [2140212583](https://www.shutterstock.com/image-vector/man-robots-article-editors-writing-publicity-2140212583)
+* [2170929773](https://www.shutterstock.com/image-vector/site-design-flat-style-illustration-vector-2170929773)
 
 
 ## Licence
-MIT
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
